@@ -1,0 +1,106 @@
+{
+	"name": "Good Bears",
+	"attributes": [
+		{
+			"name": "Name of species or unknown",
+			"type": "string"
+		},
+		{
+			"name": "Diet (comma-separated list: berries, nuts, meat)",
+			"type": "array"
+		},
+		{
+			"name": "Hibernates (Boolean, 1 if true, 0 if false)",
+			"type": "number"
+		},
+		{
+			"name": "Aggression (Scale of 0-10)",
+			"type": "number"
+		},
+		{
+			"name": "Bear's name or unknown",
+			"type": "string"
+		}
+	],
+	"decisions": [
+		{
+			"conditions": {
+				"all": [
+					{
+						"fact": "Diet (comma-separated list: berries, nuts, meat)",
+						"operator": "in",
+						"value": "meat"
+					}
+				]
+			},
+			"event": {
+				"type": "Is a carnivore",
+				"params": {}
+			}
+		},
+		{
+			"conditions": {
+				"any": [
+					{
+						"fact": "Bear's name or unknown",
+						"operator": "equal",
+						"value": "Pooh"
+					},
+					{
+						"fact": "Bear's name or unknown",
+						"operator": "equal",
+						"value": "Baloo"
+					},
+					{
+						"fact": "Bear's name or unknown",
+						"operator": "equal",
+						"value": "Paddington"
+					},
+					{
+						"fact": "Name of species or unknown",
+						"operator": "equal",
+						"value": "Panda"
+					},
+					{
+						"all": [
+							{
+								"fact": "Aggression (Scale of 0-10)",
+								"operator": "lessThan",
+								"value": 1
+							},
+							{
+								"fact": "Diet (comma-separated list: berries, nuts, meat)",
+								"operator": "notIn",
+								"value": "meat"
+							}
+						]
+					}
+				]
+			},
+			"event": {
+				"type": "Is a gentle bear",
+				"params": {}
+			}
+		},
+		{
+			"conditions": {
+				"any": [
+					{
+						"fact": "Bear's name or unknown",
+						"operator": "equal",
+						"value": "Pooh"
+					},
+					{
+						"fact": "Hibernates (Boolean, 1 if true, 0 if false)",
+						"operator": "greaterThanInclusive",
+						"value": 1
+					}
+				]
+			},
+			"event": {
+				"type": "Is a sleepy bear",
+				"params": {}
+			}
+		}
+	]
+}
