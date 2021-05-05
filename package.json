@@ -12,7 +12,6 @@
     "babel-loader": "^8.2.2",
     "core-js": "^3.11.1",
     "jest": "^26.6.3",
-    "json-rules-engine": "^6.0.1",
     "webpack": "^5.36.1",
     "webpack-cli": "^4.6.0"
   },
@@ -25,5 +24,8 @@
     "Safari >= 9",
     "ie 8-11",
     "iOS >= 9"
-  ]
+  ],
+  "dependencies": {
+    "json-rules-engine": "^6.0.1"
+  }
 }
