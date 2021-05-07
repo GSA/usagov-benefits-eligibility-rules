@@ -1,2 +1,5483 @@
-/*! For license information please see index.js.LICENSE.txt */
-!function(){var e={242:function(e,t,r){"use strict";r(497)},313:function(e){var t=function(){"use strict";function e(e,t){return null!=t&&e instanceof t}var t,r,n;try{t=Map}catch(e){t=function(){}}try{r=Set}catch(e){r=function(){}}try{n=Promise}catch(e){n=function(){}}function i(o,u,s,l,c){"object"==typeof u&&(s=u.depth,l=u.prototype,c=u.includeNonEnumerable,u=u.circular);var f=[],h=[],p="undefined"!=typeof Buffer;return void 0===u&&(u=!0),void 0===s&&(s=1/0),function o(s,y){if(null===s)return null;if(0===y)return s;var v,d;if("object"!=typeof s)return s;if(e(s,t))v=new t;else if(e(s,r))v=new r;else if(e(s,n))v=new n((function(e,t){s.then((function(t){e(o(t,y-1))}),(function(e){t(o(e,y-1))}))}));else if(i.__isArray(s))v=[];else if(i.__isRegExp(s))v=new RegExp(s.source,a(s)),s.lastIndex&&(v.lastIndex=s.lastIndex);else if(i.__isDate(s))v=new Date(s.getTime());else{if(p&&Buffer.isBuffer(s))return v=Buffer.allocUnsafe?Buffer.allocUnsafe(s.length):new Buffer(s.length),s.copy(v),v;e(s,Error)?v=Object.create(s):void 0===l?(d=Object.getPrototypeOf(s),v=Object.create(d)):(v=Object.create(l),d=l)}if(u){var b=f.indexOf(s);if(-1!=b)return h[b];f.push(s),h.push(v)}for(var m in e(s,t)&&s.forEach((function(e,t){var r=o(t,y-1),n=o(e,y-1);v.set(r,n)})),e(s,r)&&s.forEach((function(e){var t=o(e,y-1);v.add(t)})),s){var _;d&&(_=Object.getOwnPropertyDescriptor(d,m)),_&&null==_.set||(v[m]=o(s[m],y-1))}if(Object.getOwnPropertySymbols){var g=Object.getOwnPropertySymbols(s);for(m=0;m<g.length;m++){var w=g[m];(!(F=Object.getOwnPropertyDescriptor(s,w))||F.enumerable||c)&&(v[w]=o(s[w],y-1),F.enumerable||Object.defineProperty(v,w,{enumerable:!1}))}}if(c){var E=Object.getOwnPropertyNames(s);for(m=0;m<E.length;m++){var F,O=E[m];(F=Object.getOwnPropertyDescriptor(s,O))&&F.enumerable||(v[O]=o(s[O],y-1),Object.defineProperty(v,O,{enumerable:!1}))}}return v}(o,s)}function o(e){return Object.prototype.toString.call(e)}function a(e){var t="";return e.global&&(t+="g"),e.ignoreCase&&(t+="i"),e.multiline&&(t+="m"),t}return i.clonePrototype=function(e){if(null===e)return null;var t=function(){};return t.prototype=e,new t},i.__objToStr=o,i.__isDate=function(e){return"object"==typeof e&&"[object Date]"===o(e)},i.__isArray=function(e){return"object"==typeof e&&"[object Array]"===o(e)},i.__isRegExp=function(e){return"object"==typeof e&&"[object RegExp]"===o(e)},i.__getRegExpFlags=a,i}();e.exports&&(e.exports=t)},807:function(e,t){!function(e){"use strict";var t="function"==typeof Symbol?Symbol("curriable placeholder"):60881;function r(e,r){var n="number"==typeof r?r:e.length,i=function(e,r){return function n(i){return function(){var o,a=i.length,u=arguments,s=u.length,l=[],c=0,f=r;if(a)for(var h=-1;++h<a;)l[h]=o=i[h]===t&&c<s?u[c++]:i[h],o!==t&&--f;if(c<s)for(;c<s;)l[l.length]=o=u[c],o!==t&&c<r&&--f,++c;return f>0?n(l):e.apply(this,l)}}([])}(e,n);return i.arity=n,i.fn=e,i}function n(e){return e===t}function i(e){return e.fn}r.__=t,r.isPlaceholder=n,r.uncurry=i,e.__=t,e.curry=r,e.default=r,e.isPlaceholder=n,e.uncurry=i,Object.defineProperty(e,"__esModule",{value:!0})}(t)},387:function(e,t,r){var n;!function(i){var o=Object.hasOwnProperty,a=Array.isArray?Array.isArray:function(e){return"[object Array]"===Object.prototype.toString.call(e)},u="object"==typeof process&&"function"==typeof process.nextTick,s="function"==typeof Symbol,l="object"==typeof Reflect,c="function"==typeof setImmediate?setImmediate:setTimeout,f=s?l&&"function"==typeof Reflect.ownKeys?Reflect.ownKeys:function(e){var t=Object.getOwnPropertyNames(e);return t.push.apply(t,Object.getOwnPropertySymbols(e)),t}:Object.keys;function h(){this._events={},this._conf&&p.call(this,this._conf)}function p(e){e&&(this._conf=e,e.delimiter&&(this.delimiter=e.delimiter),e.maxListeners!==i&&(this._maxListeners=e.maxListeners),e.wildcard&&(this.wildcard=e.wildcard),e.newListener&&(this._newListener=e.newListener),e.removeListener&&(this._removeListener=e.removeListener),e.verboseMemoryLeak&&(this.verboseMemoryLeak=e.verboseMemoryLeak),e.ignoreErrors&&(this.ignoreErrors=e.ignoreErrors),this.wildcard&&(this.listenerTree={}))}function y(e,t){var r="(node) warning: possible EventEmitter memory leak detected. "+e+" listeners added. Use emitter.setMaxListeners() to increase limit.";if(this.verboseMemoryLeak&&(r+=" Event name: "+t+"."),"undefined"!=typeof process&&process.emitWarning){var n=new Error(r);n.name="MaxListenersExceededWarning",n.emitter=this,n.count=e,process.emitWarning(n)}else console.error(r),console.trace&&console.trace()}var v=function(e,t,r){var n=arguments.length;switch(n){case 0:return[];case 1:return[e];case 2:return[e,t];case 3:return[e,t,r];default:for(var i=new Array(n);n--;)i[n]=arguments[n];return i}};function d(e,t){for(var r={},n=e.length,o=t?value.length:0,a=0;a<n;a++)r[e[a]]=a<o?t[a]:i;return r}function b(e,t,r){var n,i;if(this._emitter=e,this._target=t,this._listeners={},this._listenersCount=0,(r.on||r.off)&&(n=r.on,i=r.off),t.addEventListener?(n=t.addEventListener,i=t.removeEventListener):t.addListener?(n=t.addListener,i=t.removeListener):t.on&&(n=t.on,i=t.off),!n&&!i)throw Error("target does not implement any known event API");if("function"!=typeof n)throw TypeError("on method must be a function");if("function"!=typeof i)throw TypeError("off method must be a function");this._on=n,this._off=i;var o=e._observers;o?o.push(this):e._observers=[this]}function m(e,t,r,n){var a=Object.assign({},t);if(!e)return a;if("object"!=typeof e)throw TypeError("options must be an object");var u,s,l,c=Object.keys(e),f=c.length;function h(e){throw Error('Invalid "'+u+'" option value'+(e?". Reason: "+e:""))}for(var p=0;p<f;p++){if(u=c[p],!n&&!o.call(t,u))throw Error('Unknown "'+u+'" option');(s=e[u])!==i&&(l=r[u],a[u]=l?l(s,h):s)}return a}function _(e,t){return"function"==typeof e&&e.hasOwnProperty("prototype")||t("value must be a constructor"),e}function g(e){var t="value must be type of "+e.join("|"),r=e.length,n=e[0],i=e[1];return 1===r?function(e,r){if(typeof e===n)return e;r(t)}:2===r?function(e,r){var o=typeof e;if(o===n||o===i)return e;r(t)}:function(n,i){for(var o=typeof n,a=r;a-- >0;)if(o===e[a])return n;i(t)}}Object.assign(b.prototype,{subscribe:function(e,t,r){var n=this,i=this._target,o=this._emitter,a=this._listeners,u=function(){var n=v.apply(null,arguments),a={data:n,name:t,original:e};if(r){var u=r.call(i,a);!1!==u&&o.emit.apply(o,[a.name].concat(n))}else o.emit.apply(o,[t].concat(n))};if(a[e])throw Error("Event '"+e+"' is already listening");this._listenersCount++,o._newListener&&o._removeListener&&!n._onNewListener?(this._onNewListener=function(r){r===t&&null===a[e]&&(a[e]=u,n._on.call(i,e,u))},o.on("newListener",this._onNewListener),this._onRemoveListener=function(r){r===t&&!o.hasListeners(r)&&a[e]&&(a[e]=null,n._off.call(i,e,u))},a[e]=null,o.on("removeListener",this._onRemoveListener)):(a[e]=u,n._on.call(i,e,u))},unsubscribe:function(e){var t,r,n,i=this,o=this._listeners,a=this._emitter,u=this._off,s=this._target;if(e&&"string"!=typeof e)throw TypeError("event must be a string");function l(){i._onNewListener&&(a.off("newListener",i._onNewListener),a.off("removeListener",i._onRemoveListener),i._onNewListener=null,i._onRemoveListener=null);var e=O.call(a,i);a._observers.splice(e,1)}if(e){if(!(t=o[e]))return;u.call(s,e,t),delete o[e],--this._listenersCount||l()}else{for(n=(r=f(o)).length;n-- >0;)e=r[n],u.call(s,e,o[e]);this._listeners={},this._listenersCount=0,l()}}});var w=g(["function"]),E=g(["object","function"]);function F(e,t,r){var n,i,o,a=0,u=new e((function(s,l,c){function f(){i&&(i=null),a&&(clearTimeout(a),a=0)}r=m(r,{timeout:0,overload:!1},{timeout:function(e,t){return("number"!=typeof(e*=1)||e<0||!Number.isFinite(e))&&t("timeout must be a positive number"),e}}),n=!r.overload&&"function"==typeof e.prototype.cancel&&"function"==typeof c;var h=function(e){f(),s(e)},p=function(e){f(),l(e)};n?t(h,p,c):(i=[function(e){p(e||Error("canceled"))}],t(h,p,(function(e){if(o)throw Error("Unable to subscribe on cancel event asynchronously");if("function"!=typeof e)throw TypeError("onCancel callback must be a function");i.push(e)})),o=!0),r.timeout>0&&(a=setTimeout((function(){var e=Error("timeout");e.code="ETIMEDOUT",a=0,u.cancel(e),l(e)}),r.timeout))}));return n||(u.cancel=function(e){if(i){for(var t=i.length,r=1;r<t;r++)i[r](e);i[0](e),i=null}}),u}function O(e){var t=this._observers;if(!t)return-1;for(var r=t.length,n=0;n<r;n++)if(t[n]._target===e)return n;return-1}function j(e,t,r,n,i){if(!r)return null;if(0===n){var o=typeof t;if("string"===o){var a,u,s=0,l=0,c=this.delimiter,h=c.length;if(-1!==(u=t.indexOf(c))){a=new Array(5);do{a[s++]=t.slice(l,u),l=u+h}while(-1!==(u=t.indexOf(c,l)));a[s++]=t.slice(l),t=a,i=s}else t=[t],i=1}else"object"===o?i=t.length:(t=[t],i=1)}var p,y,v,d,b,m,_,g=null,w=t[n],E=t[n+1];if(n===i&&r._listeners)return"function"==typeof r._listeners?(e&&e.push(r._listeners),[r]):(e&&e.push.apply(e,r._listeners),[r]);if("*"===w){for(u=(m=f(r)).length;u-- >0;)"_listeners"!==(p=m[u])&&(_=j(e,t,r[p],n+1,i))&&(g?g.push.apply(g,_):g=_);return g}if("**"===w){for((b=n+1===i||n+2===i&&"*"===E)&&r._listeners&&(g=j(e,t,r,i,i)),u=(m=f(r)).length;u-- >0;)"_listeners"!==(p=m[u])&&("*"===p||"**"===p?(r[p]._listeners&&!b&&(_=j(e,t,r[p],i,i))&&(g?g.push.apply(g,_):g=_),_=j(e,t,r[p],n,i)):_=j(e,t,r[p],p===E?n+2:n,i),_&&(g?g.push.apply(g,_):g=_));return g}if(r[w]&&(g=j(e,t,r[w],n+1,i)),(y=r["*"])&&j(e,t,y,n+1,i),v=r["**"])if(n<i)for(v._listeners&&j(e,t,v,i,i),u=(m=f(v)).length;u-- >0;)"_listeners"!==(p=m[u])&&(p===E?j(e,t,v[p],n+2,i):p===w?j(e,t,v[p],n+1,i):((d={})[p]=v[p],j(e,t,{"**":d},n+1,i)));else v._listeners?j(e,t,v,i,i):v["*"]&&v["*"]._listeners&&j(e,t,v["*"],i,i);return g}function P(e,t,r){var n,i,o=0,a=0,u=this.delimiter,s=u.length;if("string"==typeof e)if(-1!==(n=e.indexOf(u))){i=new Array(5);do{i[o++]=e.slice(a,n),a=n+s}while(-1!==(n=e.indexOf(u,a)));i[o++]=e.slice(a)}else i=[e],o=1;else i=e,o=e.length;if(o>1)for(n=0;n+1<o;n++)if("**"===i[n]&&"**"===i[n+1])return;var l,c=this.listenerTree;for(n=0;n<o;n++)if(c=c[l=i[n]]||(c[l]={}),n===o-1)return c._listeners?("function"==typeof c._listeners&&(c._listeners=[c._listeners]),r?c._listeners.unshift(t):c._listeners.push(t),!c._listeners.warned&&this._maxListeners>0&&c._listeners.length>this._maxListeners&&(c._listeners.warned=!0,y.call(this,c._listeners.length,l))):c._listeners=t,!0;return!0}function A(e,t,r,n){for(var i,o,a,u,s=f(e),l=s.length,c=e._listeners;l-- >0;)i=e[o=s[l]],a="_listeners"===o?r:r?r.concat(o):[o],u=n||"symbol"==typeof o,c&&t.push(u?a:a.join(this.delimiter)),"object"==typeof i&&A.call(this,i,t,a,u);return t}function k(e){for(var t,r,n,i=f(e),o=i.length;o-- >0;)(t=e[r=i[o]])&&(n=!0,"_listeners"===r||k(t)||delete e[r]);return n}function T(e,t,r){this.emitter=e,this.event=t,this.listener=r}function S(e,t,r){if(!0===r)o=!0;else if(!1===r)n=!0;else{if(!r||"object"!=typeof r)throw TypeError("options should be an object or true");var n=r.async,o=r.promisify,a=r.nextTick,s=r.objectify}if(n||a||o){var l=t,f=t._origin||t;if(a&&!u)throw Error("process.nextTick is not supported");o===i&&(o="AsyncFunction"===t.constructor.name),(t=function(){var e=arguments,t=this,r=this.event;return o?a?Promise.resolve():new Promise((function(e){c(e)})).then((function(){return t.event=r,l.apply(t,e)})):(a?process.nextTick:c)((function(){t.event=r,l.apply(t,e)}))})._async=!0,t._origin=f}return[t,s?new T(this,e,t):this]}function R(e){this._events={},this._newListener=!1,this._removeListener=!1,this.verboseMemoryLeak=!1,p.call(this,e)}T.prototype.off=function(){return this.emitter.off(this.event,this.listener),this},R.EventEmitter2=R,R.prototype.listenTo=function(e,t,r){if("object"!=typeof e)throw TypeError("target musts be an object");var n=this;function o(t){if("object"!=typeof t)throw TypeError("events must be an object");var i,o=r.reducers,a=O.call(n,e);i=-1===a?new b(n,e,r):n._observers[a];for(var u,s=f(t),l=s.length,c="function"==typeof o,h=0;h<l;h++)u=s[h],i.subscribe(u,t[u]||u,c?o:o&&o[u])}return r=m(r,{on:i,off:i,reducers:i},{on:w,off:w,reducers:E}),a(t)?o(d(t)):o("string"==typeof t?d(t.split(/\s+/)):t),this},R.prototype.stopListeningTo=function(e,t){var r=this._observers;if(!r)return!1;var n,i=r.length,o=!1;if(e&&"object"!=typeof e)throw TypeError("target should be an object");for(;i-- >0;)n=r[i],e&&n._target!==e||(n.unsubscribe(t),o=!0);return o},R.prototype.delimiter=".",R.prototype.setMaxListeners=function(e){e!==i&&(this._maxListeners=e,this._conf||(this._conf={}),this._conf.maxListeners=e)},R.prototype.getMaxListeners=function(){return this._maxListeners},R.prototype.event="",R.prototype.once=function(e,t,r){return this._once(e,t,!1,r)},R.prototype.prependOnceListener=function(e,t,r){return this._once(e,t,!0,r)},R.prototype._once=function(e,t,r,n){return this._many(e,1,t,r,n)},R.prototype.many=function(e,t,r,n){return this._many(e,t,r,!1,n)},R.prototype.prependMany=function(e,t,r,n){return this._many(e,t,r,!0,n)},R.prototype._many=function(e,t,r,n,i){var o=this;if("function"!=typeof r)throw new Error("many only accepts instances of Function");function a(){return 0==--t&&o.off(e,a),r.apply(this,arguments)}return a._origin=r,this._on(e,a,n,i)},R.prototype.emit=function(){if(!this._events&&!this._all)return!1;this._events||h.call(this);var e,t,r,n,i,o,a=arguments[0],u=this.wildcard;if("newListener"===a&&!this._newListener&&!this._events.newListener)return!1;if(u&&(e=a,"newListener"!==a&&"removeListener"!==a&&"object"==typeof a)){if(r=a.length,s)for(n=0;n<r;n++)if("symbol"==typeof a[n]){o=!0;break}o||(a=a.join(this.delimiter))}var l,c=arguments.length;if(this._all&&this._all.length)for(n=0,r=(l=this._all.slice()).length;n<r;n++)switch(this.event=a,c){case 1:l[n].call(this,a);break;case 2:l[n].call(this,a,arguments[1]);break;case 3:l[n].call(this,a,arguments[1],arguments[2]);break;default:l[n].apply(this,arguments)}if(u)l=[],j.call(this,l,e,this.listenerTree,0,r);else{if("function"==typeof(l=this._events[a])){switch(this.event=a,c){case 1:l.call(this);break;case 2:l.call(this,arguments[1]);break;case 3:l.call(this,arguments[1],arguments[2]);break;default:for(t=new Array(c-1),i=1;i<c;i++)t[i-1]=arguments[i];l.apply(this,t)}return!0}l&&(l=l.slice())}if(l&&l.length){if(c>3)for(t=new Array(c-1),i=1;i<c;i++)t[i-1]=arguments[i];for(n=0,r=l.length;n<r;n++)switch(this.event=a,c){case 1:l[n].call(this);break;case 2:l[n].call(this,arguments[1]);break;case 3:l[n].call(this,arguments[1],arguments[2]);break;default:l[n].apply(this,t)}return!0}if(!this.ignoreErrors&&!this._all&&"error"===a)throw arguments[1]instanceof Error?arguments[1]:new Error("Uncaught, unspecified 'error' event.");return!!this._all},R.prototype.emitAsync=function(){if(!this._events&&!this._all)return!1;this._events||h.call(this);var e,t,r,n,i,o,a=arguments[0],u=this.wildcard;if("newListener"===a&&!this._newListener&&!this._events.newListener)return Promise.resolve([!1]);if(u&&(e=a,"newListener"!==a&&"removeListener"!==a&&"object"==typeof a)){if(n=a.length,s)for(i=0;i<n;i++)if("symbol"==typeof a[i]){t=!0;break}t||(a=a.join(this.delimiter))}var l,c=[],f=arguments.length;if(this._all)for(i=0,n=this._all.length;i<n;i++)switch(this.event=a,f){case 1:c.push(this._all[i].call(this,a));break;case 2:c.push(this._all[i].call(this,a,arguments[1]));break;case 3:c.push(this._all[i].call(this,a,arguments[1],arguments[2]));break;default:c.push(this._all[i].apply(this,arguments))}if(u?(l=[],j.call(this,l,e,this.listenerTree,0)):l=this._events[a],"function"==typeof l)switch(this.event=a,f){case 1:c.push(l.call(this));break;case 2:c.push(l.call(this,arguments[1]));break;case 3:c.push(l.call(this,arguments[1],arguments[2]));break;default:for(r=new Array(f-1),o=1;o<f;o++)r[o-1]=arguments[o];c.push(l.apply(this,r))}else if(l&&l.length){if(l=l.slice(),f>3)for(r=new Array(f-1),o=1;o<f;o++)r[o-1]=arguments[o];for(i=0,n=l.length;i<n;i++)switch(this.event=a,f){case 1:c.push(l[i].call(this));break;case 2:c.push(l[i].call(this,arguments[1]));break;case 3:c.push(l[i].call(this,arguments[1],arguments[2]));break;default:c.push(l[i].apply(this,r))}}else if(!this.ignoreErrors&&!this._all&&"error"===a)return arguments[1]instanceof Error?Promise.reject(arguments[1]):Promise.reject("Uncaught, unspecified 'error' event.");return Promise.all(c)},R.prototype.on=function(e,t,r){return this._on(e,t,!1,r)},R.prototype.prependListener=function(e,t,r){return this._on(e,t,!0,r)},R.prototype.onAny=function(e){return this._onAny(e,!1)},R.prototype.prependAny=function(e){return this._onAny(e,!0)},R.prototype.addListener=R.prototype.on,R.prototype._onAny=function(e,t){if("function"!=typeof e)throw new Error("onAny only accepts instances of Function");return this._all||(this._all=[]),t?this._all.unshift(e):this._all.push(e),this},R.prototype._on=function(e,t,r,n){if("function"==typeof e)return this._onAny(e,t),this;if("function"!=typeof t)throw new Error("on only accepts instances of Function");this._events||h.call(this);var o,a=this;return n!==i&&(t=(o=S.call(this,e,t,n))[0],a=o[1]),this._newListener&&this.emit("newListener",e,t),this.wildcard?(P.call(this,e,t,r),a):(this._events[e]?("function"==typeof this._events[e]&&(this._events[e]=[this._events[e]]),r?this._events[e].unshift(t):this._events[e].push(t),!this._events[e].warned&&this._maxListeners>0&&this._events[e].length>this._maxListeners&&(this._events[e].warned=!0,y.call(this,this._events[e].length,e))):this._events[e]=t,a)},R.prototype.off=function(e,t){if("function"!=typeof t)throw new Error("removeListener only takes instances of Function");var r,n=[];if(this.wildcard){var i="string"==typeof e?e.split(this.delimiter):e.slice();if(!(n=j.call(this,null,i,this.listenerTree,0)))return this}else{if(!this._events[e])return this;r=this._events[e],n.push({_listeners:r})}for(var o=0;o<n.length;o++){var u=n[o];if(r=u._listeners,a(r)){for(var s=-1,l=0,c=r.length;l<c;l++)if(r[l]===t||r[l].listener&&r[l].listener===t||r[l]._origin&&r[l]._origin===t){s=l;break}if(s<0)continue;return this.wildcard?u._listeners.splice(s,1):this._events[e].splice(s,1),0===r.length&&(this.wildcard?delete u._listeners:delete this._events[e]),this._removeListener&&this.emit("removeListener",e,t),this}(r===t||r.listener&&r.listener===t||r._origin&&r._origin===t)&&(this.wildcard?delete u._listeners:delete this._events[e],this._removeListener&&this.emit("removeListener",e,t))}return this.listenerTree&&k(this.listenerTree),this},R.prototype.offAny=function(e){var t,r=0,n=0;if(e&&this._all&&this._all.length>0){for(r=0,n=(t=this._all).length;r<n;r++)if(e===t[r])return t.splice(r,1),this._removeListener&&this.emit("removeListenerAny",e),this}else{if(t=this._all,this._removeListener)for(r=0,n=t.length;r<n;r++)this.emit("removeListenerAny",t[r]);this._all=[]}return this},R.prototype.removeListener=R.prototype.off,R.prototype.removeAllListeners=function(e){if(e===i)return!this._events||h.call(this),this;if(this.wildcard){var t,r=j.call(this,null,e,this.listenerTree,0);if(!r)return this;for(t=0;t<r.length;t++)r[t]._listeners=null;this.listenerTree&&k(this.listenerTree)}else this._events&&(this._events[e]=null);return this},R.prototype.listeners=function(e){var t,r,n,o,a,u=this._events;if(e===i){if(this.wildcard)throw Error("event name required for wildcard emitter");if(!u)return[];for(o=(t=f(u)).length,n=[];o-- >0;)"function"==typeof(r=u[t[o]])?n.push(r):n.push.apply(n,r);return n}if(this.wildcard){if(!(a=this.listenerTree))return[];var s=[],l="string"==typeof e?e.split(this.delimiter):e.slice();return j.call(this,s,l,a,0),s}return u&&(r=u[e])?"function"==typeof r?[r]:r:[]},R.prototype.eventNames=function(e){var t=this._events;return this.wildcard?A.call(this,this.listenerTree,[],null,e):t?f(t):[]},R.prototype.listenerCount=function(e){return this.listeners(e).length},R.prototype.hasListeners=function(e){if(this.wildcard){var t=[],r="string"==typeof e?e.split(this.delimiter):e.slice();return j.call(this,t,r,this.listenerTree,0),t.length>0}var n=this._events,o=this._all;return!!(o&&o.length||n&&(e===i?f(n).length:n[e]))},R.prototype.listenersAny=function(){return this._all?this._all:[]},R.prototype.waitFor=function(e,t){var r=this,n=typeof t;return"number"===n?t={timeout:t}:"function"===n&&(t={filter:t}),F((t=m(t,{timeout:0,filter:i,handleError:!1,Promise:Promise,overload:!1},{filter:w,Promise:_})).Promise,(function(n,i,o){function a(){var o=t.filter;if(!o||o.apply(r,arguments))if(r.off(e,a),t.handleError){var u=arguments[0];u?i(u):n(v.apply(null,arguments).slice(1))}else n(v.apply(null,arguments))}o((function(){r.off(e,a)})),r._on(e,a,!1)}),{timeout:t.timeout,overload:t.overload})};var D=R.prototype;Object.defineProperties(R,{defaultMaxListeners:{get:function(){return D._maxListeners},set:function(e){if("number"!=typeof e||e<0||Number.isNaN(e))throw TypeError("n must be a non-negative number");D._maxListeners=e},enumerable:!0},once:{value:function(e,t,r){return F((r=m(r,{Promise:Promise,timeout:0,overload:!1},{Promise:_})).Promise,(function(r,n,i){var o;if("function"==typeof e.addEventListener)return o=function(){r(v.apply(null,arguments))},i((function(){e.removeEventListener(t,o)})),void e.addEventListener(t,o,{once:!0});var a,u=function(){a&&e.removeListener("error",a),r(v.apply(null,arguments))};"error"!==t&&(a=function(r){e.removeListener(t,u),n(r)},e.once("error",a)),i((function(){a&&e.removeListener("error",a),e.removeListener(t,u)})),e.once(t,u)}),{timeout:r.timeout,overload:r.overload})},writable:!0,configurable:!0}}),Object.defineProperties(D,{_maxListeners:{value:10,writable:!0,configurable:!0},_observers:{value:null,writable:!0,configurable:!0}}),(n=function(){return R}.call(t,r,t,e))===i||(e.exports=n)}()},190:function(e,t,r){"use strict";r.r(t),r.d(t,{default:function(){return D},hash:function(){return R}});var n,i,o,a,u=r(807),s="undefined"!=typeof Buffer&&"function"==typeof Buffer.from,l="function"==typeof Uint16Array,c=/\[object (HTML(.*)Element)\]/,f=/\[object (SVG(.*)Element)\]/,h=["Arguments","Array","ArrayBuffer","Boolean","DataView","Date","DocumentFragment","Error","Event","Float32Array","Float64Array","Function","Generator","GeneratorFunction","HTMLElement","Int8Array","Int16Array","Int32Array","Map","Null","Number","Object","Promise","RegExp","Set","String","Symbol","Uint8Array","Uint8ClampedArray","Uint16Array","Uint32Array","Undefined","WeakMap","WeakSet","Window"].reduce((function(e,t){return e["[object "+t+"]"]=t,e}),{}),p=Object.keys(h).reduce((function(e,t){return e[h[t].toUpperCase()]=t,e}),{}),y={"[object Map]":!0,"[object Set]":!0},v={boolean:!0,function:!0,number:!0,string:!0,undefined:!0},d=((n={})[p.ARGUMENTS]=!0,n[p.ARRAY]=!0,n),b=((i={})[p.REGEXP]=!0,i[p.SYMBOL]=!0,i),m=((o={})[p.FLOAT32ARRAY]=!0,o[p.FLOAT64ARRAY]=!0,o[p.INT8ARRAY]=!0,o[p.INT16ARRAY]=!0,o[p.INT32ARRAY]=!0,o[p.UINT8ARRAY]=!0,o[p.UINT8CLAMPEDARRAY]=!0,o[p.UINT16ARRAY]=!0,o[p.UINT32ARRAY]=!0,o),_=((a={})[p.GENERATOR]=!0,a[p.PROMISE]=!0,a[p.WEAKMAP]=!0,a[p.WEAKSET]=!0,a),g=/^\s*function\s*([^(]*)/i,w=Object.prototype.toString,E=Object.keys;function F(e,t){return e>t}function O(e,t){return e[0]>t[0]}function j(e,t){for(var r,n,i=0;i<e.length;++i){for(n=e[i],r=i-1;~r&&t(e[r],n);--r)e[r+1]=e[r];e[r+1]=n}return e}function P(e){for(var t,r=j(E(e),F),n={},i=0;i<r.length;++i)n[t=r[i]]=e[t];return n}var A=s?function(e){return Buffer.from(e).toString("utf8")}:l?function(e){return String.fromCharCode.apply(null,new Uint16Array(e))}:function(){return""};function k(e,t){for(var r=0;r<e.length;++r)if(e[r]===t)return r+1;return 0}function T(e,t,r,n){if(void 0===n){var i=typeof e;if("string"===i||v[i])return i+"|"+e;if(null===e)return"null|"+e}var o,a=n||w.call(e);return d[a]?e:a===p.OBJECT?P(e):b[a]?h[a]+"|"+e.toString():y[a]?function(e,t,r){var n="function"==typeof e.get,i=[];n?(e.forEach((function(e,n){i.push([S(n,t,r),S(e,t,r)])})),j(i,O)):(e.forEach((function(e){i.push(S(e,t,r))})),j(i,F));for(var o,a,u=((o=e.constructor).name||(o.toString().match(g)||[])[1]||"anonymous")+"|[",s=0,l=i.length;s<l;++s)a=i[s],u+=(s?",":"")+(n?"["+a[0]+","+a[1]+"]":a);return u+"]"}(e,t,r):a===p.DATE?h[a]+"|"+e.getTime():a===p.ERROR?h[a]+"|"+e.stack:a===p.EVENT?{bubbles:(o=e).bubbles,cancelBubble:o.cancelBubble,cancelable:o.cancelable,composed:o.composed,currentTarget:o.currentTarget,defaultPrevented:o.defaultPrevented,eventPhase:o.eventPhase,isTrusted:o.isTrusted,returnValue:o.returnValue,target:o.target,type:o.type}:_[a]?h[a]+"|NOT_ENUMERABLE":c.test(a)||f.test(a)?a.slice(8,-1)+"|"+e.outerHTML:a===p.DOCUMENTFRAGMENT?h[a]+"|"+function(e){for(var t=e.children,r="",n=0;n<t.length;++n)r+=t[n].outerHTML;return r}(e):m[a]?h[a]+"|"+e.join(","):a===p.ARRAYBUFFER?h[a]+"|"+A(e):a===p.DATAVIEW?h[a]+"|"+A(e.buffer):e}function S(e,t,r){if(!e||"object"!=typeof e)return T(e,t,r);var n=w.call(e);return n===p.DATE||n===p.REGEXP?T(e,t,r,n):JSON.stringify(e,function(e,t){return void 0===e&&(e=[]),void 0===t&&(t=[]),function(r,n){if("object"==typeof n)if(e.length){var i=k(e,this);0===i?e.push(this):(e.splice(i),t.splice(i)),t.push(r);var o=k(e,n);if(0!==o)return"[~"+(t.slice(0,o).join(".")||".")+"]";e.push(n)}else e[0]=n,t[0]=r;return r&&this[r]instanceof Date?T(this[r],e,t,p.DATE):T(n,e,t)}}(t,r))}function R(e){return function(e){for(var t,r=e.length,n=5381,i=52711;r--;)n=33*n^(t=e.charCodeAt(r)),i=33*i^t;return 4096*(n>>>0)+(i>>>0)}(S(e))}R.is=(0,u.curry)((function(e,t){return R(e)===R(t)})),R.is.all=(0,u.curry)((function(e){for(var t=R.is(e),r=1;r<arguments.length;++r)if(!t(arguments[r]))return!1;return!0}),2),R.is.any=(0,u.curry)((function(e){for(var t=R.is(e),r=1;r<arguments.length;r++)if(t(arguments[r]))return!0;return!1}),2),R.is.not=(0,u.curry)((function(e,t){return R(e)!==R(t)}));var D=R},440:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},i=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),o=c(r(385)),a=r(670),u=c(r(424)),s=r(342),l=c(r(588));function c(e){return e&&e.__esModule?e:{default:e}}function f(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function h(e,t){return(0,s.JSONPath)({path:t,json:e,wrap:!1})}var p=function(){function e(t){var r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};for(var a in f(this,e),this.factMap=new Map(t),this.factResultsCache=new Map,this.allowUndefinedFacts=Boolean(i.allowUndefinedFacts),this.pathResolver=i.pathResolver||h,this.events={success:[],failure:[]},this.ruleResults=[],r){var s=void 0;s=r[a]instanceof o.default?r[a]:new o.default(a,r[a]),this._addConstantFact(s),(0,u.default)("almanac::constructor initialized runtime fact:"+s.id+" with "+s.value+"<"+n(s.value)+">")}}return i(e,[{key:"addEvent",value:function(e,t){if(!t)throw new Error('outcome required: "success" | "failure"]');this.events[t].push(e)}},{key:"getEvents",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"";return e?this.events[e]:this.events.success.concat(this.events.failure)}},{key:"addResult",value:function(e){this.ruleResults.push(e)}},{key:"getResults",value:function(){return this.ruleResults}},{key:"_getFact",value:function(e){return this.factMap.get(e)}},{key:"_addConstantFact",value:function(e){this.factMap.set(e.id,e),this._setFactValue(e,{},e.value)}},{key:"_setFactValue",value:function(e,t,r){var n=e.getCacheKey(t),i=Promise.resolve(r);return n&&this.factResultsCache.set(n,i),i}},{key:"addRuntimeFact",value:function(e,t){(0,u.default)("almanac::addRuntimeFact id:"+e);var r=new o.default(e,t);return this._addConstantFact(r)}},{key:"factValue",value:function(e){var t=this,r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:"",o=void 0,s=this._getFact(e);if(void 0===s)return this.allowUndefinedFacts?Promise.resolve(void 0):Promise.reject(new a.UndefinedFactError("Undefined fact: "+e));if(s.isConstant())o=Promise.resolve(s.calculate(r,this));else{var c=s.getCacheKey(r),f=c&&this.factResultsCache.get(c);f?(o=Promise.resolve(f),(0,u.default)("almanac::factValue cache hit for fact:"+e)):((0,u.default)("almanac::factValue cache miss for fact:"+e+"; calculating"),o=this._setFactValue(s,r,s.calculate(r,this)))}return i?((0,u.default)("condition::evaluate extracting object property "+i),o.then((function(e){if((0,l.default)(e)){var r=t.pathResolver(e,i);return(0,u.default)("condition::evaluate extracting object property "+i+", received: "+JSON.stringify(r)),r}return(0,u.default)("condition::evaluate could not compute object path("+i+") of non-object: "+e+" <"+(void 0===e?"undefined":n(e))+">; continuing with "+e),e}))):o}}]),e}();t.default=p},868:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=a(r(424)),o=a(r(588));function a(e){return e&&e.__esModule?e:{default:e}}var u=function(){function e(t){if(function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),!t)throw new Error("Condition: constructor options required");var r=e.booleanOperator(t);if(Object.assign(this,t),r){var n=t[r];if(!Array.isArray(n))throw new Error('"'+r+'" must be an array');this.operator=r,this.priority=parseInt(t.priority,10)||1,this[r]=n.map((function(t){return new e(t)}))}else{if(!Object.prototype.hasOwnProperty.call(t,"fact"))throw new Error('Condition: constructor "fact" property required');if(!Object.prototype.hasOwnProperty.call(t,"operator"))throw new Error('Condition: constructor "operator" property required');if(!Object.prototype.hasOwnProperty.call(t,"value"))throw new Error('Condition: constructor "value" property required');Object.prototype.hasOwnProperty.call(t,"priority")&&(t.priority=parseInt(t.priority,10))}}return n(e,[{key:"toJSON",value:function(){var t=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],r={};this.priority&&(r.priority=this.priority);var n=e.booleanOperator(this);return n?r[n]=this[n].map((function(e){return e.toJSON(t)})):(r.operator=this.operator,r.value=this.value,r.fact=this.fact,void 0!==this.factResult&&(r.factResult=this.factResult),void 0!==this.result&&(r.result=this.result),this.params&&(r.params=this.params),this.path&&(r.path=this.path)),t?JSON.stringify(r):r}},{key:"_getValue",value:function(e){var t=this.value;return(0,o.default)(t)&&Object.prototype.hasOwnProperty.call(t,"fact")?e.factValue(t.fact,t.params,t.path):Promise.resolve(t)}},{key:"evaluate",value:function(e,t){var r=this;if(!e)return Promise.reject(new Error("almanac required"));if(!t)return Promise.reject(new Error("operatorMap required"));if(this.isBooleanOperator())return Promise.reject(new Error("Cannot evaluate() a boolean condition"));var n=t.get(this.operator);return n?this._getValue(e).then((function(t){return e.factValue(r.fact,r.params,r.path).then((function(e){var o=n.evaluate(e,t);return(0,i.default)("condition::evaluate <"+JSON.stringify(e)+" "+r.operator+" "+JSON.stringify(t)+"?> ("+o+")"),{result:o,leftHandSideValue:e,rightHandSideValue:t,operator:r.operator}}))})):Promise.reject(new Error("Unknown operator: "+this.operator))}},{key:"booleanOperator",value:function(){return e.booleanOperator(this)}},{key:"isBooleanOperator",value:function(){return void 0!==e.booleanOperator(this)}}],[{key:"booleanOperator",value:function(e){return Object.prototype.hasOwnProperty.call(e,"any")?"any":Object.prototype.hasOwnProperty.call(e,"all")?"all":void 0}}]),e}();t.default=u},424:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e){try{("undefined"!=typeof process&&process.env&&process.env.DEBUG&&process.env.DEBUG.match(/json-rules-engine/)||"undefined"!=typeof window&&window.localStorage&&window.localStorage.debug&&window.localStorage.debug.match(/json-rules-engine/))&&console.log(e)}catch(e){}}},66:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n,i=(n=r(716))&&n.__esModule?n:{default:n},o=[];function a(e){return"NaN"!==Number.parseFloat(e).toString()}o.push(new i.default("equal",(function(e,t){return e===t}))),o.push(new i.default("notEqual",(function(e,t){return e!==t}))),o.push(new i.default("in",(function(e,t){return t.indexOf(e)>-1}))),o.push(new i.default("notIn",(function(e,t){return-1===t.indexOf(e)}))),o.push(new i.default("contains",(function(e,t){return e.indexOf(t)>-1}),Array.isArray)),o.push(new i.default("doesNotContain",(function(e,t){return-1===e.indexOf(t)}),Array.isArray)),o.push(new i.default("lessThan",(function(e,t){return e<t}),a)),o.push(new i.default("lessThanInclusive",(function(e,t){return e<=t}),a)),o.push(new i.default("greaterThan",(function(e,t){return e>t}),a)),o.push(new i.default("greaterThanInclusive",(function(e,t){return e>=t}),a)),t.default=o},655:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.FINISHED=t.RUNNING=t.READY=void 0;var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=f(r(385)),o=f(r(382)),a=f(r(716)),u=f(r(440)),s=f(r(387)),l=f(r(66)),c=f(r(424));function f(e){return e&&e.__esModule?e:{default:e}}function h(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function p(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}var y=t.READY="READY",v=t.RUNNING="RUNNING",d=t.FINISHED="FINISHED",b=function(e){function t(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[],r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};h(this,t);var n=p(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return n.rules=[],n.allowUndefinedFacts=r.allowUndefinedFacts||!1,n.pathResolver=r.pathResolver,n.operators=new Map,n.facts=new Map,n.status=y,e.map((function(e){return n.addRule(e)})),l.default.map((function(e){return n.addOperator(e)})),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,e),n(t,[{key:"addRule",value:function(e){if(!e)throw new Error("Engine: addRule() requires options");var t=void 0;if(e instanceof o.default)t=e;else{if(!Object.prototype.hasOwnProperty.call(e,"event"))throw new Error('Engine: addRule() argument requires "event" property');if(!Object.prototype.hasOwnProperty.call(e,"conditions"))throw new Error('Engine: addRule() argument requires "conditions" property');t=new o.default(e)}return t.setEngine(this),this.rules.push(t),this.prioritizedRules=null,this}},{key:"removeRule",value:function(e){if(e instanceof o.default==0)throw new Error("Engine: removeRule() rule must be a instance of Rule");var t=this.rules.indexOf(e);return-1!==t&&(this.prioritizedRules=null,Boolean(this.rules.splice(t,1).length))}},{key:"addOperator",value:function(e,t){var r;r=e instanceof a.default?e:new a.default(e,t),(0,c.default)("engine::addOperator name:"+r.name),this.operators.set(r.name,r)}},{key:"removeOperator",value:function(e){var t;return t=e instanceof a.default?e.name:e,this.operators.delete(t)}},{key:"addFact",value:function(e,t,r){var n=e,o=void 0;return e instanceof i.default?(n=e.id,o=e):o=new i.default(e,t,r),(0,c.default)("engine::addFact id:"+n),this.facts.set(n,o),this}},{key:"removeFact",value:function(e){var t;return t=e instanceof i.default?e.id:e,this.facts.delete(t)}},{key:"prioritizeRules",value:function(){if(!this.prioritizedRules){var e=this.rules.reduce((function(e,t){var r=t.priority;return e[r]||(e[r]=[]),e[r].push(t),e}),{});this.prioritizedRules=Object.keys(e).sort((function(e,t){return Number(e)>Number(t)?-1:1})).map((function(t){return e[t]}))}return this.prioritizedRules}},{key:"stop",value:function(){return this.status=d,this}},{key:"getFact",value:function(e){return this.facts.get(e)}},{key:"evaluateRules",value:function(e,t){var r=this;return Promise.all(e.map((function(e){if(r.status===v)return e.evaluate(t).then((function(e){return(0,c.default)("engine::run ruleResult:"+e.result),t.addResult(e),e.result?(t.addEvent(e.event,"success"),r.emitAsync("success",e.event,t,e).then((function(){return r.emitAsync(e.event.type,e.event.params,t,e)}))):(t.addEvent(e.event,"failure"),r.emitAsync("failure",e.event,t,e))}));(0,c.default)("engine::run status:"+r.status+"; skipping remaining rules")})))}},{key:"run",value:function(){var e=this,t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};(0,c.default)("engine::run started"),this.status=v;var r={allowUndefinedFacts:this.allowUndefinedFacts,pathResolver:this.pathResolver},n=new u.default(this.facts,t,r),i=this.prioritizeRules(),o=Promise.resolve();return new Promise((function(t,r){i.map((function(t){return o=o.then((function(){return e.evaluateRules(t,n)})).catch(r)})),o.then((function(){e.status=d,(0,c.default)("engine::run completed");var r=n.getResults().reduce((function(e,t){return e[t.result?"results":"failureResults"].push(t),e}),{results:[],failureResults:[]}),i=r.results,o=r.failureResults;t({almanac:n,results:i,failureResults:o,events:n.getEvents("success"),failureEvents:n.getEvents("failure")})})).catch(r)}))}}]),t}(s.default);t.default=b},670:function(e,t){"use strict";function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function n(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}Object.defineProperty(t,"__esModule",{value:!0}),t.UndefinedFactError=function(e){function t(){var e;r(this,t);for(var i=arguments.length,o=Array(i),a=0;a<i;a++)o[a]=arguments[a];var u=n(this,(e=t.__proto__||Object.getPrototypeOf(t)).call.apply(e,[this].concat(o)));return u.code="UNDEFINED_FACT",u}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,Error),t}()},385:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n,i=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),o=(n=r(190))&&n.__esModule?n:{default:n},a=function(){function e(t,r,n){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.id=t;var i={cache:!0};if(void 0===n&&(n=i),"function"!=typeof r?(this.value=r,this.type=this.constructor.CONSTANT):(this.calculationMethod=r,this.type=this.constructor.DYNAMIC),!this.id)throw new Error("factId required");return this.priority=parseInt(n.priority||1,10),this.options=Object.assign({},i,n),this.cacheKeyMethod=this.defaultCacheKeys,this}return i(e,[{key:"isConstant",value:function(){return this.type===this.constructor.CONSTANT}},{key:"isDynamic",value:function(){return this.type===this.constructor.DYNAMIC}},{key:"calculate",value:function(e,t){return Object.prototype.hasOwnProperty.call(this,"value")?this.value:this.calculationMethod(e,t)}},{key:"defaultCacheKeys",value:function(e,t){return{params:t,id:e}}},{key:"getCacheKey",value:function(t){if(!0===this.options.cache){var r=this.cacheKeyMethod(this.id,t);return e.hashFromObject(r)}}}],[{key:"hashFromObject",value:function(e){return(0,o.default)(e)}}]),e}();a.CONSTANT="CONSTANT",a.DYNAMIC="DYNAMIC",t.default=a},497:function(e,t,r){"use strict";r(837)},837:function(e,t,r){"use strict";var n=u(r(655)),i=u(r(385)),o=u(r(382)),a=u(r(716));function u(e){return e&&e.__esModule?e:{default:e}}i.default,o.default,a.default,n.default},716:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),n=function(){function e(t,r,n){if(function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.name=String(t),!t)throw new Error("Missing operator name");if("function"!=typeof r)throw new Error("Missing operator callback");this.cb=r,this.factValueValidator=n,this.factValueValidator||(this.factValueValidator=function(){return!0})}return r(e,[{key:"evaluate",value:function(e,t){return this.factValueValidator(e)&&this.cb(e,t)}}]),e}();t.default=n},9:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n,i=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),o=(n=r(313))&&n.__esModule?n:{default:n},a=function(){function e(t,r,n,i){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.conditions=(0,o.default)(t),this.event=(0,o.default)(r),this.priority=(0,o.default)(n),this.name=(0,o.default)(i),this.result=null}return i(e,[{key:"setResult",value:function(e){this.result=e}},{key:"toJSON",value:function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],t={conditions:this.conditions.toJSON(!1),event:this.event,priority:this.priority,name:this.name,result:this.result};return e?JSON.stringify(t):t}}]),e}();t.default=a},382:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=u(r(868)),o=u(r(9)),a=u(r(424));function u(e){return e&&e.__esModule?e:{default:e}}var s=function(e){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);var r=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));"string"==typeof e&&(e=JSON.parse(e)),e&&e.conditions&&r.setConditions(e.conditions),e&&e.onSuccess&&r.on("success",e.onSuccess),e&&e.onFailure&&r.on("failure",e.onFailure),e&&(e.name||0===e.name)&&r.setName(e.name);var n=e&&e.priority||1;r.setPriority(n);var i=e&&e.event||{type:"unknown"};return r.setEvent(i),r}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,e),n(t,[{key:"setPriority",value:function(e){if((e=parseInt(e,10))<=0)throw new Error("Priority must be greater than zero");return this.priority=e,this}},{key:"setName",value:function(e){if(!e&&0!==e)throw new Error('Rule "name" must be defined');return this.name=e,this}},{key:"setConditions",value:function(e){if(!Object.prototype.hasOwnProperty.call(e,"all")&&!Object.prototype.hasOwnProperty.call(e,"any"))throw new Error('"conditions" root must contain a single instance of "all" or "any"');return this.conditions=new i.default(e),this}},{key:"setEvent",value:function(e){if(!e)throw new Error("Rule: setEvent() requires event object");if(!Object.prototype.hasOwnProperty.call(e,"type"))throw new Error('Rule: setEvent() requires event object with "type" property');return this.ruleEvent={type:e.type},e.params&&(this.ruleEvent.params=e.params),this}},{key:"getEvent",value:function(){return this.ruleEvent}},{key:"getPriority",value:function(){return this.priority}},{key:"getConditions",value:function(){return this.conditions}},{key:"getEngine",value:function(){return this.engine}},{key:"setEngine",value:function(e){return this.engine=e,this}},{key:"toJSON",value:function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0],t={conditions:this.conditions.toJSON(!1),priority:this.priority,event:this.ruleEvent,name:this.name};return e?JSON.stringify(t):t}},{key:"prioritizeConditions",value:function(e){var t=this,r=e.reduce((function(e,r){var n=r.priority;if(!n){var i=t.engine.getFact(r.fact);n=i&&i.priority||1}return e[n]||(e[n]=[]),e[n].push(r),e}),{});return Object.keys(r).sort((function(e,t){return Number(e)>Number(t)?-1:1})).map((function(e){return r[e]}))}},{key:"evaluate",value:function(e){var t=this,r=new o.default(this.conditions,this.ruleEvent,this.priority,this.name),n=function(r,n){if(0===r.length)return Promise.resolve(!0);var o=Array.prototype.some;"all"===n&&(o=Array.prototype.every);for(var s=t.prioritizeConditions(r),l=Promise.resolve(),c=function(r){var c=s[r],f=!1;l=l.then((function(r){return"any"===n&&!0===r||f?((0,a.default)("prioritizeAndRun::detected truthy result; skipping remaining conditions"),f=!0,!0):"all"===n&&!1===r||f?((0,a.default)("prioritizeAndRun::detected falsey result; skipping remaining conditions"),f=!0,!1):function(r,n){return Array.isArray(r)||(r=[r]),Promise.all(r.map((function(r){return function(r){if(r.isBooleanOperator()){var n=r[r.operator];return("all"===r.operator?u(n):i(n)).then((function(e){var t=!0===e;return r.result=t,t}))}return r.evaluate(e,t.engine.operators).then((function(e){var t=e.result;return r.factResult=e.leftHandSideValue,r.result=t,t}))}(r)}))).then((function(e){return(0,a.default)("rule::evaluateConditions results",e),n.call(e,(function(e){return!0===e}))}))}(c,o)}))},f=0;f<s.length;f++)c(f);return l},i=function(e){return n(e,"any")},u=function(e){return n(e,"all")},s=function(n){r.setResult(n);var i=n?"success":"failure";return t.emitAsync(i,r.event,e,r).then((function(){return r}))};return r.conditions.any?i(r.conditions.any).then((function(e){return s(e)})):u(r.conditions.all).then((function(e){return s(e)}))}}]),t}(u(r(387)).default);t.default=s},342:function(e,t,r){"use strict";function n(e){return(n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function i(e){return(i=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function o(e,t){return(o=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function a(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(e){return!1}}function u(e,t,r){return(u=a()?Reflect.construct:function(e,t,r){var n=[null];n.push.apply(n,t);var i=new(Function.bind.apply(e,n));return r&&o(i,r.prototype),i}).apply(null,arguments)}function s(e){var t="function"==typeof Map?new Map:void 0;return(s=function(e){if(null===e||(r=e,-1===Function.toString.call(r).indexOf("[native code]")))return e;var r;if("function"!=typeof e)throw new TypeError("Super expression must either be null or a function");if(void 0!==t){if(t.has(e))return t.get(e);t.set(e,n)}function n(){return u(e,arguments,i(this).constructor)}return n.prototype=Object.create(e.prototype,{constructor:{value:n,enumerable:!1,writable:!0,configurable:!0}}),o(n,e)})(e)}function l(e,t){return!t||"object"!=typeof t&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function c(e){return function(e){if(Array.isArray(e))return h(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||f(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function f(e,t){if(e){if("string"==typeof e)return h(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(r):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?h(e,t):void 0}}function h(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}r.r(t),r.d(t,{JSONPath:function(){return m}});var p=Object.prototype.hasOwnProperty;m.nodeVMSupported=function(){try{return"[object process]"===Object.prototype.toString.call(r.g.process)}catch(e){return!1}}();var y=m.nodeVMSupported?r(989):{runInNewContext:function(e,t){var r=Object.keys(t),n=[];!function(e,r,n){for(var i=e.length,o=0;o<i;o++)a=e[o],"function"==typeof t[a]&&r.push(e.splice(o--,1)[0]);var a}(r,n);var i=r.map((function(e,r){return t[e]}));(e=n.reduce((function(e,r){var n=t[r].toString();return/function/.test(n)||(n="function "+n),"var "+r+"="+n+";"+e}),"")+e).match(/(["'])use strict\1/)||r.includes("arguments")||(e="var arguments = undefined;"+e);var o=(e=e.replace(/;[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]*$/,"")).lastIndexOf(";"),a=o>-1?e.slice(0,o+1)+" return "+e.slice(o+1):" return "+e;return u(Function,c(r).concat([a])).apply(void 0,c(i))}};function v(e,t){return(e=e.slice()).push(t),e}function d(e,t){return(t=t.slice()).unshift(e),t}var b=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&o(e,t)}(n,e);var t,r=(t=n,function(){var e,r=i(t);if(a()){var n=i(this).constructor;e=Reflect.construct(r,arguments,n)}else e=r.apply(this,arguments);return l(this,e)});function n(e){var t;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,n),(t=r.call(this,'JSONPath should not be called with "new" (it prevents return of (unwrapped) scalar values)')).avoidNew=!0,t.value=e,t.name="NewError",t}return n}(s(Error));function m(e,t,r,i,o){if(!(this instanceof m))try{return new m(e,t,r,i,o)}catch(e){if(!e.avoidNew)throw e;return e.value}"string"==typeof e&&(o=i,i=r,r=t,t=e,e=null);var a=e&&"object"===n(e);if(e=e||{},this.json=e.json||r,this.path=e.path||t,this.resultType=e.resultType||"value",this.flatten=e.flatten||!1,this.wrap=!p.call(e,"wrap")||e.wrap,this.sandbox=e.sandbox||{},this.preventEval=e.preventEval||!1,this.parent=e.parent||null,this.parentProperty=e.parentProperty||null,this.callback=e.callback||i||null,this.otherTypeCallback=e.otherTypeCallback||o||function(){throw new TypeError("You must supply an otherTypeCallback callback option with the @other() operator.")},!1!==e.autostart){var u={path:a?e.path:t};a?"json"in e&&(u.json=e.json):u.json=r;var s=this.evaluate(u);if(!s||"object"!==n(s))throw new b(s);return s}}m.prototype.evaluate=function(e,t,r,i){var o=this,a=this.parent,u=this.parentProperty,s=this.flatten,l=this.wrap;if(this.currResultType=this.resultType,this.currPreventEval=this.preventEval,this.currSandbox=this.sandbox,r=r||this.callback,this.currOtherTypeCallback=i||this.otherTypeCallback,t=t||this.json,(e=e||this.path)&&"object"===n(e)&&!Array.isArray(e)){if(!e.path&&""!==e.path)throw new TypeError('You must supply a "path" property when providing an object argument to JSONPath.evaluate().');if(!p.call(e,"json"))throw new TypeError('You must supply a "json" property when providing an object argument to JSONPath.evaluate().');t=e.json,s=p.call(e,"flatten")?e.flatten:s,this.currResultType=p.call(e,"resultType")?e.resultType:this.currResultType,this.currSandbox=p.call(e,"sandbox")?e.sandbox:this.currSandbox,l=p.call(e,"wrap")?e.wrap:l,this.currPreventEval=p.call(e,"preventEval")?e.preventEval:this.currPreventEval,r=p.call(e,"callback")?e.callback:r,this.currOtherTypeCallback=p.call(e,"otherTypeCallback")?e.otherTypeCallback:this.currOtherTypeCallback,a=p.call(e,"parent")?e.parent:a,u=p.call(e,"parentProperty")?e.parentProperty:u,e=e.path}if(a=a||null,u=u||null,Array.isArray(e)&&(e=m.toPathString(e)),(e||""===e)&&t){this._obj=t;var c=m.toPathArray(e);"$"===c[0]&&c.length>1&&c.shift(),this._hasParentSelector=null;var f=this._trace(c,t,["$"],a,u,r).filter((function(e){return e&&!e.isParentSelector}));return f.length?l||1!==f.length||f[0].hasArrExpr?f.reduce((function(e,t){var r=o._getPreferredOutput(t);return s&&Array.isArray(r)?e=e.concat(r):e.push(r),e}),[]):this._getPreferredOutput(f[0]):l?[]:void 0}},m.prototype._getPreferredOutput=function(e){var t=this.currResultType;switch(t){default:throw new TypeError("Unknown result type");case"all":var r=Array.isArray(e.path)?e.path:m.toPathArray(e.path);return e.pointer=m.toPointer(r),e.path="string"==typeof e.path?e.path:m.toPathString(e.path),e;case"value":case"parent":case"parentProperty":return e[t];case"path":return m.toPathString(e[t]);case"pointer":return m.toPointer(e.path)}},m.prototype._handleCallback=function(e,t,r){if(t){var n=this._getPreferredOutput(e);e.path="string"==typeof e.path?e.path:m.toPathString(e.path),t(n,r,e)}},m.prototype._trace=function(e,t,r,i,o,a,u,s){var l,c=this;if(!e.length)return l={path:r,value:t,parent:i,parentProperty:o,hasArrExpr:u},this._handleCallback(l,a,"value"),l;var h=e[0],y=e.slice(1),b=[];function m(e){Array.isArray(e)?e.forEach((function(e){b.push(e)})):b.push(e)}if(("string"!=typeof h||s)&&t&&p.call(t,h))m(this._trace(y,t[h],v(r,h),t,h,a,u));else if("*"===h)this._walk(h,y,t,r,i,o,a,(function(e,t,r,n,i,o,a,u){m(c._trace(d(e,r),n,i,o,a,u,!0,!0))}));else if(".."===h)m(this._trace(y,t,r,i,o,a,u)),this._walk(h,y,t,r,i,o,a,(function(e,t,r,i,o,a,u,s){"object"===n(i[e])&&m(c._trace(d(t,r),i[e],v(o,e),i,e,s,!0))}));else{if("^"===h)return this._hasParentSelector=!0,{path:r.slice(0,-1),expr:y,isParentSelector:!0};if("~"===h)return l={path:v(r,h),value:o,parent:i,parentProperty:null},this._handleCallback(l,a,"property"),l;if("$"===h)m(this._trace(y,t,r,null,null,a,u));else if(/^(\x2D?[0-9]*):(\x2D?[0-9]*):?([0-9]*)$/.test(h))m(this._slice(h,y,t,r,i,o,a));else if(0===h.indexOf("?(")){if(this.currPreventEval)throw new Error("Eval [?(expr)] prevented in JSONPath expression.");this._walk(h,y,t,r,i,o,a,(function(e,t,r,n,i,o,a,u){c._eval(t.replace(/^\?\(((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)\)$/,"$1"),n[e],e,i,o,a)&&m(c._trace(d(e,r),n,i,o,a,u,!0))}))}else if("("===h[0]){if(this.currPreventEval)throw new Error("Eval [(expr)] prevented in JSONPath expression.");m(this._trace(d(this._eval(h,t,r[r.length-1],r.slice(0,-1),i,o),y),t,r,i,o,a,u))}else if("@"===h[0]){var _=!1,g=h.slice(1,-2);switch(g){default:throw new TypeError("Unknown value type "+g);case"scalar":t&&["object","function"].includes(n(t))||(_=!0);break;case"boolean":case"string":case"undefined":case"function":n(t)===g&&(_=!0);break;case"integer":!Number.isFinite(t)||t%1||(_=!0);break;case"number":Number.isFinite(t)&&(_=!0);break;case"nonFinite":"number"!=typeof t||Number.isFinite(t)||(_=!0);break;case"object":t&&n(t)===g&&(_=!0);break;case"array":Array.isArray(t)&&(_=!0);break;case"other":_=this.currOtherTypeCallback(t,r,i,o);break;case"null":null===t&&(_=!0)}if(_)return l={path:r,value:t,parent:i,parentProperty:o},this._handleCallback(l,a,"value"),l}else if("`"===h[0]&&t&&p.call(t,h.slice(1))){var w=h.slice(1);m(this._trace(y,t[w],v(r,w),t,w,a,u,!0))}else if(h.includes(",")){var E,F=function(e){if("undefined"==typeof Symbol||null==e[Symbol.iterator]){if(Array.isArray(e)||(e=f(e))){var t=0,r=function(){};return{s:r,n:function(){return t>=e.length?{done:!0}:{done:!1,value:e[t++]}},e:function(e){throw e},f:r}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var n,i,o=!0,a=!1;return{s:function(){n=e[Symbol.iterator]()},n:function(){var e=n.next();return o=e.done,e},e:function(e){a=!0,i=e},f:function(){try{o||null==n.return||n.return()}finally{if(a)throw i}}}}(h.split(","));try{for(F.s();!(E=F.n()).done;){var O=E.value;m(this._trace(d(O,y),t,r,i,o,a,!0))}}catch(e){F.e(e)}finally{F.f()}}else!s&&t&&p.call(t,h)&&m(this._trace(y,t[h],v(r,h),t,h,a,u,!0))}if(this._hasParentSelector)for(var j=0;j<b.length;j++){var P=b[j];if(P&&P.isParentSelector){var A=c._trace(P.expr,t,P.path,i,o,a,u);if(Array.isArray(A)){b[j]=A[0];for(var k=A.length,T=1;T<k;T++)j++,b.splice(j,0,A[T])}else b[j]=A}}return b},m.prototype._walk=function(e,t,r,i,o,a,u,s){if(Array.isArray(r))for(var l=r.length,c=0;c<l;c++)s(c,e,t,r,i,o,a,u);else r&&"object"===n(r)&&Object.keys(r).forEach((function(n){s(n,e,t,r,i,o,a,u)}))},m.prototype._slice=function(e,t,r,n,i,o,a){if(Array.isArray(r)){var u=r.length,s=e.split(":"),l=s[2]&&Number.parseInt(s[2])||1,c=s[0]&&Number.parseInt(s[0])||0,f=s[1]&&Number.parseInt(s[1])||u;c=c<0?Math.max(0,c+u):Math.min(u,c),f=f<0?Math.max(0,f+u):Math.min(u,f);for(var h=[],p=c;p<f;p+=l)this._trace(d(p,t),r,n,i,o,a,!0).forEach((function(e){h.push(e)}));return h}},m.prototype._eval=function(e,t,r,n,i,o){if(!this._obj||!t)return!1;e.includes("@parentProperty")&&(this.currSandbox._$_parentProperty=o,e=e.replace(/@parentProperty/g,"_$_parentProperty")),e.includes("@parent")&&(this.currSandbox._$_parent=i,e=e.replace(/@parent/g,"_$_parent")),e.includes("@property")&&(this.currSandbox._$_property=r,e=e.replace(/@property/g,"_$_property")),e.includes("@path")&&(this.currSandbox._$_path=m.toPathString(n.concat([r])),e=e.replace(/@path/g,"_$_path")),e.includes("@root")&&(this.currSandbox._$_root=this.json,e=e.replace(/@root/g,"_$_root")),e.match(/@([\t-\r \)\.\[\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF])/)&&(this.currSandbox._$_v=t,e=e.replace(/@([\t-\r \)\.\[\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF])/g,"_$_v$1"));try{return y.runInNewContext(e,this.currSandbox)}catch(t){throw console.log(t),new Error("jsonPath: "+t.message+": "+e)}},m.cache={},m.toPathString=function(e){for(var t=e,r=t.length,n="$",i=1;i<r;i++)/^(~|\^|@(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?\(\))$/.test(t[i])||(n+=/^[\*0-9]+$/.test(t[i])?"["+t[i]+"]":"['"+t[i]+"']");return n},m.toPointer=function(e){for(var t=e,r=t.length,n="",i=1;i<r;i++)/^(~|\^|@(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?\(\))$/.test(t[i])||(n+="/"+t[i].toString().replace(/~/g,"~0").replace(/\//g,"~1"));return n},m.toPathArray=function(e){var t=m.cache;if(t[e])return t[e].concat();var r=[],n=e.replace(/@(?:null|boolean|number|string|integer|undefined|nonFinite|scalar|array|object|function|other)\(\)/g,";$&;").replace(/['\[](\??\((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?\))['\]]/g,(function(e,t){return"[#"+(r.push(t)-1)+"]"})).replace(/\['((?:[\0-&\(-\\\^-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)'\]/g,(function(e,t){return"['"+t.replace(/\./g,"%@%").replace(/~/g,"%%@@%%")+"']"})).replace(/~/g,";~;").replace(/'?\.'?(?!(?:[\0-Z\\-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*\])|\['?/g,";").replace(/%@%/g,".").replace(/%%@@%%/g,"~").replace(/(?:;)?(\^+)(?:;)?/g,(function(e,t){return";"+t.split("").join(";")+";"})).replace(/;;;|;;/g,";..;").replace(/;$|'?\]|'$/g,"").split(";").map((function(e){var t=e.match(/#([0-9]+)/);return t&&t[1]?r[t[1]]:e}));return t[e]=n,t[e]}},588:function(e){e.exports=function(e){return!!e&&"object"==typeof e}},989:function(){}},t={};function r(n){var i=t[n];if(void 0!==i)return i.exports;var o=t[n]={exports:{}};return e[n].call(o.exports,o,o.exports,r),o.exports}r.d=function(e,t){for(var n in t)r.o(t,n)&&!r.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:t[n]})},r.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r(242)}();
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(self, function() {
+return /******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 242:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "config": function() { return /* binding */ config; },
+  "isElegible": function() { return /* binding */ isElegible; }
+});
+
+// EXTERNAL MODULE: ./node_modules/json-rules-engine/dist/index.js
+var dist = __webpack_require__(497);
+;// CONCATENATED MODULE: ./src/bears.json
+var bears_namespaceObject = JSON.parse('{"ti":[{"conditions":{"all":[{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"in","value":"meat"}]},"event":{"type":"Is a carnivore","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Baloo"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Paddington"},{"fact":"Name of species or unknown","operator":"equal","value":"Panda"},{"all":[{"fact":"Aggression (Scale of 0-10)","operator":"lessThan","value":1},{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"notIn","value":"meat"}]}]},"event":{"type":"Is a gentle bear","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Hibernates (Boolean, 1 if true, 0 if false)","operator":"greaterThanInclusive","value":1}]},"event":{"type":"Is a sleepy bear","params":{}}}]}');
+;// CONCATENATED MODULE: ./src/index.js
+
+
+function config() {
+  return Promise.resolve();
+}
+;
+function isElegible(_ref) {
+  var facts = _ref.facts;
+  var rulesEngine = new dist.Engine(bears_namespaceObject.ti);
+  return rulesEngine.run(facts);
+}
+;
+
+/***/ }),
+
+/***/ 313:
+/***/ (function(module) {
+
+var clone = (function() {
+'use strict';
+
+function _instanceof(obj, type) {
+  return type != null && obj instanceof type;
+}
+
+var nativeMap;
+try {
+  nativeMap = Map;
+} catch(_) {
+  // maybe a reference error because no `Map`. Give it a dummy value that no
+  // value will ever be an instanceof.
+  nativeMap = function() {};
+}
+
+var nativeSet;
+try {
+  nativeSet = Set;
+} catch(_) {
+  nativeSet = function() {};
+}
+
+var nativePromise;
+try {
+  nativePromise = Promise;
+} catch(_) {
+  nativePromise = function() {};
+}
+
+/**
+ * Clones (copies) an Object using deep copying.
+ *
+ * This function supports circular references by default, but if you are certain
+ * there are no circular references in your object, you can save some CPU time
+ * by calling clone(obj, false).
+ *
+ * Caution: if `circular` is false and `parent` contains circular references,
+ * your program may enter an infinite loop and crash.
+ *
+ * @param `parent` - the object to be cloned
+ * @param `circular` - set to true if the object to be cloned may contain
+ *    circular references. (optional - true by default)
+ * @param `depth` - set to a number if the object is only to be cloned to
+ *    a particular depth. (optional - defaults to Infinity)
+ * @param `prototype` - sets the prototype to be used when cloning an object.
+ *    (optional - defaults to parent prototype).
+ * @param `includeNonEnumerable` - set to true if the non-enumerable properties
+ *    should be cloned as well. Non-enumerable properties on the prototype
+ *    chain will be ignored. (optional - false by default)
+*/
+function clone(parent, circular, depth, prototype, includeNonEnumerable) {
+  if (typeof circular === 'object') {
+    depth = circular.depth;
+    prototype = circular.prototype;
+    includeNonEnumerable = circular.includeNonEnumerable;
+    circular = circular.circular;
+  }
+  // maintain two arrays for circular references, where corresponding parents
+  // and children have the same index
+  var allParents = [];
+  var allChildren = [];
+
+  var useBuffer = typeof Buffer != 'undefined';
+
+  if (typeof circular == 'undefined')
+    circular = true;
+
+  if (typeof depth == 'undefined')
+    depth = Infinity;
+
+  // recurse this function so we don't reset allParents and allChildren
+  function _clone(parent, depth) {
+    // cloning null always returns null
+    if (parent === null)
+      return null;
+
+    if (depth === 0)
+      return parent;
+
+    var child;
+    var proto;
+    if (typeof parent != 'object') {
+      return parent;
+    }
+
+    if (_instanceof(parent, nativeMap)) {
+      child = new nativeMap();
+    } else if (_instanceof(parent, nativeSet)) {
+      child = new nativeSet();
+    } else if (_instanceof(parent, nativePromise)) {
+      child = new nativePromise(function (resolve, reject) {
+        parent.then(function(value) {
+          resolve(_clone(value, depth - 1));
+        }, function(err) {
+          reject(_clone(err, depth - 1));
+        });
+      });
+    } else if (clone.__isArray(parent)) {
+      child = [];
+    } else if (clone.__isRegExp(parent)) {
+      child = new RegExp(parent.source, __getRegExpFlags(parent));
+      if (parent.lastIndex) child.lastIndex = parent.lastIndex;
+    } else if (clone.__isDate(parent)) {
+      child = new Date(parent.getTime());
+    } else if (useBuffer && Buffer.isBuffer(parent)) {
+      if (Buffer.allocUnsafe) {
+        // Node.js >= 4.5.0
+        child = Buffer.allocUnsafe(parent.length);
+      } else {
+        // Older Node.js versions
+        child = new Buffer(parent.length);
+      }
+      parent.copy(child);
+      return child;
+    } else if (_instanceof(parent, Error)) {
+      child = Object.create(parent);
+    } else {
+      if (typeof prototype == 'undefined') {
+        proto = Object.getPrototypeOf(parent);
+        child = Object.create(proto);
+      }
+      else {
+        child = Object.create(prototype);
+        proto = prototype;
+      }
+    }
+
+    if (circular) {
+      var index = allParents.indexOf(parent);
+
+      if (index != -1) {
+        return allChildren[index];
+      }
+      allParents.push(parent);
+      allChildren.push(child);
+    }
+
+    if (_instanceof(parent, nativeMap)) {
+      parent.forEach(function(value, key) {
+        var keyChild = _clone(key, depth - 1);
+        var valueChild = _clone(value, depth - 1);
+        child.set(keyChild, valueChild);
+      });
+    }
+    if (_instanceof(parent, nativeSet)) {
+      parent.forEach(function(value) {
+        var entryChild = _clone(value, depth - 1);
+        child.add(entryChild);
+      });
+    }
+
+    for (var i in parent) {
+      var attrs;
+      if (proto) {
+        attrs = Object.getOwnPropertyDescriptor(proto, i);
+      }
+
+      if (attrs && attrs.set == null) {
+        continue;
+      }
+      child[i] = _clone(parent[i], depth - 1);
+    }
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(parent);
+      for (var i = 0; i < symbols.length; i++) {
+        // Don't need to worry about cloning a symbol because it is a primitive,
+        // like a number or string.
+        var symbol = symbols[i];
+        var descriptor = Object.getOwnPropertyDescriptor(parent, symbol);
+        if (descriptor && !descriptor.enumerable && !includeNonEnumerable) {
+          continue;
+        }
+        child[symbol] = _clone(parent[symbol], depth - 1);
+        if (!descriptor.enumerable) {
+          Object.defineProperty(child, symbol, {
+            enumerable: false
+          });
+        }
+      }
+    }
+
+    if (includeNonEnumerable) {
+      var allPropertyNames = Object.getOwnPropertyNames(parent);
+      for (var i = 0; i < allPropertyNames.length; i++) {
+        var propertyName = allPropertyNames[i];
+        var descriptor = Object.getOwnPropertyDescriptor(parent, propertyName);
+        if (descriptor && descriptor.enumerable) {
+          continue;
+        }
+        child[propertyName] = _clone(parent[propertyName], depth - 1);
+        Object.defineProperty(child, propertyName, {
+          enumerable: false
+        });
+      }
+    }
+
+    return child;
+  }
+
+  return _clone(parent, depth);
+}
+
+/**
+ * Simple flat clone using prototype, accepts only objects, usefull for property
+ * override on FLAT configuration object (no nested props).
+ *
+ * USE WITH CAUTION! This may not behave as you wish if you do not know how this
+ * works.
+ */
+clone.clonePrototype = function clonePrototype(parent) {
+  if (parent === null)
+    return null;
+
+  var c = function () {};
+  c.prototype = parent;
+  return new c();
+};
+
+// private utility functions
+
+function __objToStr(o) {
+  return Object.prototype.toString.call(o);
+}
+clone.__objToStr = __objToStr;
+
+function __isDate(o) {
+  return typeof o === 'object' && __objToStr(o) === '[object Date]';
+}
+clone.__isDate = __isDate;
+
+function __isArray(o) {
+  return typeof o === 'object' && __objToStr(o) === '[object Array]';
+}
+clone.__isArray = __isArray;
+
+function __isRegExp(o) {
+  return typeof o === 'object' && __objToStr(o) === '[object RegExp]';
+}
+clone.__isRegExp = __isRegExp;
+
+function __getRegExpFlags(re) {
+  var flags = '';
+  if (re.global) flags += 'g';
+  if (re.ignoreCase) flags += 'i';
+  if (re.multiline) flags += 'm';
+  return flags;
+}
+clone.__getRegExpFlags = __getRegExpFlags;
+
+return clone;
+})();
+
+if ( true && module.exports) {
+  module.exports = clone;
+}
+
+
+/***/ }),
+
+/***/ 807:
+/***/ (function(__unused_webpack_module, exports) {
+
+(function (global, factory) {
+   true ? factory(exports) :
+  0;
+}(this, function (exports) { 'use strict';
+
+  /**
+   * @constant __ placeholder used when parameters are skipped
+   */
+  var __ = typeof Symbol === 'function' ? Symbol('curriable placeholder') : 0xedd1;
+  /**
+   * @function recursiveCurry
+   *
+   * @description
+   * recursively curry over the arguments until all have been resolved
+   *
+   * @param fn the function to curry
+   * @param arity the length of the function to curry until
+   * @param args the existing arguments
+   * @returns the result of the function call
+   */
+  function getCurried(fn, arity) {
+      function _curried(args) {
+          return function () {
+              var length = args.length;
+              var newArgs = arguments;
+              var newArgsLength = newArgs.length;
+              var combined = [];
+              var newArgsIndex = 0;
+              var remaining = arity;
+              var value;
+              if (length) {
+                  var index = -1;
+                  while (++index < length) {
+                      combined[index] = value =
+                          args[index] === __ && newArgsIndex < newArgsLength
+                              ? newArgs[newArgsIndex++]
+                              : args[index];
+                      if (value !== __) {
+                          --remaining;
+                      }
+                  }
+              }
+              if (newArgsIndex < newArgsLength) {
+                  while (newArgsIndex < newArgsLength) {
+                      combined[combined.length] = value = newArgs[newArgsIndex];
+                      if (value !== __ && newArgsIndex < arity) {
+                          --remaining;
+                      }
+                      ++newArgsIndex;
+                  }
+              }
+              return remaining > 0 ? _curried(combined) : fn.apply(this, combined);
+          };
+      }
+      return _curried([]);
+  }
+
+  // utils
+  function curry(fn, arityOverride) {
+      var arity = typeof arityOverride === 'number' ? arityOverride : fn.length;
+      var curried = getCurried(fn, arity);
+      curried.arity = arity;
+      curried.fn = fn;
+      return curried;
+  }
+  curry.__ = __;
+  /**
+   * @function isPlaceholder
+   *
+   * @description
+   * is the value passed a placeholder
+   *
+   * @param value the value to test
+   * @returns whether the value is a placeholder
+   */
+  function isPlaceholder(value) {
+      return value === __;
+  }
+  curry.isPlaceholder = isPlaceholder;
+  /**
+   * @function uncurry
+   *
+   * @description
+   * return a function that is the non-curried version of the fn passed
+   *
+   * @param curried the curried function to uncurry
+   * @returns the original fn
+   */
+  function uncurry(curried) {
+      return curried.fn;
+  }
+  curry.uncurry = uncurry;
+
+  exports.__ = __;
+  exports.curry = curry;
+  exports.default = curry;
+  exports.isPlaceholder = isPlaceholder;
+  exports.uncurry = uncurry;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+//# sourceMappingURL=curriable.js.map
+
+
+/***/ }),
+
+/***/ 387:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * EventEmitter2
+ * https://github.com/hij1nx/EventEmitter2
+ *
+ * Copyright (c) 2013 hij1nx
+ * Licensed under the MIT license.
+ */
+;!function(undefined) {
+  var hasOwnProperty= Object.hasOwnProperty;
+  var isArray = Array.isArray ? Array.isArray : function _isArray(obj) {
+    return Object.prototype.toString.call(obj) === "[object Array]";
+  };
+  var defaultMaxListeners = 10;
+  var nextTickSupported= typeof process=='object' && typeof process.nextTick=='function';
+  var symbolsSupported= typeof Symbol==='function';
+  var reflectSupported= typeof Reflect === 'object';
+  var setImmediateSupported= typeof setImmediate === 'function';
+  var _setImmediate= setImmediateSupported ? setImmediate : setTimeout;
+  var ownKeys= symbolsSupported? (reflectSupported && typeof Reflect.ownKeys==='function'? Reflect.ownKeys : function(obj){
+    var arr= Object.getOwnPropertyNames(obj);
+    arr.push.apply(arr, Object.getOwnPropertySymbols(obj));
+    return arr;
+  }) : Object.keys;
+
+  function init() {
+    this._events = {};
+    if (this._conf) {
+      configure.call(this, this._conf);
+    }
+  }
+
+  function configure(conf) {
+    if (conf) {
+      this._conf = conf;
+
+      conf.delimiter && (this.delimiter = conf.delimiter);
+
+      if(conf.maxListeners!==undefined){
+          this._maxListeners= conf.maxListeners;
+      }
+
+      conf.wildcard && (this.wildcard = conf.wildcard);
+      conf.newListener && (this._newListener = conf.newListener);
+      conf.removeListener && (this._removeListener = conf.removeListener);
+      conf.verboseMemoryLeak && (this.verboseMemoryLeak = conf.verboseMemoryLeak);
+      conf.ignoreErrors && (this.ignoreErrors = conf.ignoreErrors);
+
+      if (this.wildcard) {
+        this.listenerTree = {};
+      }
+    }
+  }
+
+  function logPossibleMemoryLeak(count, eventName) {
+    var errorMsg = '(node) warning: possible EventEmitter memory ' +
+        'leak detected. ' + count + ' listeners added. ' +
+        'Use emitter.setMaxListeners() to increase limit.';
+
+    if(this.verboseMemoryLeak){
+      errorMsg += ' Event name: ' + eventName + '.';
+    }
+
+    if(typeof process !== 'undefined' && process.emitWarning){
+      var e = new Error(errorMsg);
+      e.name = 'MaxListenersExceededWarning';
+      e.emitter = this;
+      e.count = count;
+      process.emitWarning(e);
+    } else {
+      console.error(errorMsg);
+
+      if (console.trace){
+        console.trace();
+      }
+    }
+  }
+
+  var toArray = function (a, b, c) {
+    var n = arguments.length;
+    switch (n) {
+      case 0:
+        return [];
+      case 1:
+        return [a];
+      case 2:
+        return [a, b];
+      case 3:
+        return [a, b, c];
+      default:
+        var arr = new Array(n);
+        while (n--) {
+          arr[n] = arguments[n];
+        }
+        return arr;
+    }
+  };
+
+  function toObject(keys, values) {
+    var obj = {};
+    var key;
+    var len = keys.length;
+    var valuesCount = values ? value.length : 0;
+    for (var i = 0; i < len; i++) {
+      key = keys[i];
+      obj[key] = i < valuesCount ? values[i] : undefined;
+    }
+    return obj;
+  }
+
+  function TargetObserver(emitter, target, options) {
+    this._emitter = emitter;
+    this._target = target;
+    this._listeners = {};
+    this._listenersCount = 0;
+
+    var on, off;
+
+    if (options.on || options.off) {
+      on = options.on;
+      off = options.off;
+    }
+
+    if (target.addEventListener) {
+      on = target.addEventListener;
+      off = target.removeEventListener;
+    } else if (target.addListener) {
+      on = target.addListener;
+      off = target.removeListener;
+    } else if (target.on) {
+      on = target.on;
+      off = target.off;
+    }
+
+    if (!on && !off) {
+      throw Error('target does not implement any known event API');
+    }
+
+    if (typeof on !== 'function') {
+      throw TypeError('on method must be a function');
+    }
+
+    if (typeof off !== 'function') {
+      throw TypeError('off method must be a function');
+    }
+
+    this._on = on;
+    this._off = off;
+
+    var _observers= emitter._observers;
+    if(_observers){
+      _observers.push(this);
+    }else{
+      emitter._observers= [this];
+    }
+  }
+
+  Object.assign(TargetObserver.prototype, {
+    subscribe: function(event, localEvent, reducer){
+      var observer= this;
+      var target= this._target;
+      var emitter= this._emitter;
+      var listeners= this._listeners;
+      var handler= function(){
+        var args= toArray.apply(null, arguments);
+        var eventObj= {
+          data: args,
+          name: localEvent,
+          original: event
+        };
+        if(reducer){
+          var result= reducer.call(target, eventObj);
+          if(result!==false){
+            emitter.emit.apply(emitter, [eventObj.name].concat(args))
+          }
+          return;
+        }
+        emitter.emit.apply(emitter, [localEvent].concat(args));
+      };
+
+
+      if(listeners[event]){
+        throw Error('Event \'' + event + '\' is already listening');
+      }
+
+      this._listenersCount++;
+
+      if(emitter._newListener && emitter._removeListener && !observer._onNewListener){
+
+        this._onNewListener = function (_event) {
+          if (_event === localEvent && listeners[event] === null) {
+            listeners[event] = handler;
+            observer._on.call(target, event, handler);
+          }
+        };
+
+        emitter.on('newListener', this._onNewListener);
+
+        this._onRemoveListener= function(_event){
+          if(_event === localEvent && !emitter.hasListeners(_event) && listeners[event]){
+            listeners[event]= null;
+            observer._off.call(target, event, handler);
+          }
+        };
+
+        listeners[event]= null;
+
+        emitter.on('removeListener', this._onRemoveListener);
+      }else{
+        listeners[event]= handler;
+        observer._on.call(target, event, handler);
+      }
+    },
+
+    unsubscribe: function(event){
+      var observer= this;
+      var listeners= this._listeners;
+      var emitter= this._emitter;
+      var handler;
+      var events;
+      var off= this._off;
+      var target= this._target;
+      var i;
+
+      if(event && typeof event!=='string'){
+        throw TypeError('event must be a string');
+      }
+
+      function clearRefs(){
+        if(observer._onNewListener){
+          emitter.off('newListener', observer._onNewListener);
+          emitter.off('removeListener', observer._onRemoveListener);
+          observer._onNewListener= null;
+          observer._onRemoveListener= null;
+        }
+        var index= findTargetIndex.call(emitter, observer);
+        emitter._observers.splice(index, 1);
+      }
+
+      if(event){
+        handler= listeners[event];
+        if(!handler) return;
+        off.call(target, event, handler);
+        delete listeners[event];
+        if(!--this._listenersCount){
+          clearRefs();
+        }
+      }else{
+        events= ownKeys(listeners);
+        i= events.length;
+        while(i-->0){
+          event= events[i];
+          off.call(target, event, listeners[event]);
+        }
+        this._listeners= {};
+        this._listenersCount= 0;
+        clearRefs();
+      }
+    }
+  });
+
+  function resolveOptions(options, schema, reducers, allowUnknown) {
+    var computedOptions = Object.assign({}, schema);
+
+    if (!options) return computedOptions;
+
+    if (typeof options !== 'object') {
+      throw TypeError('options must be an object')
+    }
+
+    var keys = Object.keys(options);
+    var length = keys.length;
+    var option, value;
+    var reducer;
+
+    function reject(reason) {
+      throw Error('Invalid "' + option + '" option value' + (reason ? '. Reason: ' + reason : ''))
+    }
+
+    for (var i = 0; i < length; i++) {
+      option = keys[i];
+      if (!allowUnknown && !hasOwnProperty.call(schema, option)) {
+        throw Error('Unknown "' + option + '" option');
+      }
+      value = options[option];
+      if (value !== undefined) {
+        reducer = reducers[option];
+        computedOptions[option] = reducer ? reducer(value, reject) : value;
+      }
+    }
+    return computedOptions;
+  }
+
+  function constructorReducer(value, reject) {
+    if (typeof value !== 'function' || !value.hasOwnProperty('prototype')) {
+      reject('value must be a constructor');
+    }
+    return value;
+  }
+
+  function makeTypeReducer(types) {
+    var message= 'value must be type of ' + types.join('|');
+    var len= types.length;
+    var firstType= types[0];
+    var secondType= types[1];
+
+    if (len === 1) {
+      return function (v, reject) {
+        if (typeof v === firstType) {
+          return v;
+        }
+        reject(message);
+      }
+    }
+
+    if (len === 2) {
+      return function (v, reject) {
+        var kind= typeof v;
+        if (kind === firstType || kind === secondType) return v;
+        reject(message);
+      }
+    }
+
+    return function (v, reject) {
+      var kind = typeof v;
+      var i = len;
+      while (i-- > 0) {
+        if (kind === types[i]) return v;
+      }
+      reject(message);
+    }
+  }
+
+  var functionReducer= makeTypeReducer(['function']);
+
+  var objectFunctionReducer= makeTypeReducer(['object', 'function']);
+
+  function makeCancelablePromise(Promise, executor, options) {
+    var isCancelable;
+    var callbacks;
+    var timer= 0;
+    var subscriptionClosed;
+
+    var promise = new Promise(function (resolve, reject, onCancel) {
+      options= resolveOptions(options, {
+        timeout: 0,
+        overload: false
+      }, {
+        timeout: function(value, reject){
+          value*= 1;
+          if (typeof value !== 'number' || value < 0 || !Number.isFinite(value)) {
+            reject('timeout must be a positive number');
+          }
+          return value;
+        }
+      });
+
+      isCancelable = !options.overload && typeof Promise.prototype.cancel === 'function' && typeof onCancel === 'function';
+
+      function cleanup() {
+        if (callbacks) {
+          callbacks = null;
+        }
+        if (timer) {
+          clearTimeout(timer);
+          timer = 0;
+        }
+      }
+
+      var _resolve= function(value){
+        cleanup();
+        resolve(value);
+      };
+
+      var _reject= function(err){
+        cleanup();
+        reject(err);
+      };
+
+      if (isCancelable) {
+        executor(_resolve, _reject, onCancel);
+      } else {
+        callbacks = [function(reason){
+          _reject(reason || Error('canceled'));
+        }];
+        executor(_resolve, _reject, function (cb) {
+          if (subscriptionClosed) {
+            throw Error('Unable to subscribe on cancel event asynchronously')
+          }
+          if (typeof cb !== 'function') {
+            throw TypeError('onCancel callback must be a function');
+          }
+          callbacks.push(cb);
+        });
+        subscriptionClosed= true;
+      }
+
+      if (options.timeout > 0) {
+        timer= setTimeout(function(){
+          var reason= Error('timeout');
+          reason.code = 'ETIMEDOUT'
+          timer= 0;
+          promise.cancel(reason);
+          reject(reason);
+        }, options.timeout);
+      }
+    });
+
+    if (!isCancelable) {
+      promise.cancel = function (reason) {
+        if (!callbacks) {
+          return;
+        }
+        var length = callbacks.length;
+        for (var i = 1; i < length; i++) {
+          callbacks[i](reason);
+        }
+        // internal callback to reject the promise
+        callbacks[0](reason);
+        callbacks = null;
+      };
+    }
+
+    return promise;
+  }
+
+  function findTargetIndex(observer) {
+    var observers = this._observers;
+    if(!observers){
+      return -1;
+    }
+    var len = observers.length;
+    for (var i = 0; i < len; i++) {
+      if (observers[i]._target === observer) return i;
+    }
+    return -1;
+  }
+
+  // Attention, function return type now is array, always !
+  // It has zero elements if no any matches found and one or more
+  // elements (leafs) if there are matches
+  //
+  function searchListenerTree(handlers, type, tree, i, typeLength) {
+    if (!tree) {
+      return null;
+    }
+
+    if (i === 0) {
+      var kind = typeof type;
+      if (kind === 'string') {
+        var ns, n, l = 0, j = 0, delimiter = this.delimiter, dl = delimiter.length;
+        if ((n = type.indexOf(delimiter)) !== -1) {
+          ns = new Array(5);
+          do {
+            ns[l++] = type.slice(j, n);
+            j = n + dl;
+          } while ((n = type.indexOf(delimiter, j)) !== -1);
+
+          ns[l++] = type.slice(j);
+          type = ns;
+          typeLength = l;
+        } else {
+          type = [type];
+          typeLength = 1;
+        }
+      } else if (kind === 'object') {
+        typeLength = type.length;
+      } else {
+        type = [type];
+        typeLength = 1;
+      }
+    }
+
+    var listeners= null, branch, xTree, xxTree, isolatedBranch, endReached, currentType = type[i],
+        nextType = type[i + 1], branches, _listeners;
+
+    if (i === typeLength && tree._listeners) {
+      //
+      // If at the end of the event(s) list and the tree has listeners
+      // invoke those listeners.
+      //
+      if (typeof tree._listeners === 'function') {
+        handlers && handlers.push(tree._listeners);
+        return [tree];
+      } else {
+        handlers && handlers.push.apply(handlers, tree._listeners);
+        return [tree];
+      }
+    }
+
+    if (currentType === '*') {
+      //
+      // If the event emitted is '*' at this part
+      // or there is a concrete match at this patch
+      //
+      branches= ownKeys(tree);
+      n= branches.length;
+      while(n-->0){
+        branch= branches[n];
+        if (branch !== '_listeners') {
+          _listeners = searchListenerTree(handlers, type, tree[branch], i + 1, typeLength);
+          if(_listeners){
+            if(listeners){
+              listeners.push.apply(listeners, _listeners);
+            }else{
+              listeners = _listeners;
+            }
+          }
+        }
+      }
+      return listeners;
+    } else if (currentType === '**') {
+      endReached = (i + 1 === typeLength || (i + 2 === typeLength && nextType === '*'));
+      if (endReached && tree._listeners) {
+        // The next element has a _listeners, add it to the handlers.
+        listeners = searchListenerTree(handlers, type, tree, typeLength, typeLength);
+      }
+
+      branches= ownKeys(tree);
+      n= branches.length;
+      while(n-->0){
+        branch= branches[n];
+        if (branch !== '_listeners') {
+          if (branch === '*' || branch === '**') {
+            if (tree[branch]._listeners && !endReached) {
+              _listeners = searchListenerTree(handlers, type, tree[branch], typeLength, typeLength);
+              if(_listeners){
+                if(listeners){
+                  listeners.push.apply(listeners, _listeners);
+                }else{
+                  listeners = _listeners;
+                }
+              }
+            }
+            _listeners = searchListenerTree(handlers, type, tree[branch], i, typeLength);
+          } else if (branch === nextType) {
+            _listeners = searchListenerTree(handlers, type, tree[branch], i + 2, typeLength);
+          } else {
+            // No match on this one, shift into the tree but not in the type array.
+            _listeners = searchListenerTree(handlers, type, tree[branch], i, typeLength);
+          }
+          if(_listeners){
+            if(listeners){
+              listeners.push.apply(listeners, _listeners);
+            }else{
+              listeners = _listeners;
+            }
+          }
+        }
+      }
+      return listeners;
+    }else if (tree[currentType]) {
+      listeners= searchListenerTree(handlers, type, tree[currentType], i + 1, typeLength);
+    }
+
+      xTree = tree['*'];
+    if (xTree) {
+      //
+      // If the listener tree will allow any match for this part,
+      // then recursively explore all branches of the tree
+      //
+      searchListenerTree(handlers, type, xTree, i + 1, typeLength);
+    }
+
+    xxTree = tree['**'];
+    if (xxTree) {
+      if (i < typeLength) {
+        if (xxTree._listeners) {
+          // If we have a listener on a '**', it will catch all, so add its handler.
+          searchListenerTree(handlers, type, xxTree, typeLength, typeLength);
+        }
+
+        // Build arrays of matching next branches and others.
+        branches= ownKeys(xxTree);
+        n= branches.length;
+        while(n-->0){
+          branch= branches[n];
+          if (branch !== '_listeners') {
+            if (branch === nextType) {
+              // We know the next element will match, so jump twice.
+              searchListenerTree(handlers, type, xxTree[branch], i + 2, typeLength);
+            } else if (branch === currentType) {
+              // Current node matches, move into the tree.
+              searchListenerTree(handlers, type, xxTree[branch], i + 1, typeLength);
+            } else {
+              isolatedBranch = {};
+              isolatedBranch[branch] = xxTree[branch];
+              searchListenerTree(handlers, type, {'**': isolatedBranch}, i + 1, typeLength);
+            }
+          }
+        }
+      } else if (xxTree._listeners) {
+        // We have reached the end and still on a '**'
+        searchListenerTree(handlers, type, xxTree, typeLength, typeLength);
+      } else if (xxTree['*'] && xxTree['*']._listeners) {
+        searchListenerTree(handlers, type, xxTree['*'], typeLength, typeLength);
+      }
+    }
+
+    return listeners;
+  }
+
+  function growListenerTree(type, listener, prepend) {
+    var len = 0, j = 0, i, delimiter = this.delimiter, dl= delimiter.length, ns;
+
+    if(typeof type==='string') {
+      if ((i = type.indexOf(delimiter)) !== -1) {
+        ns = new Array(5);
+        do {
+          ns[len++] = type.slice(j, i);
+          j = i + dl;
+        } while ((i = type.indexOf(delimiter, j)) !== -1);
+
+        ns[len++] = type.slice(j);
+      }else{
+        ns= [type];
+        len= 1;
+      }
+    }else{
+      ns= type;
+      len= type.length;
+    }
+
+    //
+    // Looks for two consecutive '**', if so, don't add the event at all.
+    //
+    if (len > 1) {
+      for (i = 0; i + 1 < len; i++) {
+        if (ns[i] === '**' && ns[i + 1] === '**') {
+          return;
+        }
+      }
+    }
+
+
+
+    var tree = this.listenerTree, name;
+
+    for (i = 0; i < len; i++) {
+      name = ns[i];
+
+      tree = tree[name] || (tree[name] = {});
+
+      if (i === len - 1) {
+        if (!tree._listeners) {
+          tree._listeners = listener;
+        } else {
+          if (typeof tree._listeners === 'function') {
+            tree._listeners = [tree._listeners];
+          }
+
+          if (prepend) {
+            tree._listeners.unshift(listener);
+          } else {
+            tree._listeners.push(listener);
+          }
+
+          if (
+              !tree._listeners.warned &&
+              this._maxListeners > 0 &&
+              tree._listeners.length > this._maxListeners
+          ) {
+            tree._listeners.warned = true;
+            logPossibleMemoryLeak.call(this, tree._listeners.length, name);
+          }
+        }
+        return true;
+      }
+    }
+
+    return true;
+  }
+
+  function collectTreeEvents(tree, events, root, asArray){
+     var branches= ownKeys(tree);
+     var i= branches.length;
+     var branch, branchName, path;
+     var hasListeners= tree['_listeners'];
+     var isArrayPath;
+
+     while(i-->0){
+         branchName= branches[i];
+
+         branch= tree[branchName];
+
+         if(branchName==='_listeners'){
+             path= root;
+         }else {
+             path = root ? root.concat(branchName) : [branchName];
+         }
+
+         isArrayPath= asArray || typeof branchName==='symbol';
+
+         hasListeners && events.push(isArrayPath? path : path.join(this.delimiter));
+
+         if(typeof branch==='object'){
+             collectTreeEvents.call(this, branch, events, path, isArrayPath);
+         }
+     }
+
+     return events;
+  }
+
+  function recursivelyGarbageCollect(root) {
+    var keys = ownKeys(root);
+    var i= keys.length;
+    var obj, key, flag;
+    while(i-->0){
+      key = keys[i];
+      obj = root[key];
+
+      if(obj){
+          flag= true;
+          if(key !== '_listeners' && !recursivelyGarbageCollect(obj)){
+             delete root[key];
+          }
+      }
+    }
+
+    return flag;
+  }
+
+  function Listener(emitter, event, listener){
+    this.emitter= emitter;
+    this.event= event;
+    this.listener= listener;
+  }
+
+  Listener.prototype.off= function(){
+    this.emitter.off(this.event, this.listener);
+    return this;
+  };
+
+  function setupListener(event, listener, options){
+      if (options === true) {
+        promisify = true;
+      } else if (options === false) {
+        async = true;
+      } else {
+        if (!options || typeof options !== 'object') {
+          throw TypeError('options should be an object or true');
+        }
+        var async = options.async;
+        var promisify = options.promisify;
+        var nextTick = options.nextTick;
+        var objectify = options.objectify;
+      }
+
+      if (async || nextTick || promisify) {
+        var _listener = listener;
+        var _origin = listener._origin || listener;
+
+        if (nextTick && !nextTickSupported) {
+          throw Error('process.nextTick is not supported');
+        }
+
+        if (promisify === undefined) {
+          promisify = listener.constructor.name === 'AsyncFunction';
+        }
+
+        listener = function () {
+          var args = arguments;
+          var context = this;
+          var event = this.event;
+
+          return promisify ? (nextTick ? Promise.resolve() : new Promise(function (resolve) {
+            _setImmediate(resolve);
+          }).then(function () {
+            context.event = event;
+            return _listener.apply(context, args)
+          })) : (nextTick ? process.nextTick : _setImmediate)(function () {
+            context.event = event;
+            _listener.apply(context, args)
+          });
+        };
+
+        listener._async = true;
+        listener._origin = _origin;
+      }
+
+    return [listener, objectify? new Listener(this, event, listener): this];
+  }
+
+  function EventEmitter(conf) {
+    this._events = {};
+    this._newListener = false;
+    this._removeListener = false;
+    this.verboseMemoryLeak = false;
+    configure.call(this, conf);
+  }
+
+  EventEmitter.EventEmitter2 = EventEmitter; // backwards compatibility for exporting EventEmitter property
+
+  EventEmitter.prototype.listenTo= function(target, events, options){
+    if(typeof target!=='object'){
+      throw TypeError('target musts be an object');
+    }
+
+    var emitter= this;
+
+    options = resolveOptions(options, {
+      on: undefined,
+      off: undefined,
+      reducers: undefined
+    }, {
+      on: functionReducer,
+      off: functionReducer,
+      reducers: objectFunctionReducer
+    });
+
+    function listen(events){
+      if(typeof events!=='object'){
+        throw TypeError('events must be an object');
+      }
+
+      var reducers= options.reducers;
+      var index= findTargetIndex.call(emitter, target);
+      var observer;
+
+      if(index===-1){
+        observer= new TargetObserver(emitter, target, options);
+      }else{
+        observer= emitter._observers[index];
+      }
+
+      var keys= ownKeys(events);
+      var len= keys.length;
+      var event;
+      var isSingleReducer= typeof reducers==='function';
+
+      for(var i=0; i<len; i++){
+        event= keys[i];
+        observer.subscribe(
+            event,
+            events[event] || event,
+            isSingleReducer ? reducers : reducers && reducers[event]
+        );
+      }
+    }
+
+    isArray(events)?
+        listen(toObject(events)) :
+        (typeof events==='string'? listen(toObject(events.split(/\s+/))): listen(events));
+
+    return this;
+  };
+
+  EventEmitter.prototype.stopListeningTo = function (target, event) {
+    var observers = this._observers;
+
+    if(!observers){
+      return false;
+    }
+
+    var i = observers.length;
+    var observer;
+    var matched= false;
+
+    if(target && typeof target!=='object'){
+      throw TypeError('target should be an object');
+    }
+
+    while (i-- > 0) {
+      observer = observers[i];
+      if (!target || observer._target === target) {
+        observer.unsubscribe(event);
+        matched= true;
+      }
+    }
+
+    return matched;
+  };
+
+  // By default EventEmitters will print a warning if more than
+  // 10 listeners are added to it. This is a useful default which
+  // helps finding memory leaks.
+  //
+  // Obviously not all Emitters should be limited to 10. This function allows
+  // that to be increased. Set to zero for unlimited.
+
+  EventEmitter.prototype.delimiter = '.';
+
+  EventEmitter.prototype.setMaxListeners = function(n) {
+    if (n !== undefined) {
+      this._maxListeners = n;
+      if (!this._conf) this._conf = {};
+      this._conf.maxListeners = n;
+    }
+  };
+
+  EventEmitter.prototype.getMaxListeners = function() {
+    return this._maxListeners;
+  };
+
+  EventEmitter.prototype.event = '';
+
+  EventEmitter.prototype.once = function(event, fn, options) {
+    return this._once(event, fn, false, options);
+  };
+
+  EventEmitter.prototype.prependOnceListener = function(event, fn, options) {
+    return this._once(event, fn, true, options);
+  };
+
+  EventEmitter.prototype._once = function(event, fn, prepend, options) {
+    return this._many(event, 1, fn, prepend, options);
+  };
+
+  EventEmitter.prototype.many = function(event, ttl, fn, options) {
+    return this._many(event, ttl, fn, false, options);
+  };
+
+  EventEmitter.prototype.prependMany = function(event, ttl, fn, options) {
+    return this._many(event, ttl, fn, true, options);
+  };
+
+  EventEmitter.prototype._many = function(event, ttl, fn, prepend, options) {
+    var self = this;
+
+    if (typeof fn !== 'function') {
+      throw new Error('many only accepts instances of Function');
+    }
+
+    function listener() {
+      if (--ttl === 0) {
+        self.off(event, listener);
+      }
+      return fn.apply(this, arguments);
+    }
+
+    listener._origin = fn;
+
+    return this._on(event, listener, prepend, options);
+  };
+
+  EventEmitter.prototype.emit = function() {
+    if (!this._events && !this._all) {
+      return false;
+    }
+
+    this._events || init.call(this);
+
+    var type = arguments[0], ns, wildcard= this.wildcard;
+    var args,l,i,j, containsSymbol;
+
+    if (type === 'newListener' && !this._newListener) {
+      if (!this._events.newListener) {
+        return false;
+      }
+    }
+
+    if (wildcard) {
+      ns= type;
+      if(type!=='newListener' && type!=='removeListener'){
+        if (typeof type === 'object') {
+          l = type.length;
+          if (symbolsSupported) {
+            for (i = 0; i < l; i++) {
+              if (typeof type[i] === 'symbol') {
+                containsSymbol = true;
+                break;
+              }
+            }
+          }
+          if (!containsSymbol) {
+            type = type.join(this.delimiter);
+          }
+        }
+      }
+    }
+
+    var al = arguments.length;
+    var handler;
+
+    if (this._all && this._all.length) {
+      handler = this._all.slice();
+
+      for (i = 0, l = handler.length; i < l; i++) {
+        this.event = type;
+        switch (al) {
+        case 1:
+          handler[i].call(this, type);
+          break;
+        case 2:
+          handler[i].call(this, type, arguments[1]);
+          break;
+        case 3:
+          handler[i].call(this, type, arguments[1], arguments[2]);
+          break;
+        default:
+          handler[i].apply(this, arguments);
+        }
+      }
+    }
+
+    if (wildcard) {
+      handler = [];
+      searchListenerTree.call(this, handler, ns, this.listenerTree, 0, l);
+    } else {
+      handler = this._events[type];
+      if (typeof handler === 'function') {
+        this.event = type;
+        switch (al) {
+        case 1:
+          handler.call(this);
+          break;
+        case 2:
+          handler.call(this, arguments[1]);
+          break;
+        case 3:
+          handler.call(this, arguments[1], arguments[2]);
+          break;
+        default:
+          args = new Array(al - 1);
+          for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+          handler.apply(this, args);
+        }
+        return true;
+      } else if (handler) {
+        // need to make copy of handlers because list can change in the middle
+        // of emit call
+        handler = handler.slice();
+      }
+    }
+
+    if (handler && handler.length) {
+      if (al > 3) {
+        args = new Array(al - 1);
+        for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+      }
+      for (i = 0, l = handler.length; i < l; i++) {
+        this.event = type;
+        switch (al) {
+        case 1:
+          handler[i].call(this);
+          break;
+        case 2:
+          handler[i].call(this, arguments[1]);
+          break;
+        case 3:
+          handler[i].call(this, arguments[1], arguments[2]);
+          break;
+        default:
+          handler[i].apply(this, args);
+        }
+      }
+      return true;
+    } else if (!this.ignoreErrors && !this._all && type === 'error') {
+      if (arguments[1] instanceof Error) {
+        throw arguments[1]; // Unhandled 'error' event
+      } else {
+        throw new Error("Uncaught, unspecified 'error' event.");
+      }
+    }
+
+    return !!this._all;
+  };
+
+  EventEmitter.prototype.emitAsync = function() {
+    if (!this._events && !this._all) {
+      return false;
+    }
+
+    this._events || init.call(this);
+
+    var type = arguments[0], wildcard= this.wildcard, ns, containsSymbol;
+    var args,l,i,j;
+
+    if (type === 'newListener' && !this._newListener) {
+        if (!this._events.newListener) { return Promise.resolve([false]); }
+    }
+
+    if (wildcard) {
+      ns= type;
+      if(type!=='newListener' && type!=='removeListener'){
+        if (typeof type === 'object') {
+          l = type.length;
+          if (symbolsSupported) {
+            for (i = 0; i < l; i++) {
+              if (typeof type[i] === 'symbol') {
+                containsSymbol = true;
+                break;
+              }
+            }
+          }
+          if (!containsSymbol) {
+            type = type.join(this.delimiter);
+          }
+        }
+      }
+    }
+
+    var promises= [];
+
+    var al = arguments.length;
+    var handler;
+
+    if (this._all) {
+      for (i = 0, l = this._all.length; i < l; i++) {
+        this.event = type;
+        switch (al) {
+        case 1:
+          promises.push(this._all[i].call(this, type));
+          break;
+        case 2:
+          promises.push(this._all[i].call(this, type, arguments[1]));
+          break;
+        case 3:
+          promises.push(this._all[i].call(this, type, arguments[1], arguments[2]));
+          break;
+        default:
+          promises.push(this._all[i].apply(this, arguments));
+        }
+      }
+    }
+
+    if (wildcard) {
+      handler = [];
+      searchListenerTree.call(this, handler, ns, this.listenerTree, 0);
+    } else {
+      handler = this._events[type];
+    }
+
+    if (typeof handler === 'function') {
+      this.event = type;
+      switch (al) {
+      case 1:
+        promises.push(handler.call(this));
+        break;
+      case 2:
+        promises.push(handler.call(this, arguments[1]));
+        break;
+      case 3:
+        promises.push(handler.call(this, arguments[1], arguments[2]));
+        break;
+      default:
+        args = new Array(al - 1);
+        for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+        promises.push(handler.apply(this, args));
+      }
+    } else if (handler && handler.length) {
+      handler = handler.slice();
+      if (al > 3) {
+        args = new Array(al - 1);
+        for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+      }
+      for (i = 0, l = handler.length; i < l; i++) {
+        this.event = type;
+        switch (al) {
+        case 1:
+          promises.push(handler[i].call(this));
+          break;
+        case 2:
+          promises.push(handler[i].call(this, arguments[1]));
+          break;
+        case 3:
+          promises.push(handler[i].call(this, arguments[1], arguments[2]));
+          break;
+        default:
+          promises.push(handler[i].apply(this, args));
+        }
+      }
+    } else if (!this.ignoreErrors && !this._all && type === 'error') {
+      if (arguments[1] instanceof Error) {
+        return Promise.reject(arguments[1]); // Unhandled 'error' event
+      } else {
+        return Promise.reject("Uncaught, unspecified 'error' event.");
+      }
+    }
+
+    return Promise.all(promises);
+  };
+
+  EventEmitter.prototype.on = function(type, listener, options) {
+    return this._on(type, listener, false, options);
+  };
+
+  EventEmitter.prototype.prependListener = function(type, listener, options) {
+    return this._on(type, listener, true, options);
+  };
+
+  EventEmitter.prototype.onAny = function(fn) {
+    return this._onAny(fn, false);
+  };
+
+  EventEmitter.prototype.prependAny = function(fn) {
+    return this._onAny(fn, true);
+  };
+
+  EventEmitter.prototype.addListener = EventEmitter.prototype.on;
+
+  EventEmitter.prototype._onAny = function(fn, prepend){
+    if (typeof fn !== 'function') {
+      throw new Error('onAny only accepts instances of Function');
+    }
+
+    if (!this._all) {
+      this._all = [];
+    }
+
+    // Add the function to the event listener collection.
+    if(prepend){
+      this._all.unshift(fn);
+    }else{
+      this._all.push(fn);
+    }
+
+    return this;
+  };
+
+  EventEmitter.prototype._on = function(type, listener, prepend, options) {
+    if (typeof type === 'function') {
+      this._onAny(type, listener);
+      return this;
+    }
+
+    if (typeof listener !== 'function') {
+      throw new Error('on only accepts instances of Function');
+    }
+    this._events || init.call(this);
+
+    var returnValue= this, temp;
+
+    if (options !== undefined) {
+      temp = setupListener.call(this, type, listener, options);
+      listener = temp[0];
+      returnValue = temp[1];
+    }
+
+    // To avoid recursion in the case that type == "newListeners"! Before
+    // adding it to the listeners, first emit "newListeners".
+    if (this._newListener) {
+      this.emit('newListener', type, listener);
+    }
+
+    if (this.wildcard) {
+      growListenerTree.call(this, type, listener, prepend);
+      return returnValue;
+    }
+
+    if (!this._events[type]) {
+      // Optimize the case of one listener. Don't need the extra array object.
+      this._events[type] = listener;
+    } else {
+      if (typeof this._events[type] === 'function') {
+        // Change to array.
+        this._events[type] = [this._events[type]];
+      }
+
+      // If we've already got an array, just add
+      if(prepend){
+        this._events[type].unshift(listener);
+      }else{
+        this._events[type].push(listener);
+      }
+
+      // Check for listener leak
+      if (
+        !this._events[type].warned &&
+        this._maxListeners > 0 &&
+        this._events[type].length > this._maxListeners
+      ) {
+        this._events[type].warned = true;
+        logPossibleMemoryLeak.call(this, this._events[type].length, type);
+      }
+    }
+
+    return returnValue;
+  };
+
+  EventEmitter.prototype.off = function(type, listener) {
+    if (typeof listener !== 'function') {
+      throw new Error('removeListener only takes instances of Function');
+    }
+
+    var handlers,leafs=[];
+
+    if(this.wildcard) {
+      var ns = typeof type === 'string' ? type.split(this.delimiter) : type.slice();
+      leafs = searchListenerTree.call(this, null, ns, this.listenerTree, 0);
+      if(!leafs) return this;
+    } else {
+      // does not use listeners(), so no side effect of creating _events[type]
+      if (!this._events[type]) return this;
+      handlers = this._events[type];
+      leafs.push({_listeners:handlers});
+    }
+
+    for (var iLeaf=0; iLeaf<leafs.length; iLeaf++) {
+      var leaf = leafs[iLeaf];
+      handlers = leaf._listeners;
+      if (isArray(handlers)) {
+
+        var position = -1;
+
+        for (var i = 0, length = handlers.length; i < length; i++) {
+          if (handlers[i] === listener ||
+            (handlers[i].listener && handlers[i].listener === listener) ||
+            (handlers[i]._origin && handlers[i]._origin === listener)) {
+            position = i;
+            break;
+          }
+        }
+
+        if (position < 0) {
+          continue;
+        }
+
+        if(this.wildcard) {
+          leaf._listeners.splice(position, 1);
+        }
+        else {
+          this._events[type].splice(position, 1);
+        }
+
+        if (handlers.length === 0) {
+          if(this.wildcard) {
+            delete leaf._listeners;
+          }
+          else {
+            delete this._events[type];
+          }
+        }
+        if (this._removeListener)
+          this.emit("removeListener", type, listener);
+
+        return this;
+      }
+      else if (handlers === listener ||
+        (handlers.listener && handlers.listener === listener) ||
+        (handlers._origin && handlers._origin === listener)) {
+        if(this.wildcard) {
+          delete leaf._listeners;
+        }
+        else {
+          delete this._events[type];
+        }
+        if (this._removeListener)
+          this.emit("removeListener", type, listener);
+      }
+    }
+
+    this.listenerTree && recursivelyGarbageCollect(this.listenerTree);
+
+    return this;
+  };
+
+  EventEmitter.prototype.offAny = function(fn) {
+    var i = 0, l = 0, fns;
+    if (fn && this._all && this._all.length > 0) {
+      fns = this._all;
+      for(i = 0, l = fns.length; i < l; i++) {
+        if(fn === fns[i]) {
+          fns.splice(i, 1);
+          if (this._removeListener)
+            this.emit("removeListenerAny", fn);
+          return this;
+        }
+      }
+    } else {
+      fns = this._all;
+      if (this._removeListener) {
+        for(i = 0, l = fns.length; i < l; i++)
+          this.emit("removeListenerAny", fns[i]);
+      }
+      this._all = [];
+    }
+    return this;
+  };
+
+  EventEmitter.prototype.removeListener = EventEmitter.prototype.off;
+
+  EventEmitter.prototype.removeAllListeners = function (type) {
+    if (type === undefined) {
+      !this._events || init.call(this);
+      return this;
+    }
+
+    if (this.wildcard) {
+      var leafs = searchListenerTree.call(this, null, type, this.listenerTree, 0), leaf, i;
+      if (!leafs) return this;
+      for (i = 0; i < leafs.length; i++) {
+        leaf = leafs[i];
+        leaf._listeners = null;
+      }
+      this.listenerTree && recursivelyGarbageCollect(this.listenerTree);
+    } else if (this._events) {
+      this._events[type] = null;
+    }
+    return this;
+  };
+
+  EventEmitter.prototype.listeners = function (type) {
+    var _events = this._events;
+    var keys, listeners, allListeners;
+    var i;
+    var listenerTree;
+
+    if (type === undefined) {
+      if (this.wildcard) {
+        throw Error('event name required for wildcard emitter');
+      }
+
+      if (!_events) {
+        return [];
+      }
+
+      keys = ownKeys(_events);
+      i = keys.length;
+      allListeners = [];
+      while (i-- > 0) {
+        listeners = _events[keys[i]];
+        if (typeof listeners === 'function') {
+          allListeners.push(listeners);
+        } else {
+          allListeners.push.apply(allListeners, listeners);
+        }
+      }
+      return allListeners;
+    } else {
+      if (this.wildcard) {
+        listenerTree= this.listenerTree;
+        if(!listenerTree) return [];
+        var handlers = [];
+        var ns = typeof type === 'string' ? type.split(this.delimiter) : type.slice();
+        searchListenerTree.call(this, handlers, ns, listenerTree, 0);
+        return handlers;
+      }
+
+      if (!_events) {
+        return [];
+      }
+
+      listeners = _events[type];
+
+      if (!listeners) {
+        return [];
+      }
+      return typeof listeners === 'function' ? [listeners] : listeners;
+    }
+  };
+
+  EventEmitter.prototype.eventNames = function(nsAsArray){
+    var _events= this._events;
+    return this.wildcard? collectTreeEvents.call(this, this.listenerTree, [], null, nsAsArray) : (_events? ownKeys(_events) : []);
+  };
+
+  EventEmitter.prototype.listenerCount = function(type) {
+    return this.listeners(type).length;
+  };
+
+  EventEmitter.prototype.hasListeners = function (type) {
+    if (this.wildcard) {
+      var handlers = [];
+      var ns = typeof type === 'string' ? type.split(this.delimiter) : type.slice();
+      searchListenerTree.call(this, handlers, ns, this.listenerTree, 0);
+      return handlers.length > 0;
+    }
+
+    var _events = this._events;
+    var _all = this._all;
+
+    return !!(_all && _all.length || _events && (type === undefined ? ownKeys(_events).length : _events[type]));
+  };
+
+  EventEmitter.prototype.listenersAny = function() {
+
+    if(this._all) {
+      return this._all;
+    }
+    else {
+      return [];
+    }
+
+  };
+
+  EventEmitter.prototype.waitFor = function (event, options) {
+    var self = this;
+    var type = typeof options;
+    if (type === 'number') {
+      options = {timeout: options};
+    } else if (type === 'function') {
+      options = {filter: options};
+    }
+
+    options= resolveOptions(options, {
+      timeout: 0,
+      filter: undefined,
+      handleError: false,
+      Promise: Promise,
+      overload: false
+    }, {
+      filter: functionReducer,
+      Promise: constructorReducer
+    });
+
+    return makeCancelablePromise(options.Promise, function (resolve, reject, onCancel) {
+      function listener() {
+        var filter= options.filter;
+        if (filter && !filter.apply(self, arguments)) {
+          return;
+        }
+        self.off(event, listener);
+        if (options.handleError) {
+          var err = arguments[0];
+          err ? reject(err) : resolve(toArray.apply(null, arguments).slice(1));
+        } else {
+          resolve(toArray.apply(null, arguments));
+        }
+      }
+
+      onCancel(function(){
+        self.off(event, listener);
+      });
+
+      self._on(event, listener, false);
+    }, {
+      timeout: options.timeout,
+      overload: options.overload
+    })
+  };
+
+  function once(emitter, name, options) {
+    options= resolveOptions(options, {
+      Promise: Promise,
+      timeout: 0,
+      overload: false
+    }, {
+      Promise: constructorReducer
+    });
+
+    var _Promise= options.Promise;
+
+    return makeCancelablePromise(_Promise, function(resolve, reject, onCancel){
+      var handler;
+      if (typeof emitter.addEventListener === 'function') {
+        handler=  function () {
+          resolve(toArray.apply(null, arguments));
+        };
+
+        onCancel(function(){
+          emitter.removeEventListener(name, handler);
+        });
+
+        emitter.addEventListener(
+            name,
+            handler,
+            {once: true}
+        );
+        return;
+      }
+
+      var eventListener = function(){
+        errorListener && emitter.removeListener('error', errorListener);
+        resolve(toArray.apply(null, arguments));
+      };
+
+      var errorListener;
+
+      if (name !== 'error') {
+        errorListener = function (err){
+          emitter.removeListener(name, eventListener);
+          reject(err);
+        };
+
+        emitter.once('error', errorListener);
+      }
+
+      onCancel(function(){
+        errorListener && emitter.removeListener('error', errorListener);
+        emitter.removeListener(name, eventListener);
+      });
+
+      emitter.once(name, eventListener);
+    }, {
+      timeout: options.timeout,
+      overload: options.overload
+    });
+  }
+
+  var prototype= EventEmitter.prototype;
+
+  Object.defineProperties(EventEmitter, {
+    defaultMaxListeners: {
+      get: function () {
+        return prototype._maxListeners;
+      },
+      set: function (n) {
+        if (typeof n !== 'number' || n < 0 || Number.isNaN(n)) {
+          throw TypeError('n must be a non-negative number')
+        }
+        prototype._maxListeners = n;
+      },
+      enumerable: true
+    },
+    once: {
+      value: once,
+      writable: true,
+      configurable: true
+    }
+  });
+
+  Object.defineProperties(prototype, {
+      _maxListeners: {
+          value: defaultMaxListeners,
+          writable: true,
+          configurable: true
+      },
+      _observers: {value: null, writable: true, configurable: true}
+  });
+
+  if (true) {
+     // AMD. Register as an anonymous module.
+    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+      return EventEmitter;
+    }).call(exports, __webpack_require__, exports, module),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var _global; }
+}();
+
+
+/***/ }),
+
+/***/ 190:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": function() { return /* binding */ es; },
+  "hash": function() { return /* binding */ hash; }
+});
+
+// EXTERNAL MODULE: ./node_modules/curriable/dist/curriable.js
+var curriable = __webpack_require__(807);
+;// CONCATENATED MODULE: ./node_modules/hash-it/es/constants.js
+var _SELF_TAGS, _TOSTRING_TAGS, _TYPEDARRAY_TAGS, _UNPARSEABLE_TAGS;
+
+/**
+ * @constant {boolean} HAS_BUFFER_FROM_SUPPORT
+ */
+var HAS_BUFFER_FROM_SUPPORT = typeof Buffer !== 'undefined' && typeof Buffer.from === 'function';
+/**
+ * @constant {boolean} HAS_UINT16ARRAY_SUPPORT
+ */
+
+var HAS_UINT16ARRAY_SUPPORT = typeof Uint16Array === 'function';
+/**
+ * @constant {RegExp} HTML_ELEMENT_REGEXP
+ */
+
+var HTML_ELEMENT_REGEXP = /\[object (HTML(.*)Element)\]/;
+/**
+ * @constant {RegExp} SVG_ELEMENT_REGEXP
+ */
+
+var SVG_ELEMENT_REGEXP = /\[object (SVG(.*)Element)\]/;
+/**
+ * @constant {Array<string>} OBJECT_CLASSES
+ */
+
+var OBJECT_CLASSES = ['Arguments', 'Array', 'ArrayBuffer', 'Boolean', 'DataView', 'Date', 'DocumentFragment', 'Error', 'Event', 'Float32Array', 'Float64Array', 'Function', 'Generator', 'GeneratorFunction', 'HTMLElement', 'Int8Array', 'Int16Array', 'Int32Array', 'Map', 'Null', 'Number', 'Object', 'Promise', 'RegExp', 'Set', 'String', 'Symbol', 'Uint8Array', 'Uint8ClampedArray', 'Uint16Array', 'Uint32Array', 'Undefined', 'WeakMap', 'WeakSet', 'Window'];
+/**
+ * @constant {Object} OBJECT_CLASS_MAP
+ */
+
+var OBJECT_CLASS_MAP = OBJECT_CLASSES.reduce(function (objectClasses, type) {
+  objectClasses["[object " + type + "]"] = type;
+  return objectClasses;
+}, {});
+/**
+ * @constant {Object} OBJECT_CLASS_TYPE_MAP
+ */
+
+var OBJECT_CLASS_TYPE_MAP = Object.keys(OBJECT_CLASS_MAP).reduce(function (objectClassTypes, objectClass) {
+  objectClassTypes[OBJECT_CLASS_MAP[objectClass].toUpperCase()] = objectClass;
+  return objectClassTypes;
+}, {});
+var ITERABLE_TAGS = {
+  '[object Map]': true,
+  '[object Set]': true
+};
+var PRIMITIVE_TAGS = {
+  boolean: true,
+  function: true,
+  number: true,
+  string: true,
+  undefined: true
+};
+var SELF_TAGS = (_SELF_TAGS = {}, _SELF_TAGS[OBJECT_CLASS_TYPE_MAP.ARGUMENTS] = true, _SELF_TAGS[OBJECT_CLASS_TYPE_MAP.ARRAY] = true, _SELF_TAGS);
+var TOSTRING_TAGS = (_TOSTRING_TAGS = {}, _TOSTRING_TAGS[OBJECT_CLASS_TYPE_MAP.REGEXP] = true, _TOSTRING_TAGS[OBJECT_CLASS_TYPE_MAP.SYMBOL] = true, _TOSTRING_TAGS);
+var TYPEDARRAY_TAGS = (_TYPEDARRAY_TAGS = {}, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.FLOAT32ARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.FLOAT64ARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.INT8ARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.INT16ARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.INT32ARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.UINT8ARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.UINT8CLAMPEDARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.UINT16ARRAY] = true, _TYPEDARRAY_TAGS[OBJECT_CLASS_TYPE_MAP.UINT32ARRAY] = true, _TYPEDARRAY_TAGS);
+var UNPARSEABLE_TAGS = (_UNPARSEABLE_TAGS = {}, _UNPARSEABLE_TAGS[OBJECT_CLASS_TYPE_MAP.GENERATOR] = true, _UNPARSEABLE_TAGS[OBJECT_CLASS_TYPE_MAP.PROMISE] = true, _UNPARSEABLE_TAGS[OBJECT_CLASS_TYPE_MAP.WEAKMAP] = true, _UNPARSEABLE_TAGS[OBJECT_CLASS_TYPE_MAP.WEAKSET] = true, _UNPARSEABLE_TAGS);
+;// CONCATENATED MODULE: ./node_modules/hash-it/es/utils.js
+
+var FUNCTION_NAME_REGEX = /^\s*function\s*([^(]*)/i;
+var utils_toString = Object.prototype.toString;
+var keys = Object.keys;
+/**
+ * @function getFunctionName
+ *
+ * @description
+ * get the name of the function based on a series of fallback attempts
+ *
+ * @param {function} fn the function to test
+ * @returns {string} the function name
+ */
+
+function getFunctionName(fn) {
+  return fn.name || (fn.toString().match(FUNCTION_NAME_REGEX) || [])[1] || 'anonymous';
+}
+/**
+ * @function getIntegerHashValue
+ *
+ * @description
+ * based on string passed, get the integer hash value
+ * through bitwise operation (based on spinoff of dbj2
+ * with enhancements for reduced collisions)
+ *
+ * @param {string} string the string to get the hash value for
+ * @returns {number} the hash value
+ */
+
+function getIntegerHashValue(string) {
+  var index = string.length,
+      hashA = 5381,
+      hashB = 52711,
+      charCode;
+
+  while (index--) {
+    charCode = string.charCodeAt(index);
+    hashA = hashA * 33 ^ charCode;
+    hashB = hashB * 33 ^ charCode;
+  }
+
+  return (hashA >>> 0) * 4096 + (hashB >>> 0);
+}
+/**
+ * @function getSortedEvent
+ *
+ * @description
+ * get the event object sorted by its properties
+ *
+ * @param {boolean} bubbles does the event bubble up through the DOM
+ * @param {function} alias to stopPropagation
+ * @param {boolean} cancelable is the event cancelable
+ * @param {boolean} composed can the event bubble across the boundary to shadow DOM
+ * @param {HTMLElement} [currentTarget] registered target for the event
+ * @param {boolean} defaultPrevented has preventDefault been called on the event
+ * @param {string} eventPhase the phase of the event flow being processed
+ * @param {boolean} isTrusted was the event initiated by the browser
+ * @param {HTMLElement} [target] the target with which the event was dispatched
+ * @param {number} timeStamp the time at which the event was created
+ * @param {string} type the name of the event
+ * @returns {Object} the event object with all properties sorted
+ */
+
+function getSortedEvent(event) {
+  return {
+    bubbles: event.bubbles,
+    cancelBubble: event.cancelBubble,
+    cancelable: event.cancelable,
+    composed: event.composed,
+    currentTarget: event.currentTarget,
+    defaultPrevented: event.defaultPrevented,
+    eventPhase: event.eventPhase,
+    isTrusted: event.isTrusted,
+    returnValue: event.returnValue,
+    target: event.target,
+    type: event.type
+  };
+}
+/**
+ * @function shouldSort
+ *
+ * @description
+ * get the sort result based on the two values to compare
+ *
+ * @param {string} valueA the first value to compare
+ * @param {string} valueB the second value to compare
+ * @returns {boolean} should the value be sorted
+ */
+
+function shouldSort(valueA, valueB) {
+  return valueA > valueB;
+}
+/**
+ * @function shouldSortPair
+ *
+ * @description
+ * get the sort result based on the two pairs to compare
+ *
+ * @param {Object} pairA the first pair to compare
+ * @param {Object} pairB the second pair to compare
+ * @returns {boolean} should the value be sorted
+ */
+
+function shouldSortPair(pairA, pairB) {
+  return pairA[0] > pairB[0];
+}
+/**
+ * @function sort
+ *
+ * @description
+ * sort the array based on the fn passed
+ *
+ * @param {Array<any>} array the array to sort
+ * @param {function} fn the sorting function
+ * @returns {Array<any>} the sorted array
+ */
+
+function sort(array, fn) {
+  var subIndex, value;
+
+  for (var index = 0; index < array.length; ++index) {
+    value = array[index];
+
+    for (subIndex = index - 1; ~subIndex && fn(array[subIndex], value); --subIndex) {
+      array[subIndex + 1] = array[subIndex];
+    }
+
+    array[subIndex + 1] = value;
+  }
+
+  return array;
+}
+/**
+ * @function getIterablePairs
+ *
+ * @description
+ * get the pairs in the iterable for stringification
+ *
+ * @param {Map|Set} iterable the iterable to get the pairs for
+ * @returns {Array<{key: string, value: any}>} the pairs
+ */
+
+function getSortedIterable(iterable, cache, keys) {
+  var isMap = typeof iterable.get === 'function';
+  var entries = [];
+
+  if (isMap) {
+    iterable.forEach(function (value, key) {
+      entries.push([// eslint-disable-next-line no-use-before-define
+      stringify(key, cache, keys), // eslint-disable-next-line no-use-before-define
+      stringify(value, cache, keys)]);
+    });
+    sort(entries, shouldSortPair);
+  } else {
+    iterable.forEach(function (value) {
+      // eslint-disable-next-line no-use-before-define
+      entries.push(stringify(value, cache, keys));
+    });
+    sort(entries, shouldSort);
+  }
+
+  var _final = getFunctionName(iterable.constructor) + "|[";
+
+  for (var index = 0, length = entries.length, entry; index < length; ++index) {
+    entry = entries[index];
+    _final += "" + (index ? ',' : '') + (isMap ? "[" + entry[0] + "," + entry[1] + "]" : entry);
+  }
+
+  return _final + "]";
+}
+/**
+ * @function getSortedObject
+ *
+ * @description
+ * get the object with the keys sorted
+ *
+ * @param {Object} object the object to sort
+ * @returns {Object} the sorted object
+ */
+
+function getSortedObject(object) {
+  var objectKeys = sort(keys(object), shouldSort);
+  var newObject = {};
+  var key;
+
+  for (var index = 0; index < objectKeys.length; ++index) {
+    key = objectKeys[index];
+    newObject[key] = object[key];
+  }
+
+  return newObject;
+}
+/**
+ * @function getStringifiedArrayBufferFallback
+ *
+ * @description
+ * get the string value of the buffer passed based on a Buffer
+ *
+ * @param {ArrayBuffer} buffer the array buffer to convert
+ * @returns {string} the stringified buffer
+ */
+
+function getStringifiedArrayBufferFallback(buffer) {
+  return String.fromCharCode.apply(null, new Uint16Array(buffer));
+}
+/**
+ * @function getStringifiedArrayBufferModern
+ *
+ * @description
+ * get the string value of the buffer passed based on a Uint16Array
+ *
+ * @param {ArrayBuffer} buffer the array buffer to convert
+ * @returns {string} the stringified buffer
+ */
+
+function getStringifiedArrayBufferModern(buffer) {
+  return Buffer.from(buffer).toString('utf8');
+}
+/**
+ * @function getStringifiedArrayBufferNoSupport
+ *
+ * @description
+ * return a placeholder when no arraybuffer support exists
+ *
+ * @returns {string} the placeholder
+ */
+
+function getStringifiedArrayBufferNoSupport() {
+  return '';
+}
+/**
+ * @function getStringifiedArrayBuffer
+ *
+ * @description
+ * get the string value of the buffer passed
+ *
+ * @param {ArrayBuffer} buffer the array buffer to convert
+ * @returns {string} the stringified buffer
+ */
+
+var getStringifiedArrayBuffer = function () {
+  if (HAS_BUFFER_FROM_SUPPORT) {
+    return getStringifiedArrayBufferModern;
+  }
+
+  if (HAS_UINT16ARRAY_SUPPORT) {
+    return getStringifiedArrayBufferFallback;
+  }
+
+  return getStringifiedArrayBufferNoSupport;
+}();
+/**
+ * @function getStringifiedDocumentFragment
+ *
+ * @description
+ * build a string based on all the fragment's children
+ *
+ * @param {DocumentFragment} fragment the fragment to stringify
+ * @returns {string} the stringified fragment
+ */
+
+function getStringifiedDocumentFragment(fragment) {
+  var children = fragment.children;
+  var innerHTML = '';
+
+  for (var index = 0; index < children.length; ++index) {
+    innerHTML += children[index].outerHTML;
+  }
+
+  return innerHTML;
+}
+/**
+ * @function getCutoffIndex
+ *
+ * @description
+ * get the index after that of the value match in the array (faster than
+ * native indexOf) to determine the cutoff index for the `splice()` call.
+ *
+ * @param {Array<any>} array the array to get the index of the value at
+ * @param {any} value the value to match
+ * @returns {number} the index after the value match in the array
+ */
+
+function getCutoffIndex(array, value) {
+  for (var index = 0; index < array.length; ++index) {
+    if (array[index] === value) {
+      return index + 1;
+    }
+  }
+
+  return 0;
+}
+/**
+ * @function getNormalizedValue
+ *
+ * @description
+ * get the value normalized for stringification
+ *
+ * @param {any} value the value to normalize
+ * @param {WeakMap|Object} sortedCache the cache of sorted objects
+ * @param {string} [passedTag] the previously-calculated tag
+ * @returns {any} the normalized value
+ */
+
+function getNormalizedValue(value, cache, keys, passedTag) {
+  if (passedTag === void 0) {
+    var type = typeof value;
+
+    if (type === 'string' || PRIMITIVE_TAGS[type]) {
+      return type + "|" + value;
+    }
+
+    if (value === null) {
+      return "null|" + value;
+    }
+  }
+
+  var tag = passedTag || utils_toString.call(value);
+
+  if (SELF_TAGS[tag]) {
+    return value;
+  }
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.OBJECT) {
+    return getSortedObject(value);
+  }
+
+  if (TOSTRING_TAGS[tag]) {
+    return OBJECT_CLASS_MAP[tag] + "|" + value.toString();
+  }
+
+  if (ITERABLE_TAGS[tag]) {
+    return getSortedIterable(value, cache, keys);
+  }
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.DATE) {
+    return OBJECT_CLASS_MAP[tag] + "|" + value.getTime();
+  }
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.ERROR) {
+    return OBJECT_CLASS_MAP[tag] + "|" + value.stack;
+  }
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.EVENT) {
+    return getSortedEvent(value);
+  }
+
+  if (UNPARSEABLE_TAGS[tag]) {
+    return OBJECT_CLASS_MAP[tag] + "|NOT_ENUMERABLE";
+  }
+
+  if (HTML_ELEMENT_REGEXP.test(tag) || SVG_ELEMENT_REGEXP.test(tag)) {
+    return tag.slice(8, -1) + "|" + value.outerHTML;
+  }
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.DOCUMENTFRAGMENT) {
+    return OBJECT_CLASS_MAP[tag] + "|" + getStringifiedDocumentFragment(value);
+  }
+
+  if (TYPEDARRAY_TAGS[tag]) {
+    return OBJECT_CLASS_MAP[tag] + "|" + value.join(',');
+  }
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.ARRAYBUFFER) {
+    return OBJECT_CLASS_MAP[tag] + "|" + getStringifiedArrayBuffer(value);
+  }
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.DATAVIEW) {
+    return OBJECT_CLASS_MAP[tag] + "|" + getStringifiedArrayBuffer(value.buffer);
+  }
+
+  return value;
+}
+/**
+ * @function replacer
+ *
+ * @description
+ * create the replacer function used for stringification
+ *
+ * @param {WeakSet|Object} sortedCache the cache to use for sorting objects
+ * @returns {function(key: string, value: any)} function getting the normalized value
+ */
+
+function createReplacer(cache, keys) {
+  if (cache === void 0) {
+    cache = [];
+  }
+
+  if (keys === void 0) {
+    keys = [];
+  }
+
+  return function (key, value) {
+    if (typeof value === 'object') {
+      if (cache.length) {
+        var thisCutoff = getCutoffIndex(cache, this);
+
+        if (thisCutoff === 0) {
+          cache.push(this);
+        } else {
+          cache.splice(thisCutoff);
+          keys.splice(thisCutoff);
+        }
+
+        keys.push(key);
+        var valueCutoff = getCutoffIndex(cache, value);
+
+        if (valueCutoff !== 0) {
+          return "[~" + (keys.slice(0, valueCutoff).join('.') || '.') + "]";
+        }
+
+        cache.push(value);
+      } else {
+        cache[0] = value;
+        keys[0] = key;
+      }
+    }
+
+    if (key && this[key] instanceof Date) {
+      return getNormalizedValue(this[key], cache, keys, OBJECT_CLASS_TYPE_MAP.DATE, cache, keys);
+    }
+
+    return getNormalizedValue(value, cache, keys);
+  };
+}
+/**
+ * @function stringify
+ *
+ * @description
+ * stringify the value based on the options passed
+ *
+ * @param {any} value the value to stringify
+ * @returns {string} the stringified value
+ */
+
+function stringify(value, cache, keys) {
+  if (!value || typeof value !== 'object') {
+    return getNormalizedValue(value, cache, keys);
+  }
+
+  var tag = utils_toString.call(value);
+
+  if (tag === OBJECT_CLASS_TYPE_MAP.DATE || tag === OBJECT_CLASS_TYPE_MAP.REGEXP) {
+    return getNormalizedValue(value, cache, keys, tag);
+  }
+
+  return JSON.stringify(value, createReplacer(cache, keys));
+}
+;// CONCATENATED MODULE: ./node_modules/hash-it/es/index.js
+// external dependencies
+ // utils
+
+
+/**
+ * @function hash
+ *
+ * @description
+ * hash the value passed to a unique, consistent hash value
+ *
+ * @param {any} value the value to hash
+ * @returns {number} the object hash
+ */
+
+function hash(value) {
+  return getIntegerHashValue(stringify(value));
+}
+/**
+ * @function hash.is
+ *
+ * @description
+ * create a comparator for the first object passed to determine if the second is equal
+ *
+ * @param {any} object the object to test against
+ * @returns {function(any): boolean} the method to test against the object
+ */
+
+hash.is = (0,curriable.curry)(function (object, otherObject) {
+  return hash(object) === hash(otherObject);
+});
+/**
+ * @function hash.is.all
+ *
+ * @description
+ * determine if all of the objects passed are equal in value to the first
+ *
+ * @param {...Array<any>} objects the objects to test for equality
+ * @returns {boolean} are the objects equal
+ */
+
+hash.is.all = (0,curriable.curry)(function (objectBasis) {
+  var isEqual = hash.is(objectBasis);
+
+  for (var index = 1; index < arguments.length; ++index) {
+    if (!isEqual(arguments[index])) {
+      return false;
+    }
+  }
+
+  return true;
+}, 2);
+/**
+ * @function hash.is.any
+ *
+ * @description
+ * determine if any of the objects passed are equal in value to the first
+ *
+ * @param {...Array<any>} objects the objects to test for equality
+ * @returns {boolean} are the objects equal
+ */
+
+hash.is.any = (0,curriable.curry)(function (objectBasis) {
+  var isEqual = hash.is(objectBasis);
+
+  for (var index = 1; index < arguments.length; index++) {
+    if (isEqual(arguments[index])) {
+      return true;
+    }
+  }
+
+  return false;
+}, 2);
+/**
+ * @function hash.is.not
+ *
+ * @description
+ * create a comparator for the first object passed to determine if the second is not equal
+ *
+ * @param {any} object the object to test against
+ * @returns {function(any): boolean} the method to test against the object
+ */
+
+hash.is.not = (0,curriable.curry)(function (object, otherObject) {
+  return hash(object) !== hash(otherObject);
+});
+/* harmony default export */ var es = (hash);
+
+/***/ }),
+
+/***/ 440:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _fact = __webpack_require__(385);
+
+var _fact2 = _interopRequireDefault(_fact);
+
+var _errors = __webpack_require__(670);
+
+var _debug = __webpack_require__(424);
+
+var _debug2 = _interopRequireDefault(_debug);
+
+var _jsonpathPlus = __webpack_require__(342);
+
+var _lodash = __webpack_require__(588);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function defaultPathResolver(value, path) {
+  return (0, _jsonpathPlus.JSONPath)({ path: path, json: value, wrap: false });
+}
+
+/**
+ * Fact results lookup
+ * Triggers fact computations and saves the results
+ * A new almanac is used for every engine run()
+ */
+
+var Almanac = function () {
+  function Almanac(factMap) {
+    var runtimeFacts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    _classCallCheck(this, Almanac);
+
+    this.factMap = new Map(factMap);
+    this.factResultsCache = new Map(); // { cacheKey:  Promise<factValu> }
+    this.allowUndefinedFacts = Boolean(options.allowUndefinedFacts);
+    this.pathResolver = options.pathResolver || defaultPathResolver;
+    this.events = { success: [], failure: [] };
+    this.ruleResults = [];
+
+    for (var factId in runtimeFacts) {
+      var fact = void 0;
+      if (runtimeFacts[factId] instanceof _fact2.default) {
+        fact = runtimeFacts[factId];
+      } else {
+        fact = new _fact2.default(factId, runtimeFacts[factId]);
+      }
+
+      this._addConstantFact(fact);
+      (0, _debug2.default)('almanac::constructor initialized runtime fact:' + fact.id + ' with ' + fact.value + '<' + _typeof(fact.value) + '>');
+    }
+  }
+
+  /**
+   * Adds a success event
+   * @param {Object} event
+   */
+
+
+  _createClass(Almanac, [{
+    key: 'addEvent',
+    value: function addEvent(event, outcome) {
+      if (!outcome) throw new Error('outcome required: "success" | "failure"]');
+      this.events[outcome].push(event);
+    }
+
+    /**
+     * retrieve successful events
+     */
+
+  }, {
+    key: 'getEvents',
+    value: function getEvents() {
+      var outcome = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      if (outcome) return this.events[outcome];
+      return this.events.success.concat(this.events.failure);
+    }
+
+    /**
+     * Adds a rule result
+     * @param {Object} event
+     */
+
+  }, {
+    key: 'addResult',
+    value: function addResult(ruleResult) {
+      this.ruleResults.push(ruleResult);
+    }
+
+    /**
+     * retrieve successful events
+     */
+
+  }, {
+    key: 'getResults',
+    value: function getResults() {
+      return this.ruleResults;
+    }
+
+    /**
+     * Retrieve fact by id, raising an exception if it DNE
+     * @param  {String} factId
+     * @return {Fact}
+     */
+
+  }, {
+    key: '_getFact',
+    value: function _getFact(factId) {
+      return this.factMap.get(factId);
+    }
+
+    /**
+     * Registers fact with the almanac
+     * @param {[type]} fact [description]
+     */
+
+  }, {
+    key: '_addConstantFact',
+    value: function _addConstantFact(fact) {
+      this.factMap.set(fact.id, fact);
+      this._setFactValue(fact, {}, fact.value);
+    }
+
+    /**
+     * Sets the computed value of a fact
+     * @param {Fact} fact
+     * @param {Object} params - values for differentiating this fact value from others, used for cache key
+     * @param {Mixed} value - computed value
+     */
+
+  }, {
+    key: '_setFactValue',
+    value: function _setFactValue(fact, params, value) {
+      var cacheKey = fact.getCacheKey(params);
+      var factValue = Promise.resolve(value);
+      if (cacheKey) {
+        this.factResultsCache.set(cacheKey, factValue);
+      }
+      return factValue;
+    }
+
+    /**
+     * Adds a constant fact during runtime.  Can be used mid-run() to add additional information
+     * @param {String} fact - fact identifier
+     * @param {Mixed} value - constant value of the fact
+     */
+
+  }, {
+    key: 'addRuntimeFact',
+    value: function addRuntimeFact(factId, value) {
+      (0, _debug2.default)('almanac::addRuntimeFact id:' + factId);
+      var fact = new _fact2.default(factId, value);
+      return this._addConstantFact(fact);
+    }
+
+    /**
+     * Returns the value of a fact, based on the given parameters.  Utilizes the 'almanac' maintained
+     * by the engine, which cache's fact computations based on parameters provided
+     * @param  {string} factId - fact identifier
+     * @param  {Object} params - parameters to feed into the fact.  By default, these will also be used to compute the cache key
+     * @param  {String} path - object
+     * @return {Promise} a promise which will resolve with the fact computation.
+     */
+
+  }, {
+    key: 'factValue',
+    value: function factValue(factId) {
+      var _this = this;
+
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+
+      var factValuePromise = void 0;
+      var fact = this._getFact(factId);
+      if (fact === undefined) {
+        if (this.allowUndefinedFacts) {
+          return Promise.resolve(undefined);
+        } else {
+          return Promise.reject(new _errors.UndefinedFactError('Undefined fact: ' + factId));
+        }
+      }
+      if (fact.isConstant()) {
+        factValuePromise = Promise.resolve(fact.calculate(params, this));
+      } else {
+        var cacheKey = fact.getCacheKey(params);
+        var cacheVal = cacheKey && this.factResultsCache.get(cacheKey);
+        if (cacheVal) {
+          factValuePromise = Promise.resolve(cacheVal);
+          (0, _debug2.default)('almanac::factValue cache hit for fact:' + factId);
+        } else {
+          (0, _debug2.default)('almanac::factValue cache miss for fact:' + factId + '; calculating');
+          factValuePromise = this._setFactValue(fact, params, fact.calculate(params, this));
+        }
+      }
+      if (path) {
+        (0, _debug2.default)('condition::evaluate extracting object property ' + path);
+        return factValuePromise.then(function (factValue) {
+          if ((0, _lodash2.default)(factValue)) {
+            var pathValue = _this.pathResolver(factValue, path);
+            (0, _debug2.default)('condition::evaluate extracting object property ' + path + ', received: ' + JSON.stringify(pathValue));
+            return pathValue;
+          } else {
+            (0, _debug2.default)('condition::evaluate could not compute object path(' + path + ') of non-object: ' + factValue + ' <' + (typeof factValue === 'undefined' ? 'undefined' : _typeof(factValue)) + '>; continuing with ' + factValue);
+            return factValue;
+          }
+        });
+      }
+
+      return factValuePromise;
+    }
+  }]);
+
+  return Almanac;
+}();
+
+exports.default = Almanac;
+
+/***/ }),
+
+/***/ 868:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _debug = __webpack_require__(424);
+
+var _debug2 = _interopRequireDefault(_debug);
+
+var _lodash = __webpack_require__(588);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Condition = function () {
+  function Condition(properties) {
+    _classCallCheck(this, Condition);
+
+    if (!properties) throw new Error('Condition: constructor options required');
+    var booleanOperator = Condition.booleanOperator(properties);
+    Object.assign(this, properties);
+    if (booleanOperator) {
+      var subConditions = properties[booleanOperator];
+      if (!Array.isArray(subConditions)) {
+        throw new Error('"' + booleanOperator + '" must be an array');
+      }
+      this.operator = booleanOperator;
+      // boolean conditions always have a priority; default 1
+      this.priority = parseInt(properties.priority, 10) || 1;
+      this[booleanOperator] = subConditions.map(function (c) {
+        return new Condition(c);
+      });
+    } else {
+      if (!Object.prototype.hasOwnProperty.call(properties, 'fact')) throw new Error('Condition: constructor "fact" property required');
+      if (!Object.prototype.hasOwnProperty.call(properties, 'operator')) throw new Error('Condition: constructor "operator" property required');
+      if (!Object.prototype.hasOwnProperty.call(properties, 'value')) throw new Error('Condition: constructor "value" property required');
+
+      // a non-boolean condition does not have a priority by default. this allows
+      // priority to be dictated by the fact definition
+      if (Object.prototype.hasOwnProperty.call(properties, 'priority')) {
+        properties.priority = parseInt(properties.priority, 10);
+      }
+    }
+  }
+
+  /**
+   * Converts the condition into a json-friendly structure
+   * @param   {Boolean} stringify - whether to return as a json string
+   * @returns {string,object} json string or json-friendly object
+   */
+
+
+  _createClass(Condition, [{
+    key: 'toJSON',
+    value: function toJSON() {
+      var stringify = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      var props = {};
+      if (this.priority) {
+        props.priority = this.priority;
+      }
+      var oper = Condition.booleanOperator(this);
+      if (oper) {
+        props[oper] = this[oper].map(function (c) {
+          return c.toJSON(stringify);
+        });
+      } else {
+        props.operator = this.operator;
+        props.value = this.value;
+        props.fact = this.fact;
+        if (this.factResult !== undefined) {
+          props.factResult = this.factResult;
+        }
+        if (this.result !== undefined) {
+          props.result = this.result;
+        }
+        if (this.params) {
+          props.params = this.params;
+        }
+        if (this.path) {
+          props.path = this.path;
+        }
+      }
+      if (stringify) {
+        return JSON.stringify(props);
+      }
+      return props;
+    }
+
+    /**
+     * Interprets .value as either a primitive, or if a fact, retrieves the fact value
+     */
+
+  }, {
+    key: '_getValue',
+    value: function _getValue(almanac) {
+      var value = this.value;
+      if ((0, _lodash2.default)(value) && Object.prototype.hasOwnProperty.call(value, 'fact')) {
+        // value: { fact: 'xyz' }
+        return almanac.factValue(value.fact, value.params, value.path);
+      }
+      return Promise.resolve(value);
+    }
+
+    /**
+     * Takes the fact result and compares it to the condition 'value', using the operator
+     *   LHS                      OPER       RHS
+     * <fact + params + path>  <operator>  <value>
+     *
+     * @param   {Almanac} almanac
+     * @param   {Map} operatorMap - map of available operators, keyed by operator name
+     * @returns {Boolean} - evaluation result
+     */
+
+  }, {
+    key: 'evaluate',
+    value: function evaluate(almanac, operatorMap) {
+      var _this = this;
+
+      if (!almanac) return Promise.reject(new Error('almanac required'));
+      if (!operatorMap) return Promise.reject(new Error('operatorMap required'));
+      if (this.isBooleanOperator()) return Promise.reject(new Error('Cannot evaluate() a boolean condition'));
+
+      var op = operatorMap.get(this.operator);
+      if (!op) return Promise.reject(new Error('Unknown operator: ' + this.operator));
+
+      return this._getValue(almanac) // todo - parallelize
+      .then(function (rightHandSideValue) {
+        return almanac.factValue(_this.fact, _this.params, _this.path).then(function (leftHandSideValue) {
+          var result = op.evaluate(leftHandSideValue, rightHandSideValue);
+          (0, _debug2.default)('condition::evaluate <' + JSON.stringify(leftHandSideValue) + ' ' + _this.operator + ' ' + JSON.stringify(rightHandSideValue) + '?> (' + result + ')');
+          return { result: result, leftHandSideValue: leftHandSideValue, rightHandSideValue: rightHandSideValue, operator: _this.operator };
+        });
+      });
+    }
+
+    /**
+     * Returns the boolean operator for the condition
+     * If the condition is not a boolean condition, the result will be 'undefined'
+     * @return {string 'all' or 'any'}
+     */
+
+  }, {
+    key: 'booleanOperator',
+
+
+    /**
+     * Returns the condition's boolean operator
+     * Instance version of Condition.isBooleanOperator
+     * @returns {string,undefined} - 'any', 'all', or undefined (if not a boolean condition)
+     */
+    value: function booleanOperator() {
+      return Condition.booleanOperator(this);
+    }
+
+    /**
+     * Whether the operator is boolean ('all', 'any')
+     * @returns {Boolean}
+     */
+
+  }, {
+    key: 'isBooleanOperator',
+    value: function isBooleanOperator() {
+      return Condition.booleanOperator(this) !== undefined;
+    }
+  }], [{
+    key: 'booleanOperator',
+    value: function booleanOperator(condition) {
+      if (Object.prototype.hasOwnProperty.call(condition, 'any')) {
+        return 'any';
+      } else if (Object.prototype.hasOwnProperty.call(condition, 'all')) {
+        return 'all';
+      }
+    }
+  }]);
+
+  return Condition;
+}();
+
+exports.default = Condition;
+
+/***/ }),
+
+/***/ 424:
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = debug;
+function debug(message) {
+  try {
+    if (typeof process !== 'undefined' && process.env && process.env.DEBUG && process.env.DEBUG.match(/json-rules-engine/) || typeof window !== 'undefined' && window.localStorage && window.localStorage.debug && window.localStorage.debug.match(/json-rules-engine/)) {
+      console.log(message);
+    }
+  } catch (ex) {
+    // Do nothing
+  }
+}
+
+/***/ }),
+
+/***/ 66:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _operator = __webpack_require__(716);
+
+var _operator2 = _interopRequireDefault(_operator);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Operators = [];
+Operators.push(new _operator2.default('equal', function (a, b) {
+  return a === b;
+}));
+Operators.push(new _operator2.default('notEqual', function (a, b) {
+  return a !== b;
+}));
+Operators.push(new _operator2.default('in', function (a, b) {
+  return b.indexOf(a) > -1;
+}));
+Operators.push(new _operator2.default('notIn', function (a, b) {
+  return b.indexOf(a) === -1;
+}));
+
+Operators.push(new _operator2.default('contains', function (a, b) {
+  return a.indexOf(b) > -1;
+}, Array.isArray));
+Operators.push(new _operator2.default('doesNotContain', function (a, b) {
+  return a.indexOf(b) === -1;
+}, Array.isArray));
+
+function numberValidator(factValue) {
+  return Number.parseFloat(factValue).toString() !== 'NaN';
+}
+Operators.push(new _operator2.default('lessThan', function (a, b) {
+  return a < b;
+}, numberValidator));
+Operators.push(new _operator2.default('lessThanInclusive', function (a, b) {
+  return a <= b;
+}, numberValidator));
+Operators.push(new _operator2.default('greaterThan', function (a, b) {
+  return a > b;
+}, numberValidator));
+Operators.push(new _operator2.default('greaterThanInclusive', function (a, b) {
+  return a >= b;
+}, numberValidator));
+
+exports.default = Operators;
+
+/***/ }),
+
+/***/ 655:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.FINISHED = exports.RUNNING = exports.READY = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _fact = __webpack_require__(385);
+
+var _fact2 = _interopRequireDefault(_fact);
+
+var _rule = __webpack_require__(382);
+
+var _rule2 = _interopRequireDefault(_rule);
+
+var _operator = __webpack_require__(716);
+
+var _operator2 = _interopRequireDefault(_operator);
+
+var _almanac = __webpack_require__(440);
+
+var _almanac2 = _interopRequireDefault(_almanac);
+
+var _eventemitter = __webpack_require__(387);
+
+var _eventemitter2 = _interopRequireDefault(_eventemitter);
+
+var _engineDefaultOperators = __webpack_require__(66);
+
+var _engineDefaultOperators2 = _interopRequireDefault(_engineDefaultOperators);
+
+var _debug = __webpack_require__(424);
+
+var _debug2 = _interopRequireDefault(_debug);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var READY = exports.READY = 'READY';
+var RUNNING = exports.RUNNING = 'RUNNING';
+var FINISHED = exports.FINISHED = 'FINISHED';
+
+var Engine = function (_EventEmitter) {
+  _inherits(Engine, _EventEmitter);
+
+  /**
+   * Returns a new Engine instance
+   * @param  {Rule[]} rules - array of rules to initialize with
+   */
+  function Engine() {
+    var rules = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    _classCallCheck(this, Engine);
+
+    var _this = _possibleConstructorReturn(this, (Engine.__proto__ || Object.getPrototypeOf(Engine)).call(this));
+
+    _this.rules = [];
+    _this.allowUndefinedFacts = options.allowUndefinedFacts || false;
+    _this.pathResolver = options.pathResolver;
+    _this.operators = new Map();
+    _this.facts = new Map();
+    _this.status = READY;
+    rules.map(function (r) {
+      return _this.addRule(r);
+    });
+    _engineDefaultOperators2.default.map(function (o) {
+      return _this.addOperator(o);
+    });
+    return _this;
+  }
+
+  /**
+   * Add a rule definition to the engine
+   * @param {object|Rule} properties - rule definition.  can be JSON representation, or instance of Rule
+   * @param {integer} properties.priority (>1) - higher runs sooner.
+   * @param {Object} properties.event - event to fire when rule evaluates as successful
+   * @param {string} properties.event.type - name of event to emit
+   * @param {string} properties.event.params - parameters to pass to the event listener
+   * @param {Object} properties.conditions - conditions to evaluate when processing this rule
+   */
+
+
+  _createClass(Engine, [{
+    key: 'addRule',
+    value: function addRule(properties) {
+      if (!properties) throw new Error('Engine: addRule() requires options');
+
+      var rule = void 0;
+      if (properties instanceof _rule2.default) {
+        rule = properties;
+      } else {
+        if (!Object.prototype.hasOwnProperty.call(properties, 'event')) throw new Error('Engine: addRule() argument requires "event" property');
+        if (!Object.prototype.hasOwnProperty.call(properties, 'conditions')) throw new Error('Engine: addRule() argument requires "conditions" property');
+
+        rule = new _rule2.default(properties);
+      }
+      rule.setEngine(this);
+
+      this.rules.push(rule);
+      this.prioritizedRules = null;
+      return this;
+    }
+
+    /**
+     * Remove a rule from the engine
+     * @param {object|Rule} rule - rule definition. Must be a instance of Rule
+     */
+
+  }, {
+    key: 'removeRule',
+    value: function removeRule(rule) {
+      if (rule instanceof _rule2.default === false) throw new Error('Engine: removeRule() rule must be a instance of Rule');
+
+      var index = this.rules.indexOf(rule);
+      if (index === -1) return false;
+      this.prioritizedRules = null;
+      return Boolean(this.rules.splice(index, 1).length);
+    }
+
+    /**
+     * Add a custom operator definition
+     * @param {string}   operatorOrName - operator identifier within the condition; i.e. instead of 'equals', 'greaterThan', etc
+     * @param {function(factValue, jsonValue)} callback - the method to execute when the operator is encountered.
+     */
+
+  }, {
+    key: 'addOperator',
+    value: function addOperator(operatorOrName, cb) {
+      var operator = void 0;
+      if (operatorOrName instanceof _operator2.default) {
+        operator = operatorOrName;
+      } else {
+        operator = new _operator2.default(operatorOrName, cb);
+      }
+      (0, _debug2.default)('engine::addOperator name:' + operator.name);
+      this.operators.set(operator.name, operator);
+    }
+
+    /**
+     * Remove a custom operator definition
+     * @param {string}   operatorOrName - operator identifier within the condition; i.e. instead of 'equals', 'greaterThan', etc
+     * @param {function(factValue, jsonValue)} callback - the method to execute when the operator is encountered.
+     */
+
+  }, {
+    key: 'removeOperator',
+    value: function removeOperator(operatorOrName) {
+      var operatorName = void 0;
+      if (operatorOrName instanceof _operator2.default) {
+        operatorName = operatorOrName.name;
+      } else {
+        operatorName = operatorOrName;
+      }
+
+      return this.operators.delete(operatorName);
+    }
+
+    /**
+     * Add a fact definition to the engine.  Facts are called by rules as they are evaluated.
+     * @param {object|Fact} id - fact identifier or instance of Fact
+     * @param {function} definitionFunc - function to be called when computing the fact value for a given rule
+     * @param {Object} options - options to initialize the fact with. used when "id" is not a Fact instance
+     */
+
+  }, {
+    key: 'addFact',
+    value: function addFact(id, valueOrMethod, options) {
+      var factId = id;
+      var fact = void 0;
+      if (id instanceof _fact2.default) {
+        factId = id.id;
+        fact = id;
+      } else {
+        fact = new _fact2.default(id, valueOrMethod, options);
+      }
+      (0, _debug2.default)('engine::addFact id:' + factId);
+      this.facts.set(factId, fact);
+      return this;
+    }
+
+    /**
+     * Remove a fact definition to the engine.  Facts are called by rules as they are evaluated.
+     * @param {object|Fact} id - fact identifier or instance of Fact
+     */
+
+  }, {
+    key: 'removeFact',
+    value: function removeFact(factOrId) {
+      var factId = void 0;
+      if (!(factOrId instanceof _fact2.default)) {
+        factId = factOrId;
+      } else {
+        factId = factOrId.id;
+      }
+
+      return this.facts.delete(factId);
+    }
+
+    /**
+     * Iterates over the engine rules, organizing them by highest -> lowest priority
+     * @return {Rule[][]} two dimensional array of Rules.
+     *    Each outer array element represents a single priority(integer).  Inner array is
+     *    all rules with that priority.
+     */
+
+  }, {
+    key: 'prioritizeRules',
+    value: function prioritizeRules() {
+      if (!this.prioritizedRules) {
+        var ruleSets = this.rules.reduce(function (sets, rule) {
+          var priority = rule.priority;
+          if (!sets[priority]) sets[priority] = [];
+          sets[priority].push(rule);
+          return sets;
+        }, {});
+        this.prioritizedRules = Object.keys(ruleSets).sort(function (a, b) {
+          return Number(a) > Number(b) ? -1 : 1; // order highest priority -> lowest
+        }).map(function (priority) {
+          return ruleSets[priority];
+        });
+      }
+      return this.prioritizedRules;
+    }
+
+    /**
+     * Stops the rules engine from running the next priority set of Rules.  All remaining rules will be resolved as undefined,
+     * and no further events emitted.  Since rules of the same priority are evaluated in parallel(not series), other rules of
+     * the same priority may still emit events, even though the engine is in a "finished" state.
+     * @return {Engine}
+     */
+
+  }, {
+    key: 'stop',
+    value: function stop() {
+      this.status = FINISHED;
+      return this;
+    }
+
+    /**
+     * Returns a fact by fact-id
+     * @param  {string} factId - fact identifier
+     * @return {Fact} fact instance, or undefined if no such fact exists
+     */
+
+  }, {
+    key: 'getFact',
+    value: function getFact(factId) {
+      return this.facts.get(factId);
+    }
+
+    /**
+     * Runs an array of rules
+     * @param  {Rule[]} array of rules to be evaluated
+     * @return {Promise} resolves when all rules in the array have been evaluated
+     */
+
+  }, {
+    key: 'evaluateRules',
+    value: function evaluateRules(ruleArray, almanac) {
+      var _this2 = this;
+
+      return Promise.all(ruleArray.map(function (rule) {
+        if (_this2.status !== RUNNING) {
+          (0, _debug2.default)('engine::run status:' + _this2.status + '; skipping remaining rules');
+          return;
+        }
+        return rule.evaluate(almanac).then(function (ruleResult) {
+          (0, _debug2.default)('engine::run ruleResult:' + ruleResult.result);
+          almanac.addResult(ruleResult);
+          if (ruleResult.result) {
+            almanac.addEvent(ruleResult.event, 'success');
+            return _this2.emitAsync('success', ruleResult.event, almanac, ruleResult).then(function () {
+              return _this2.emitAsync(ruleResult.event.type, ruleResult.event.params, almanac, ruleResult);
+            });
+          } else {
+            almanac.addEvent(ruleResult.event, 'failure');
+            return _this2.emitAsync('failure', ruleResult.event, almanac, ruleResult);
+          }
+        });
+      }));
+    }
+
+    /**
+     * Runs the rules engine
+     * @param  {Object} runtimeFacts - fact values known at runtime
+     * @param  {Object} runOptions - run options
+     * @return {Promise} resolves when the engine has completed running
+     */
+
+  }, {
+    key: 'run',
+    value: function run() {
+      var _this3 = this;
+
+      var runtimeFacts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      (0, _debug2.default)('engine::run started');
+      this.status = RUNNING;
+      var almanacOptions = {
+        allowUndefinedFacts: this.allowUndefinedFacts,
+        pathResolver: this.pathResolver
+      };
+      var almanac = new _almanac2.default(this.facts, runtimeFacts, almanacOptions);
+      var orderedSets = this.prioritizeRules();
+      var cursor = Promise.resolve();
+      // for each rule set, evaluate in parallel,
+      // before proceeding to the next priority set.
+      return new Promise(function (resolve, reject) {
+        orderedSets.map(function (set) {
+          cursor = cursor.then(function () {
+            return _this3.evaluateRules(set, almanac);
+          }).catch(reject);
+          return cursor;
+        });
+        cursor.then(function () {
+          _this3.status = FINISHED;
+          (0, _debug2.default)('engine::run completed');
+          var ruleResults = almanac.getResults();
+
+          var _ruleResults$reduce = ruleResults.reduce(function (hash, ruleResult) {
+            var group = ruleResult.result ? 'results' : 'failureResults';
+            hash[group].push(ruleResult);
+            return hash;
+          }, { results: [], failureResults: [] }),
+              results = _ruleResults$reduce.results,
+              failureResults = _ruleResults$reduce.failureResults;
+
+          resolve({
+            almanac: almanac,
+            results: results,
+            failureResults: failureResults,
+            events: almanac.getEvents('success'),
+            failureEvents: almanac.getEvents('failure')
+          });
+        }).catch(reject);
+      });
+    }
+  }]);
+
+  return Engine;
+}(_eventemitter2.default);
+
+exports.default = Engine;
+
+/***/ }),
+
+/***/ 670:
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UndefinedFactError = exports.UndefinedFactError = function (_Error) {
+  _inherits(UndefinedFactError, _Error);
+
+  function UndefinedFactError() {
+    var _ref;
+
+    _classCallCheck(this, UndefinedFactError);
+
+    for (var _len = arguments.length, props = Array(_len), _key = 0; _key < _len; _key++) {
+      props[_key] = arguments[_key];
+    }
+
+    var _this = _possibleConstructorReturn(this, (_ref = UndefinedFactError.__proto__ || Object.getPrototypeOf(UndefinedFactError)).call.apply(_ref, [this].concat(props)));
+
+    _this.code = 'UNDEFINED_FACT';
+    return _this;
+  }
+
+  return UndefinedFactError;
+}(Error);
+
+/***/ }),
+
+/***/ 385:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _hashIt = __webpack_require__(190);
+
+var _hashIt2 = _interopRequireDefault(_hashIt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Fact = function () {
+  /**
+   * Returns a new fact instance
+   * @param  {string} id - fact unique identifer
+   * @param  {object} options
+   * @param  {boolean} options.cache - whether to cache the fact's value for future rules
+   * @param  {primitive|function} valueOrMethod - constant primitive, or method to call when computing the fact's value
+   * @return {Fact}
+   */
+  function Fact(id, valueOrMethod, options) {
+    _classCallCheck(this, Fact);
+
+    this.id = id;
+    var defaultOptions = { cache: true };
+    if (typeof options === 'undefined') {
+      options = defaultOptions;
+    }
+    if (typeof valueOrMethod !== 'function') {
+      this.value = valueOrMethod;
+      this.type = this.constructor.CONSTANT;
+    } else {
+      this.calculationMethod = valueOrMethod;
+      this.type = this.constructor.DYNAMIC;
+    }
+
+    if (!this.id) throw new Error('factId required');
+
+    this.priority = parseInt(options.priority || 1, 10);
+    this.options = Object.assign({}, defaultOptions, options);
+    this.cacheKeyMethod = this.defaultCacheKeys;
+    return this;
+  }
+
+  _createClass(Fact, [{
+    key: 'isConstant',
+    value: function isConstant() {
+      return this.type === this.constructor.CONSTANT;
+    }
+  }, {
+    key: 'isDynamic',
+    value: function isDynamic() {
+      return this.type === this.constructor.DYNAMIC;
+    }
+
+    /**
+     * Return the fact value, based on provided parameters
+     * @param  {object} params
+     * @param  {Almanac} almanac
+     * @return {any} calculation method results
+     */
+
+  }, {
+    key: 'calculate',
+    value: function calculate(params, almanac) {
+      // if constant fact w/set value, return immediately
+      if (Object.prototype.hasOwnProperty.call(this, 'value')) {
+        return this.value;
+      }
+      return this.calculationMethod(params, almanac);
+    }
+
+    /**
+     * Return a cache key (MD5 string) based on parameters
+     * @param  {object} obj - properties to generate a hash key from
+     * @return {string} MD5 string based on the hash'd object
+     */
+
+  }, {
+    key: 'defaultCacheKeys',
+
+
+    /**
+     * Default properties to use when caching a fact
+     * Assumes every fact is a pure function, whose computed value will only
+     * change when input params are modified
+     * @param  {string} id - fact unique identifer
+     * @param  {object} params - parameters passed to fact calcution method
+     * @return {object} id + params
+     */
+    value: function defaultCacheKeys(id, params) {
+      return { params: params, id: id };
+    }
+
+    /**
+     * Generates the fact's cache key(MD5 string)
+     * Returns nothing if the fact's caching has been disabled
+     * @param  {object} params - parameters that would be passed to the computation method
+     * @return {string} cache key
+     */
+
+  }, {
+    key: 'getCacheKey',
+    value: function getCacheKey(params) {
+      if (this.options.cache === true) {
+        var cacheProperties = this.cacheKeyMethod(this.id, params);
+        var _hash = Fact.hashFromObject(cacheProperties);
+        return _hash;
+      }
+    }
+  }], [{
+    key: 'hashFromObject',
+    value: function hashFromObject(obj) {
+      return (0, _hashIt2.default)(obj);
+    }
+  }]);
+
+  return Fact;
+}();
+
+Fact.CONSTANT = 'CONSTANT';
+Fact.DYNAMIC = 'DYNAMIC';
+
+exports.default = Fact;
+
+/***/ }),
+
+/***/ 497:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(837);
+
+/***/ }),
+
+/***/ 837:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+var __webpack_unused_export__;
+
+
+__webpack_unused_export__ = ({
+  value: true
+});
+exports.Engine = __webpack_unused_export__ = __webpack_unused_export__ = __webpack_unused_export__ = undefined;
+
+__webpack_unused_export__ = function (rules, options) {
+  return new _engine2.default(rules, options);
+};
+
+var _engine = __webpack_require__(655);
+
+var _engine2 = _interopRequireDefault(_engine);
+
+var _fact = __webpack_require__(385);
+
+var _fact2 = _interopRequireDefault(_fact);
+
+var _rule = __webpack_require__(382);
+
+var _rule2 = _interopRequireDefault(_rule);
+
+var _operator = __webpack_require__(716);
+
+var _operator2 = _interopRequireDefault(_operator);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+__webpack_unused_export__ = _fact2.default;
+__webpack_unused_export__ = _rule2.default;
+__webpack_unused_export__ = _operator2.default;
+exports.Engine = _engine2.default;
+
+/***/ }),
+
+/***/ 716:
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Operator = function () {
+  /**
+   * Constructor
+   * @param {string}   name - operator identifier
+   * @param {function(factValue, jsonValue)} callback - operator evaluation method
+   * @param {function}  [factValueValidator] - optional validator for asserting the data type of the fact
+   * @returns {Operator} - instance
+   */
+  function Operator(name, cb, factValueValidator) {
+    _classCallCheck(this, Operator);
+
+    this.name = String(name);
+    if (!name) throw new Error('Missing operator name');
+    if (typeof cb !== 'function') throw new Error('Missing operator callback');
+    this.cb = cb;
+    this.factValueValidator = factValueValidator;
+    if (!this.factValueValidator) this.factValueValidator = function () {
+      return true;
+    };
+  }
+
+  /**
+   * Takes the fact result and compares it to the condition 'value', using the callback
+   * @param   {mixed} factValue - fact result
+   * @param   {mixed} jsonValue - "value" property of the condition
+   * @returns {Boolean} - whether the values pass the operator test
+   */
+
+
+  _createClass(Operator, [{
+    key: 'evaluate',
+    value: function evaluate(factValue, jsonValue) {
+      return this.factValueValidator(factValue) && this.cb(factValue, jsonValue);
+    }
+  }]);
+
+  return Operator;
+}();
+
+exports.default = Operator;
+
+/***/ }),
+
+/***/ 9:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _clone = __webpack_require__(313);
+
+var _clone2 = _interopRequireDefault(_clone);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RuleResult = function () {
+  function RuleResult(conditions, event, priority, name) {
+    _classCallCheck(this, RuleResult);
+
+    this.conditions = (0, _clone2.default)(conditions);
+    this.event = (0, _clone2.default)(event);
+    this.priority = (0, _clone2.default)(priority);
+    this.name = (0, _clone2.default)(name);
+    this.result = null;
+  }
+
+  _createClass(RuleResult, [{
+    key: 'setResult',
+    value: function setResult(result) {
+      this.result = result;
+    }
+  }, {
+    key: 'toJSON',
+    value: function toJSON() {
+      var stringify = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      var props = {
+        conditions: this.conditions.toJSON(false),
+        event: this.event,
+        priority: this.priority,
+        name: this.name,
+        result: this.result
+      };
+      if (stringify) {
+        return JSON.stringify(props);
+      }
+      return props;
+    }
+  }]);
+
+  return RuleResult;
+}();
+
+exports.default = RuleResult;
+
+/***/ }),
+
+/***/ 382:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _condition = __webpack_require__(868);
+
+var _condition2 = _interopRequireDefault(_condition);
+
+var _ruleResult = __webpack_require__(9);
+
+var _ruleResult2 = _interopRequireDefault(_ruleResult);
+
+var _debug = __webpack_require__(424);
+
+var _debug2 = _interopRequireDefault(_debug);
+
+var _eventemitter = __webpack_require__(387);
+
+var _eventemitter2 = _interopRequireDefault(_eventemitter);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Rule = function (_EventEmitter) {
+  _inherits(Rule, _EventEmitter);
+
+  /**
+   * returns a new Rule instance
+   * @param {object,string} options, or json string that can be parsed into options
+   * @param {integer} options.priority (>1) - higher runs sooner.
+   * @param {Object} options.event - event to fire when rule evaluates as successful
+   * @param {string} options.event.type - name of event to emit
+   * @param {string} options.event.params - parameters to pass to the event listener
+   * @param {Object} options.conditions - conditions to evaluate when processing this rule
+   * @param {any} options.name - identifier for a particular rule, particularly valuable in RuleResult output
+   * @return {Rule} instance
+   */
+  function Rule(options) {
+    _classCallCheck(this, Rule);
+
+    var _this = _possibleConstructorReturn(this, (Rule.__proto__ || Object.getPrototypeOf(Rule)).call(this));
+
+    if (typeof options === 'string') {
+      options = JSON.parse(options);
+    }
+    if (options && options.conditions) {
+      _this.setConditions(options.conditions);
+    }
+    if (options && options.onSuccess) {
+      _this.on('success', options.onSuccess);
+    }
+    if (options && options.onFailure) {
+      _this.on('failure', options.onFailure);
+    }
+    if (options && (options.name || options.name === 0)) {
+      _this.setName(options.name);
+    }
+
+    var priority = options && options.priority || 1;
+    _this.setPriority(priority);
+
+    var event = options && options.event || { type: 'unknown' };
+    _this.setEvent(event);
+    return _this;
+  }
+
+  /**
+   * Sets the priority of the rule
+   * @param {integer} priority (>=1) - increasing the priority causes the rule to be run prior to other rules
+   */
+
+
+  _createClass(Rule, [{
+    key: 'setPriority',
+    value: function setPriority(priority) {
+      priority = parseInt(priority, 10);
+      if (priority <= 0) throw new Error('Priority must be greater than zero');
+      this.priority = priority;
+      return this;
+    }
+
+    /**
+     * Sets the name of the rule
+     * @param {any} name - any truthy input and zero is allowed
+     */
+
+  }, {
+    key: 'setName',
+    value: function setName(name) {
+      if (!name && name !== 0) {
+        throw new Error('Rule "name" must be defined');
+      }
+      this.name = name;
+      return this;
+    }
+
+    /**
+     * Sets the conditions to run when evaluating the rule.
+     * @param {object} conditions - conditions, root element must be a boolean operator
+     */
+
+  }, {
+    key: 'setConditions',
+    value: function setConditions(conditions) {
+      if (!Object.prototype.hasOwnProperty.call(conditions, 'all') && !Object.prototype.hasOwnProperty.call(conditions, 'any')) {
+        throw new Error('"conditions" root must contain a single instance of "all" or "any"');
+      }
+      this.conditions = new _condition2.default(conditions);
+      return this;
+    }
+
+    /**
+     * Sets the event to emit when the conditions evaluate truthy
+     * @param {object} event - event to emit
+     * @param {string} event.type - event name to emit on
+     * @param {string} event.params - parameters to emit as the argument of the event emission
+     */
+
+  }, {
+    key: 'setEvent',
+    value: function setEvent(event) {
+      if (!event) throw new Error('Rule: setEvent() requires event object');
+      if (!Object.prototype.hasOwnProperty.call(event, 'type')) throw new Error('Rule: setEvent() requires event object with "type" property');
+      this.ruleEvent = {
+        type: event.type
+      };
+      if (event.params) this.ruleEvent.params = event.params;
+      return this;
+    }
+
+    /**
+     * returns the event object
+     * @returns {Object} event
+     */
+
+  }, {
+    key: 'getEvent',
+    value: function getEvent() {
+      return this.ruleEvent;
+    }
+
+    /**
+     * returns the priority
+     * @returns {Number} priority
+     */
+
+  }, {
+    key: 'getPriority',
+    value: function getPriority() {
+      return this.priority;
+    }
+
+    /**
+     * returns the event object
+     * @returns {Object} event
+     */
+
+  }, {
+    key: 'getConditions',
+    value: function getConditions() {
+      return this.conditions;
+    }
+
+    /**
+     * returns the engine object
+     * @returns {Object} engine
+     */
+
+  }, {
+    key: 'getEngine',
+    value: function getEngine() {
+      return this.engine;
+    }
+
+    /**
+     * Sets the engine to run the rules under
+     * @param {object} engine
+     * @returns {Rule}
+     */
+
+  }, {
+    key: 'setEngine',
+    value: function setEngine(engine) {
+      this.engine = engine;
+      return this;
+    }
+  }, {
+    key: 'toJSON',
+    value: function toJSON() {
+      var stringify = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      var props = {
+        conditions: this.conditions.toJSON(false),
+        priority: this.priority,
+        event: this.ruleEvent,
+        name: this.name
+      };
+      if (stringify) {
+        return JSON.stringify(props);
+      }
+      return props;
+    }
+
+    /**
+     * Priorizes an array of conditions based on "priority"
+     *   When no explicit priority is provided on the condition itself, the condition's priority is determine by its fact
+     * @param  {Condition[]} conditions
+     * @return {Condition[][]} prioritized two-dimensional array of conditions
+     *    Each outer array element represents a single priority(integer).  Inner array is
+     *    all conditions with that priority.
+     */
+
+  }, {
+    key: 'prioritizeConditions',
+    value: function prioritizeConditions(conditions) {
+      var _this2 = this;
+
+      var factSets = conditions.reduce(function (sets, condition) {
+        // if a priority has been set on this specific condition, honor that first
+        // otherwise, use the fact's priority
+        var priority = condition.priority;
+        if (!priority) {
+          var fact = _this2.engine.getFact(condition.fact);
+          priority = fact && fact.priority || 1;
+        }
+        if (!sets[priority]) sets[priority] = [];
+        sets[priority].push(condition);
+        return sets;
+      }, {});
+      return Object.keys(factSets).sort(function (a, b) {
+        return Number(a) > Number(b) ? -1 : 1; // order highest priority -> lowest
+      }).map(function (priority) {
+        return factSets[priority];
+      });
+    }
+
+    /**
+     * Evaluates the rule, starting with the root boolean operator and recursing down
+     * All evaluation is done within the context of an almanac
+     * @return {Promise(RuleResult)} rule evaluation result
+     */
+
+  }, {
+    key: 'evaluate',
+    value: function evaluate(almanac) {
+      var _this3 = this;
+
+      var ruleResult = new _ruleResult2.default(this.conditions, this.ruleEvent, this.priority, this.name);
+
+      /**
+       * Evaluates the rule conditions
+       * @param  {Condition} condition - condition to evaluate
+       * @return {Promise(true|false)} - resolves with the result of the condition evaluation
+       */
+      var evaluateCondition = function evaluateCondition(condition) {
+        if (condition.isBooleanOperator()) {
+          var subConditions = condition[condition.operator];
+          var comparisonPromise = void 0;
+          if (condition.operator === 'all') {
+            comparisonPromise = all(subConditions);
+          } else {
+            comparisonPromise = any(subConditions);
+          }
+          // for booleans, rule passing is determined by the all/any result
+          return comparisonPromise.then(function (comparisonValue) {
+            var passes = comparisonValue === true;
+            condition.result = passes;
+            return passes;
+          });
+        } else {
+          return condition.evaluate(almanac, _this3.engine.operators).then(function (evaluationResult) {
+            var passes = evaluationResult.result;
+            condition.factResult = evaluationResult.leftHandSideValue;
+            condition.result = passes;
+            return passes;
+          });
+        }
+      };
+
+      /**
+       * Evalutes an array of conditions, using an 'every' or 'some' array operation
+       * @param  {Condition[]} conditions
+       * @param  {string(every|some)} array method to call for determining result
+       * @return {Promise(boolean)} whether conditions evaluated truthy or falsey based on condition evaluation + method
+       */
+      var evaluateConditions = function evaluateConditions(conditions, method) {
+        if (!Array.isArray(conditions)) conditions = [conditions];
+
+        return Promise.all(conditions.map(function (condition) {
+          return evaluateCondition(condition);
+        })).then(function (conditionResults) {
+          (0, _debug2.default)('rule::evaluateConditions results', conditionResults);
+          return method.call(conditionResults, function (result) {
+            return result === true;
+          });
+        });
+      };
+
+      /**
+       * Evaluates a set of conditions based on an 'all' or 'any' operator.
+       *   First, orders the top level conditions based on priority
+       *   Iterates over each priority set, evaluating each condition
+       *   If any condition results in the rule to be guaranteed truthy or falsey,
+       *   it will short-circuit and not bother evaluating any additional rules
+       * @param  {Condition[]} conditions - conditions to be evaluated
+       * @param  {string('all'|'any')} operator
+       * @return {Promise(boolean)} rule evaluation result
+       */
+      var prioritizeAndRun = function prioritizeAndRun(conditions, operator) {
+        if (conditions.length === 0) {
+          return Promise.resolve(true);
+        }
+        var method = Array.prototype.some;
+        if (operator === 'all') {
+          method = Array.prototype.every;
+        }
+        var orderedSets = _this3.prioritizeConditions(conditions);
+        var cursor = Promise.resolve();
+        // use for() loop over Array.forEach to support IE8 without polyfill
+
+        var _loop = function _loop(i) {
+          var set = orderedSets[i];
+          var stop = false;
+          cursor = cursor.then(function (setResult) {
+            // after the first set succeeds, don't fire off the remaining promises
+            if (operator === 'any' && setResult === true || stop) {
+              (0, _debug2.default)('prioritizeAndRun::detected truthy result; skipping remaining conditions');
+              stop = true;
+              return true;
+            }
+
+            // after the first set fails, don't fire off the remaining promises
+            if (operator === 'all' && setResult === false || stop) {
+              (0, _debug2.default)('prioritizeAndRun::detected falsey result; skipping remaining conditions');
+              stop = true;
+              return false;
+            }
+            // all conditions passed; proceed with running next set in parallel
+            return evaluateConditions(set, method);
+          });
+        };
+
+        for (var i = 0; i < orderedSets.length; i++) {
+          _loop(i);
+        }
+        return cursor;
+      };
+
+      /**
+       * Runs an 'any' boolean operator on an array of conditions
+       * @param  {Condition[]} conditions to be evaluated
+       * @return {Promise(boolean)} condition evaluation result
+       */
+      var any = function any(conditions) {
+        return prioritizeAndRun(conditions, 'any');
+      };
+
+      /**
+       * Runs an 'all' boolean operator on an array of conditions
+       * @param  {Condition[]} conditions to be evaluated
+       * @return {Promise(boolean)} condition evaluation result
+       */
+      var all = function all(conditions) {
+        return prioritizeAndRun(conditions, 'all');
+      };
+
+      /**
+       * Emits based on rule evaluation result, and decorates ruleResult with 'result' property
+       * @param {RuleResult} ruleResult
+       */
+      var processResult = function processResult(result) {
+        ruleResult.setResult(result);
+        var event = result ? 'success' : 'failure';
+        return _this3.emitAsync(event, ruleResult.event, almanac, ruleResult).then(function () {
+          return ruleResult;
+        });
+      };
+
+      if (ruleResult.conditions.any) {
+        return any(ruleResult.conditions.any).then(function (result) {
+          return processResult(result);
+        });
+      } else {
+        return all(ruleResult.conditions.all).then(function (result) {
+          return processResult(result);
+        });
+      }
+    }
+  }]);
+
+  return Rule;
+}(_eventemitter2.default);
+
+exports.default = Rule;
+
+/***/ }),
+
+/***/ 342:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "JSONPath": function() { return /* binding */ JSONPath; }
+/* harmony export */ });
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _construct(Parent, args, Class) {
+  if (_isNativeReflectConstruct()) {
+    _construct = Reflect.construct;
+  } else {
+    _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) _setPrototypeOf(instance, Class.prototype);
+      return instance;
+    };
+  }
+
+  return _construct.apply(null, arguments);
+}
+
+function _isNativeFunction(fn) {
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+}
+
+function _wrapNativeSuper(Class) {
+  var _cache = typeof Map === "function" ? new Map() : undefined;
+
+  _wrapNativeSuper = function _wrapNativeSuper(Class) {
+    if (Class === null || !_isNativeFunction(Class)) return Class;
+
+    if (typeof Class !== "function") {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    if (typeof _cache !== "undefined") {
+      if (_cache.has(Class)) return _cache.get(Class);
+
+      _cache.set(Class, Wrapper);
+    }
+
+    function Wrapper() {
+      return _construct(Class, arguments, _getPrototypeOf(this).constructor);
+    }
+
+    Wrapper.prototype = Object.create(Class.prototype, {
+      constructor: {
+        value: Wrapper,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    return _setPrototypeOf(Wrapper, Class);
+  };
+
+  return _wrapNativeSuper(Class);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _createForOfIteratorHelper(o) {
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {
+      var i = 0;
+
+      var F = function () {};
+
+      return {
+        s: F,
+        n: function () {
+          if (i >= o.length) return {
+            done: true
+          };
+          return {
+            done: false,
+            value: o[i++]
+          };
+        },
+        e: function (e) {
+          throw e;
+        },
+        f: F
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var it,
+      normalCompletion = true,
+      didErr = false,
+      err;
+  return {
+    s: function () {
+      it = o[Symbol.iterator]();
+    },
+    n: function () {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function (e) {
+      didErr = true;
+      err = e;
+    },
+    f: function () {
+      try {
+        if (!normalCompletion && it.return != null) it.return();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
+}
+
+/* eslint-disable prefer-named-capture-group */
+// Disabled `prefer-named-capture-group` due to https://github.com/babel/babel/issues/8951#issuecomment-508045524
+// Only Node.JS has a process variable that is of [[Class]] process
+var supportsNodeVM = function supportsNodeVM() {
+  try {
+    return Object.prototype.toString.call(__webpack_require__.g.process) === '[object process]';
+  } catch (e) {
+    return false;
+  }
+};
+
+var hasOwnProp = Object.prototype.hasOwnProperty;
+/**
+* @typedef {null|boolean|number|string|PlainObject|GenericArray} JSONObject
+*/
+
+/**
+* @callback ConditionCallback
+* @param {any} item
+* @returns {boolean}
+*/
+
+/**
+ * Copy items out of one array into another.
+ * @param {GenericArray} source Array with items to copy
+ * @param {GenericArray} target Array to which to copy
+ * @param {ConditionCallback} conditionCb Callback passed the current item;
+ *     will move item if evaluates to `true`
+ * @returns {void}
+ */
+
+var moveToAnotherArray = function moveToAnotherArray(source, target, conditionCb) {
+  var il = source.length;
+
+  for (var i = 0; i < il; i++) {
+    var item = source[i];
+
+    if (conditionCb(item)) {
+      target.push(source.splice(i--, 1)[0]);
+    }
+  }
+};
+
+JSONPath.nodeVMSupported = supportsNodeVM();
+var vm = JSONPath.nodeVMSupported ? __webpack_require__(989) : {
+  /**
+   * @param {string} expr Expression to evaluate
+   * @param {PlainObject} context Object whose items will be added
+   *   to evaluation
+   * @returns {any} Result of evaluated code
+   */
+  runInNewContext: function runInNewContext(expr, context) {
+    var keys = Object.keys(context);
+    var funcs = [];
+    moveToAnotherArray(keys, funcs, function (key) {
+      return typeof context[key] === 'function';
+    });
+    var values = keys.map(function (vr, i) {
+      return context[vr];
+    });
+    var funcString = funcs.reduce(function (s, func) {
+      var fString = context[func].toString();
+
+      if (!/function/.test(fString)) {
+        fString = 'function ' + fString;
+      }
+
+      return 'var ' + func + '=' + fString + ';' + s;
+    }, '');
+    expr = funcString + expr; // Mitigate http://perfectionkills.com/global-eval-what-are-the-options/#new_function
+
+    if (!expr.match(/(["'])use strict\1/) && !keys.includes('arguments')) {
+      expr = 'var arguments = undefined;' + expr;
+    } // Remove last semi so `return` will be inserted before
+    //  the previous one instead, allowing for the return
+    //  of a bare ending expression
+
+
+    expr = expr.replace(/;[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]*$/, ''); // Insert `return`
+
+    var lastStatementEnd = expr.lastIndexOf(';');
+    var code = lastStatementEnd > -1 ? expr.slice(0, lastStatementEnd + 1) + ' return ' + expr.slice(lastStatementEnd + 1) : ' return ' + expr; // eslint-disable-next-line no-new-func
+
+    return _construct(Function, _toConsumableArray(keys).concat([code])).apply(void 0, _toConsumableArray(values));
+  }
+};
+/**
+ * Copies array and then pushes item into it.
+ * @param {GenericArray} arr Array to copy and into which to push
+ * @param {any} item Array item to add (to end)
+ * @returns {GenericArray} Copy of the original array
+ */
+
+function push(arr, item) {
+  arr = arr.slice();
+  arr.push(item);
+  return arr;
+}
+/**
+ * Copies array and then unshifts item into it.
+ * @param {any} item Array item to add (to beginning)
+ * @param {GenericArray} arr Array to copy and into which to unshift
+ * @returns {GenericArray} Copy of the original array
+ */
+
+
+function unshift(item, arr) {
+  arr = arr.slice();
+  arr.unshift(item);
+  return arr;
+}
+/**
+ * Caught when JSONPath is used without `new` but rethrown if with `new`
+ * @extends Error
+ */
+
+
+var NewError = /*#__PURE__*/function (_Error) {
+  _inherits(NewError, _Error);
+
+  var _super = _createSuper(NewError);
+
+  /**
+   * @param {any} value The evaluated scalar value
+   */
+  function NewError(value) {
+    var _this;
+
+    _classCallCheck(this, NewError);
+
+    _this = _super.call(this, 'JSONPath should not be called with "new" (it prevents return ' + 'of (unwrapped) scalar values)');
+    _this.avoidNew = true;
+    _this.value = value;
+    _this.name = 'NewError';
+    return _this;
+  }
+
+  return NewError;
+}( /*#__PURE__*/_wrapNativeSuper(Error));
+/**
+* @typedef {PlainObject} ReturnObject
+* @property {string} path
+* @property {JSONObject} value
+* @property {PlainObject|GenericArray} parent
+* @property {string} parentProperty
+*/
+
+/**
+* @callback JSONPathCallback
+* @param {string|PlainObject} preferredOutput
+* @param {"value"|"property"} type
+* @param {ReturnObject} fullRetObj
+* @returns {void}
+*/
+
+/**
+* @callback OtherTypeCallback
+* @param {JSONObject} val
+* @param {string} path
+* @param {PlainObject|GenericArray} parent
+* @param {string} parentPropName
+* @returns {boolean}
+*/
+
+/**
+ * @typedef {PlainObject} JSONPathOptions
+ * @property {JSON} json
+ * @property {string|string[]} path
+ * @property {"value"|"path"|"pointer"|"parent"|"parentProperty"|"all"}
+ *   [resultType="value"]
+ * @property {boolean} [flatten=false]
+ * @property {boolean} [wrap=true]
+ * @property {PlainObject} [sandbox={}]
+ * @property {boolean} [preventEval=false]
+ * @property {PlainObject|GenericArray|null} [parent=null]
+ * @property {string|null} [parentProperty=null]
+ * @property {JSONPathCallback} [callback]
+ * @property {OtherTypeCallback} [otherTypeCallback] Defaults to
+ *   function which throws on encountering `@other`
+ * @property {boolean} [autostart=true]
+ */
+
+/**
+ * @param {string|JSONPathOptions} opts If a string, will be treated as `expr`
+ * @param {string} [expr] JSON path to evaluate
+ * @param {JSON} [obj] JSON object to evaluate against
+ * @param {JSONPathCallback} [callback] Passed 3 arguments: 1) desired payload
+ *     per `resultType`, 2) `"value"|"property"`, 3) Full returned object with
+ *     all payloads
+ * @param {OtherTypeCallback} [otherTypeCallback] If `@other()` is at the end
+ *   of one's query, this will be invoked with the value of the item, its
+ *   path, its parent, and its parent's property name, and it should return
+ *   a boolean indicating whether the supplied value belongs to the "other"
+ *   type or not (or it may handle transformations and return `false`).
+ * @returns {JSONPath}
+ * @class
+ */
+
+
+function JSONPath(opts, expr, obj, callback, otherTypeCallback) {
+  // eslint-disable-next-line no-restricted-syntax
+  if (!(this instanceof JSONPath)) {
+    try {
+      return new JSONPath(opts, expr, obj, callback, otherTypeCallback);
+    } catch (e) {
+      if (!e.avoidNew) {
+        throw e;
+      }
+
+      return e.value;
+    }
+  }
+
+  if (typeof opts === 'string') {
+    otherTypeCallback = callback;
+    callback = obj;
+    obj = expr;
+    expr = opts;
+    opts = null;
+  }
+
+  var optObj = opts && _typeof(opts) === 'object';
+  opts = opts || {};
+  this.json = opts.json || obj;
+  this.path = opts.path || expr;
+  this.resultType = opts.resultType || 'value';
+  this.flatten = opts.flatten || false;
+  this.wrap = hasOwnProp.call(opts, 'wrap') ? opts.wrap : true;
+  this.sandbox = opts.sandbox || {};
+  this.preventEval = opts.preventEval || false;
+  this.parent = opts.parent || null;
+  this.parentProperty = opts.parentProperty || null;
+  this.callback = opts.callback || callback || null;
+
+  this.otherTypeCallback = opts.otherTypeCallback || otherTypeCallback || function () {
+    throw new TypeError('You must supply an otherTypeCallback callback option ' + 'with the @other() operator.');
+  };
+
+  if (opts.autostart !== false) {
+    var args = {
+      path: optObj ? opts.path : expr
+    };
+
+    if (!optObj) {
+      args.json = obj;
+    } else if ('json' in opts) {
+      args.json = opts.json;
+    }
+
+    var ret = this.evaluate(args);
+
+    if (!ret || _typeof(ret) !== 'object') {
+      throw new NewError(ret);
+    }
+
+    return ret;
+  }
+} // PUBLIC METHODS
+
+
+JSONPath.prototype.evaluate = function (expr, json, callback, otherTypeCallback) {
+  var that = this;
+  var currParent = this.parent,
+      currParentProperty = this.parentProperty;
+  var flatten = this.flatten,
+      wrap = this.wrap;
+  this.currResultType = this.resultType;
+  this.currPreventEval = this.preventEval;
+  this.currSandbox = this.sandbox;
+  callback = callback || this.callback;
+  this.currOtherTypeCallback = otherTypeCallback || this.otherTypeCallback;
+  json = json || this.json;
+  expr = expr || this.path;
+
+  if (expr && _typeof(expr) === 'object' && !Array.isArray(expr)) {
+    if (!expr.path && expr.path !== '') {
+      throw new TypeError('You must supply a "path" property when providing an object ' + 'argument to JSONPath.evaluate().');
+    }
+
+    if (!hasOwnProp.call(expr, 'json')) {
+      throw new TypeError('You must supply a "json" property when providing an object ' + 'argument to JSONPath.evaluate().');
+    }
+
+    var _expr = expr;
+    json = _expr.json;
+    flatten = hasOwnProp.call(expr, 'flatten') ? expr.flatten : flatten;
+    this.currResultType = hasOwnProp.call(expr, 'resultType') ? expr.resultType : this.currResultType;
+    this.currSandbox = hasOwnProp.call(expr, 'sandbox') ? expr.sandbox : this.currSandbox;
+    wrap = hasOwnProp.call(expr, 'wrap') ? expr.wrap : wrap;
+    this.currPreventEval = hasOwnProp.call(expr, 'preventEval') ? expr.preventEval : this.currPreventEval;
+    callback = hasOwnProp.call(expr, 'callback') ? expr.callback : callback;
+    this.currOtherTypeCallback = hasOwnProp.call(expr, 'otherTypeCallback') ? expr.otherTypeCallback : this.currOtherTypeCallback;
+    currParent = hasOwnProp.call(expr, 'parent') ? expr.parent : currParent;
+    currParentProperty = hasOwnProp.call(expr, 'parentProperty') ? expr.parentProperty : currParentProperty;
+    expr = expr.path;
+  }
+
+  currParent = currParent || null;
+  currParentProperty = currParentProperty || null;
+
+  if (Array.isArray(expr)) {
+    expr = JSONPath.toPathString(expr);
+  }
+
+  if (!expr && expr !== '' || !json) {
+    return undefined;
+  }
+
+  this._obj = json;
+  var exprList = JSONPath.toPathArray(expr);
+
+  if (exprList[0] === '$' && exprList.length > 1) {
+    exprList.shift();
+  }
+
+  this._hasParentSelector = null;
+
+  var result = this._trace(exprList, json, ['$'], currParent, currParentProperty, callback).filter(function (ea) {
+    return ea && !ea.isParentSelector;
+  });
+
+  if (!result.length) {
+    return wrap ? [] : undefined;
+  }
+
+  if (!wrap && result.length === 1 && !result[0].hasArrExpr) {
+    return this._getPreferredOutput(result[0]);
+  }
+
+  return result.reduce(function (rslt, ea) {
+    var valOrPath = that._getPreferredOutput(ea);
+
+    if (flatten && Array.isArray(valOrPath)) {
+      rslt = rslt.concat(valOrPath);
+    } else {
+      rslt.push(valOrPath);
+    }
+
+    return rslt;
+  }, []);
+}; // PRIVATE METHODS
+
+
+JSONPath.prototype._getPreferredOutput = function (ea) {
+  var resultType = this.currResultType;
+
+  switch (resultType) {
+    default:
+      throw new TypeError('Unknown result type');
+
+    case 'all':
+      {
+        var path = Array.isArray(ea.path) ? ea.path : JSONPath.toPathArray(ea.path);
+        ea.pointer = JSONPath.toPointer(path);
+        ea.path = typeof ea.path === 'string' ? ea.path : JSONPath.toPathString(ea.path);
+        return ea;
+      }
+
+    case 'value':
+    case 'parent':
+    case 'parentProperty':
+      return ea[resultType];
+
+    case 'path':
+      return JSONPath.toPathString(ea[resultType]);
+
+    case 'pointer':
+      return JSONPath.toPointer(ea.path);
+  }
+};
+
+JSONPath.prototype._handleCallback = function (fullRetObj, callback, type) {
+  if (callback) {
+    var preferredOutput = this._getPreferredOutput(fullRetObj);
+
+    fullRetObj.path = typeof fullRetObj.path === 'string' ? fullRetObj.path : JSONPath.toPathString(fullRetObj.path); // eslint-disable-next-line callback-return
+
+    callback(preferredOutput, type, fullRetObj);
+  }
+};
+/**
+ *
+ * @param {string} expr
+ * @param {JSONObject} val
+ * @param {string} path
+ * @param {PlainObject|GenericArray} parent
+ * @param {string} parentPropName
+ * @param {JSONPathCallback} callback
+ * @param {boolean} hasArrExpr
+ * @param {boolean} literalPriority
+ * @returns {ReturnObject|ReturnObject[]}
+ */
+
+
+JSONPath.prototype._trace = function (expr, val, path, parent, parentPropName, callback, hasArrExpr, literalPriority) {
+  // No expr to follow? return path and value as the result of
+  //  this trace branch
+  var retObj;
+  var that = this;
+
+  if (!expr.length) {
+    retObj = {
+      path: path,
+      value: val,
+      parent: parent,
+      parentProperty: parentPropName,
+      hasArrExpr: hasArrExpr
+    };
+
+    this._handleCallback(retObj, callback, 'value');
+
+    return retObj;
+  }
+
+  var loc = expr[0],
+      x = expr.slice(1); // We need to gather the return value of recursive trace calls in order to
+  // do the parent sel computation.
+
+  var ret = [];
+  /**
+   *
+   * @param {ReturnObject|ReturnObject[]} elems
+   * @returns {void}
+   */
+
+  function addRet(elems) {
+    if (Array.isArray(elems)) {
+      // This was causing excessive stack size in Node (with or
+      //  without Babel) against our performance test:
+      //  `ret.push(...elems);`
+      elems.forEach(function (t) {
+        ret.push(t);
+      });
+    } else {
+      ret.push(elems);
+    }
+  }
+
+  if ((typeof loc !== 'string' || literalPriority) && val && hasOwnProp.call(val, loc)) {
+    // simple case--directly follow property
+    addRet(this._trace(x, val[loc], push(path, loc), val, loc, callback, hasArrExpr));
+  } else if (loc === '*') {
+    // all child properties
+    this._walk(loc, x, val, path, parent, parentPropName, callback, function (m, l, _x, v, p, par, pr, cb) {
+      addRet(that._trace(unshift(m, _x), v, p, par, pr, cb, true, true));
+    });
+  } else if (loc === '..') {
+    // all descendent parent properties
+    // Check remaining expression with val's immediate children
+    addRet(this._trace(x, val, path, parent, parentPropName, callback, hasArrExpr));
+
+    this._walk(loc, x, val, path, parent, parentPropName, callback, function (m, l, _x, v, p, par, pr, cb) {
+      // We don't join m and x here because we only want parents,
+      //   not scalar values
+      if (_typeof(v[m]) === 'object') {
+        // Keep going with recursive descent on val's
+        //   object children
+        addRet(that._trace(unshift(l, _x), v[m], push(p, m), v, m, cb, true));
+      }
+    }); // The parent sel computation is handled in the frame above using the
+    // ancestor object of val
+
+  } else if (loc === '^') {
+    // This is not a final endpoint, so we do not invoke the callback here
+    this._hasParentSelector = true;
+    return {
+      path: path.slice(0, -1),
+      expr: x,
+      isParentSelector: true
+    };
+  } else if (loc === '~') {
+    // property name
+    retObj = {
+      path: push(path, loc),
+      value: parentPropName,
+      parent: parent,
+      parentProperty: null
+    };
+
+    this._handleCallback(retObj, callback, 'property');
+
+    return retObj;
+  } else if (loc === '$') {
+    // root only
+    addRet(this._trace(x, val, path, null, null, callback, hasArrExpr));
+  } else if (/^(\x2D?[0-9]*):(\x2D?[0-9]*):?([0-9]*)$/.test(loc)) {
+    // [start:end:step]  Python slice syntax
+    addRet(this._slice(loc, x, val, path, parent, parentPropName, callback));
+  } else if (loc.indexOf('?(') === 0) {
+    // [?(expr)] (filtering)
+    if (this.currPreventEval) {
+      throw new Error('Eval [?(expr)] prevented in JSONPath expression.');
+    }
+
+    this._walk(loc, x, val, path, parent, parentPropName, callback, function (m, l, _x, v, p, par, pr, cb) {
+      if (that._eval(l.replace(/^\?\(((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)\)$/, '$1'), v[m], m, p, par, pr)) {
+        addRet(that._trace(unshift(m, _x), v, p, par, pr, cb, true));
+      }
+    });
+  } else if (loc[0] === '(') {
+    // [(expr)] (dynamic property/index)
+    if (this.currPreventEval) {
+      throw new Error('Eval [(expr)] prevented in JSONPath expression.');
+    } // As this will resolve to a property name (but we don't know it
+    //  yet), property and parent information is relative to the
+    //  parent of the property to which this expression will resolve
+
+
+    addRet(this._trace(unshift(this._eval(loc, val, path[path.length - 1], path.slice(0, -1), parent, parentPropName), x), val, path, parent, parentPropName, callback, hasArrExpr));
+  } else if (loc[0] === '@') {
+    // value type: @boolean(), etc.
+    var addType = false;
+    var valueType = loc.slice(1, -2);
+
+    switch (valueType) {
+      /* istanbul ignore next */
+      default:
+        throw new TypeError('Unknown value type ' + valueType);
+
+      case 'scalar':
+        if (!val || !['object', 'function'].includes(_typeof(val))) {
+          addType = true;
+        }
+
+        break;
+
+      case 'boolean':
+      case 'string':
+      case 'undefined':
+      case 'function':
+        // eslint-disable-next-line valid-typeof
+        if (_typeof(val) === valueType) {
+          addType = true;
+        }
+
+        break;
+
+      case 'integer':
+        if (Number.isFinite(val) && !(val % 1)) {
+          addType = true;
+        }
+
+        break;
+
+      case 'number':
+        if (Number.isFinite(val)) {
+          addType = true;
+        }
+
+        break;
+
+      case 'nonFinite':
+        if (typeof val === 'number' && !Number.isFinite(val)) {
+          addType = true;
+        }
+
+        break;
+
+      case 'object':
+        // eslint-disable-next-line valid-typeof
+        if (val && _typeof(val) === valueType) {
+          addType = true;
+        }
+
+        break;
+
+      case 'array':
+        if (Array.isArray(val)) {
+          addType = true;
+        }
+
+        break;
+
+      case 'other':
+        addType = this.currOtherTypeCallback(val, path, parent, parentPropName);
+        break;
+
+      case 'null':
+        if (val === null) {
+          addType = true;
+        }
+
+        break;
+    }
+
+    if (addType) {
+      retObj = {
+        path: path,
+        value: val,
+        parent: parent,
+        parentProperty: parentPropName
+      };
+
+      this._handleCallback(retObj, callback, 'value');
+
+      return retObj;
+    } // `-escaped property
+
+  } else if (loc[0] === '`' && val && hasOwnProp.call(val, loc.slice(1))) {
+    var locProp = loc.slice(1);
+    addRet(this._trace(x, val[locProp], push(path, locProp), val, locProp, callback, hasArrExpr, true));
+  } else if (loc.includes(',')) {
+    // [name1,name2,...]
+    var parts = loc.split(',');
+
+    var _iterator = _createForOfIteratorHelper(parts),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var part = _step.value;
+        addRet(this._trace(unshift(part, x), val, path, parent, parentPropName, callback, true));
+      } // simple case--directly follow property
+
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  } else if (!literalPriority && val && hasOwnProp.call(val, loc)) {
+    addRet(this._trace(x, val[loc], push(path, loc), val, loc, callback, hasArrExpr, true));
+  } // We check the resulting values for parent selections. For parent
+  // selections we discard the value object and continue the trace with the
+  // current val object
+
+
+  if (this._hasParentSelector) {
+    for (var t = 0; t < ret.length; t++) {
+      var rett = ret[t];
+
+      if (rett && rett.isParentSelector) {
+        var tmp = that._trace(rett.expr, val, rett.path, parent, parentPropName, callback, hasArrExpr);
+
+        if (Array.isArray(tmp)) {
+          ret[t] = tmp[0];
+          var tl = tmp.length;
+
+          for (var tt = 1; tt < tl; tt++) {
+            t++;
+            ret.splice(t, 0, tmp[tt]);
+          }
+        } else {
+          ret[t] = tmp;
+        }
+      }
+    }
+  }
+
+  return ret;
+};
+
+JSONPath.prototype._walk = function (loc, expr, val, path, parent, parentPropName, callback, f) {
+  if (Array.isArray(val)) {
+    var n = val.length;
+
+    for (var i = 0; i < n; i++) {
+      f(i, loc, expr, val, path, parent, parentPropName, callback);
+    }
+  } else if (val && _typeof(val) === 'object') {
+    Object.keys(val).forEach(function (m) {
+      f(m, loc, expr, val, path, parent, parentPropName, callback);
+    });
+  }
+};
+
+JSONPath.prototype._slice = function (loc, expr, val, path, parent, parentPropName, callback) {
+  if (!Array.isArray(val)) {
+    return undefined;
+  }
+
+  var len = val.length,
+      parts = loc.split(':'),
+      step = parts[2] && Number.parseInt(parts[2]) || 1;
+  var start = parts[0] && Number.parseInt(parts[0]) || 0,
+      end = parts[1] && Number.parseInt(parts[1]) || len;
+  start = start < 0 ? Math.max(0, start + len) : Math.min(len, start);
+  end = end < 0 ? Math.max(0, end + len) : Math.min(len, end);
+  var ret = [];
+
+  for (var i = start; i < end; i += step) {
+    var tmp = this._trace(unshift(i, expr), val, path, parent, parentPropName, callback, true); // Should only be possible to be an array here since first part of
+    //   ``unshift(i, expr)` passed in above would not be empty, nor `~`,
+    //     nor begin with `@` (as could return objects)
+    // This was causing excessive stack size in Node (with or
+    //  without Babel) against our performance test: `ret.push(...tmp);`
+
+
+    tmp.forEach(function (t) {
+      ret.push(t);
+    });
+  }
+
+  return ret;
+};
+
+JSONPath.prototype._eval = function (code, _v, _vname, path, parent, parentPropName) {
+  if (!this._obj || !_v) {
+    return false;
+  }
+
+  if (code.includes('@parentProperty')) {
+    this.currSandbox._$_parentProperty = parentPropName;
+    code = code.replace(/@parentProperty/g, '_$_parentProperty');
+  }
+
+  if (code.includes('@parent')) {
+    this.currSandbox._$_parent = parent;
+    code = code.replace(/@parent/g, '_$_parent');
+  }
+
+  if (code.includes('@property')) {
+    this.currSandbox._$_property = _vname;
+    code = code.replace(/@property/g, '_$_property');
+  }
+
+  if (code.includes('@path')) {
+    this.currSandbox._$_path = JSONPath.toPathString(path.concat([_vname]));
+    code = code.replace(/@path/g, '_$_path');
+  }
+
+  if (code.includes('@root')) {
+    this.currSandbox._$_root = this.json;
+    code = code.replace(/@root/g, '_$_root');
+  }
+
+  if (code.match(/@([\t-\r \)\.\[\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF])/)) {
+    this.currSandbox._$_v = _v;
+    code = code.replace(/@([\t-\r \)\.\[\xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF])/g, '_$_v$1');
+  }
+
+  try {
+    return vm.runInNewContext(code, this.currSandbox);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log(e);
+    throw new Error('jsonPath: ' + e.message + ': ' + code);
+  }
+}; // PUBLIC CLASS PROPERTIES AND METHODS
+// Could store the cache object itself
+
+
+JSONPath.cache = {};
+/**
+ * @param {string[]} pathArr Array to convert
+ * @returns {string} The path string
+ */
+
+JSONPath.toPathString = function (pathArr) {
+  var x = pathArr,
+      n = x.length;
+  var p = '$';
+
+  for (var i = 1; i < n; i++) {
+    if (!/^(~|\^|@(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?\(\))$/.test(x[i])) {
+      p += /^[\*0-9]+$/.test(x[i]) ? '[' + x[i] + ']' : "['" + x[i] + "']";
+    }
+  }
+
+  return p;
+};
+/**
+ * @param {string} pointer JSON Path
+ * @returns {string} JSON Pointer
+ */
+
+
+JSONPath.toPointer = function (pointer) {
+  var x = pointer,
+      n = x.length;
+  var p = '';
+
+  for (var i = 1; i < n; i++) {
+    if (!/^(~|\^|@(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?\(\))$/.test(x[i])) {
+      p += '/' + x[i].toString().replace(/~/g, '~0').replace(/\//g, '~1');
+    }
+  }
+
+  return p;
+};
+/**
+ * @param {string} expr Expression to convert
+ * @returns {string[]}
+ */
+
+
+JSONPath.toPathArray = function (expr) {
+  var cache = JSONPath.cache;
+
+  if (cache[expr]) {
+    return cache[expr].concat();
+  }
+
+  var subx = [];
+  var normalized = expr // Properties
+  .replace(/@(?:null|boolean|number|string|integer|undefined|nonFinite|scalar|array|object|function|other)\(\)/g, ';$&;') // Parenthetical evaluations (filtering and otherwise), directly
+  //   within brackets or single quotes
+  .replace(/['\[](\??\((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?\))['\]]/g, function ($0, $1) {
+    return '[#' + (subx.push($1) - 1) + ']';
+  }) // Escape periods and tildes within properties
+  .replace(/\['((?:[\0-&\(-\\\^-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)'\]/g, function ($0, prop) {
+    return "['" + prop.replace(/\./g, '%@%').replace(/~/g, '%%@@%%') + "']";
+  }) // Properties operator
+  .replace(/~/g, ';~;') // Split by property boundaries
+  .replace(/'?\.'?(?!(?:[\0-Z\\-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*\])|\['?/g, ';') // Reinsert periods within properties
+  .replace(/%@%/g, '.') // Reinsert tildes within properties
+  .replace(/%%@@%%/g, '~') // Parent
+  .replace(/(?:;)?(\^+)(?:;)?/g, function ($0, ups) {
+    return ';' + ups.split('').join(';') + ';';
+  }) // Descendents
+  .replace(/;;;|;;/g, ';..;') // Remove trailing
+  .replace(/;$|'?\]|'$/g, '');
+  var exprList = normalized.split(';').map(function (exp) {
+    var match = exp.match(/#([0-9]+)/);
+    return !match || !match[1] ? exp : subx[match[1]];
+  });
+  cache[expr] = exprList;
+  return cache[expr];
+};
+
+
+
+
+/***/ }),
+
+/***/ 588:
+/***/ (function(module) {
+
+/**
+ * lodash 4.0.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
+ */
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+module.exports = isObjectLike;
+
+
+/***/ }),
+
+/***/ 989:
+/***/ (function() {
+
+/* (ignored) */
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	!function() {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__(242);
+/******/ 	
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
