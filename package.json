@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "",
   "browser": "./dist/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "test": "jest --coverage",
