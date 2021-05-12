@@ -20,6 +20,38 @@
 		{
 			"name": "Bear's name or unknown",
 			"type": "string"
+		},
+		{
+			"name": "armedForces.status",
+			"type": "string"
+		},
+		{
+			"name": "armedForces.branch",
+			"type": "string"
+		},
+		{
+			"name": "armedForces.commissionOfficer",
+			"type": "number"
+		},
+		{
+			"name": "armedForces.privateCemetery",
+			"type": "number"
+		},
+		{
+			"name": "armedForces.privateHeadstone",
+			"type": "number"
+		},
+		{
+			"name": "person.isAlive",
+			"type": "number"
+		},
+		{
+			"name": "armedForces.medalOfHonor",
+			"type": "number"
+		},
+		{
+			"name": "benefit.va.bronzeMedalion",
+			"type": "number"
 		}
 	],
 	"decisions": [
@@ -100,6 +132,120 @@
 			"event": {
 				"type": "Is a sleepy bear",
 				"params": {}
+			}
+		},
+		{
+			"conditions": {
+				"all": [
+					{
+						"any": [
+							{
+								"fact": "armedForces.status",
+								"operator": "equal",
+								"value": "honorable discharge"
+							},
+							{
+								"fact": "armedForces.status",
+								"operator": "equal",
+								"value": "active duty"
+							}
+						]
+					},
+					{
+						"fact": "person.isAlive",
+						"operator": "equal",
+						"value": 0
+					},
+					{
+						"fact": "armedForces.privateCemetery",
+						"operator": "equal",
+						"value": 1
+					},
+					{
+						"fact": "armedForces.privateHeadstone",
+						"operator": "equal",
+						"value": 1
+					}
+				]
+			},
+			"event": {
+				"type": "benefit.va.bronzeMedalion",
+				"params": {
+					"benefit.va.bronzeMedalion": "1"
+				}
+			}
+		},
+		{
+			"conditions": {
+				"all": [
+					{
+						"fact": "person.isAlive",
+						"operator": "equal",
+						"value": 0
+					},
+					{
+						"fact": "armedForces.branch",
+						"operator": "equal",
+						"value": "national guard"
+					}
+				]
+			},
+			"event": {
+				"type": "benefit.va.bronzeMedalion",
+				"params": {
+					"benefit.va.bronzeMedalion": "1"
+				}
+			},
+                        "priority": 10
+		},
+		{
+			"conditions": {
+				"all": [
+					{
+						"fact": "armedForces.privateHeadstone",
+						"operator": "equal",
+						"value": 0
+					},
+					{
+						"fact": "armedForces.branch",
+						"operator": "equal",
+						"value": "reservist"
+					},
+					{
+						"fact": "person.isAlive",
+						"operator": "equal",
+						"value": 0
+					}
+				]
+			},
+			"event": {
+				"type": "benefit.va.bronzeMedalion",
+				"params": {
+					"benefit.va.bronzeMedalion": "1"
+				}
+			},
+                        "priority": 10
+		},
+		{
+			"conditions": {
+				"all": [
+					{
+						"fact": "benefit.va.bronzeMedalion",
+						"operator": "equal",
+						"value": 1
+					},
+					{
+						"fact": "armedForces.medalOfHonor",
+						"operator": "equal",
+						"value": 1
+					}
+				]
+			},
+			"event": {
+				"type": "benefit.va.medalOfHonorMedalion",
+				"params": {
+					"benefit.va.medalOfHonorMedalion": "1"
+				}
 			}
 		}
 	]
