@@ -27,17 +27,72 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: ./node_modules/json-rules-engine/dist/index.js
 var dist = __webpack_require__(497);
 ;// CONCATENATED MODULE: ./src/bears.json
-var bears_namespaceObject = JSON.parse('{"ti":[{"conditions":{"all":[{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"in","value":"meat"}]},"event":{"type":"Is a carnivore","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Baloo"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Paddington"},{"fact":"Name of species or unknown","operator":"equal","value":"Panda"},{"all":[{"fact":"Aggression (Scale of 0-10)","operator":"lessThan","value":1},{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"notIn","value":"meat"}]}]},"event":{"type":"Is a gentle bear","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Hibernates (Boolean, 1 if true, 0 if false)","operator":"greaterThanInclusive","value":1}]},"event":{"type":"Is a sleepy bear","params":{}}}]}');
+var bears_namespaceObject = JSON.parse('{"ti":[{"conditions":{"all":[{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"in","value":"meat"}]},"event":{"type":"Is a carnivore","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Baloo"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Paddington"},{"fact":"Name of species or unknown","operator":"equal","value":"Panda"},{"all":[{"fact":"Aggression (Scale of 0-10)","operator":"lessThan","value":1},{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"notIn","value":"meat"}]}]},"event":{"type":"Is a gentle bear","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Hibernates (Boolean, 1 if true, 0 if false)","operator":"greaterThanInclusive","value":1}]},"event":{"type":"Is a sleepy bear","params":{}}},{"conditions":{"all":[{"any":[{"fact":"armedForces.status","operator":"equal","value":"honorable discharge"},{"fact":"armedForces.status","operator":"equal","value":"active duty"}]},{"fact":"person.isAlive","operator":"equal","value":0},{"fact":"armedForces.privateCemetery","operator":"equal","value":1},{"fact":"armedForces.privateHeadstone","operator":"equal","value":1}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}}},{"conditions":{"all":[{"fact":"person.isAlive","operator":"equal","value":0},{"fact":"armedForces.branch","operator":"equal","value":"national guard"}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}},"priority":10},{"conditions":{"all":[{"fact":"armedForces.privateHeadstone","operator":"equal","value":0},{"fact":"armedForces.branch","operator":"equal","value":"reservist"},{"fact":"person.isAlive","operator":"equal","value":0}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}},"priority":10},{"conditions":{"all":[{"fact":"benefit.va.bronzeMedalion","operator":"equal","value":1},{"fact":"armedForces.medalOfHonor","operator":"equal","value":1}]},"event":{"type":"benefit.va.medalOfHonorMedalion","params":{"benefit.va.medalOfHonorMedalion":"1"}}}]}');
 ;// CONCATENATED MODULE: ./src/index.js
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+var onSuccess = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event, almanac) {
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            almanac.addRuntimeFact('benefit.va.bronzeMedalion', 1);
+
+          case 1:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function onSuccess(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var onFailure = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event, almanac) {
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            almanac.addRuntimeFact('benefit.va.bronzeMedalion', 0);
+
+          case 1:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function onFailure(_x3, _x4) {
+    return _ref2.apply(this, arguments);
+  };
+}();
 
 function config() {
   return Promise.resolve();
 }
 ;
-function isElegible(_ref) {
-  var facts = _ref.facts;
-  var rulesEngine = new dist.Engine(bears_namespaceObject.ti);
+function isElegible(_ref3) {
+  var facts = _ref3.facts;
+  bears_namespaceObject.ti.filter(function (d) {
+    return d.event.type === 'benefit.va.bronzeMedalion';
+  }).forEach(function (d) {
+    d.onSuccess = onSuccess;
+    d.onFailure = onFailure;
+  });
+  var rulesEngine = new dist.Engine(bears_namespaceObject.ti, {
+    allowUndefinedFacts: true
+  });
   return rulesEngine.run(facts);
 }
 ;
