@@ -11,7 +11,7 @@
 return /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 242:
+/***/ 218:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21,76 +21,41 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "config": function() { return /* binding */ config; },
-  "isElegible": function() { return /* binding */ isElegible; }
+  "isEligible": function() { return /* binding */ isEligible; },
+  "rules": function() { return /* binding */ rules; }
 });
 
 // EXTERNAL MODULE: ./node_modules/json-rules-engine/dist/index.js
 var dist = __webpack_require__(497);
-;// CONCATENATED MODULE: ./src/bears.json
-var bears_namespaceObject = JSON.parse('{"ti":[{"conditions":{"all":[{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"in","value":"meat"}]},"event":{"type":"Is a carnivore","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Baloo"},{"fact":"Bear\'s name or unknown","operator":"equal","value":"Paddington"},{"fact":"Name of species or unknown","operator":"equal","value":"Panda"},{"all":[{"fact":"Aggression (Scale of 0-10)","operator":"lessThan","value":1},{"fact":"Diet (comma-separated list: berries, nuts, meat)","operator":"notIn","value":"meat"}]}]},"event":{"type":"Is a gentle bear","params":{}}},{"conditions":{"any":[{"fact":"Bear\'s name or unknown","operator":"equal","value":"Pooh"},{"fact":"Hibernates (Boolean, 1 if true, 0 if false)","operator":"greaterThanInclusive","value":1}]},"event":{"type":"Is a sleepy bear","params":{}}},{"conditions":{"all":[{"any":[{"fact":"armedForces.status","operator":"equal","value":"honorable discharge"},{"fact":"armedForces.status","operator":"equal","value":"active duty"}]},{"fact":"person.isAlive","operator":"equal","value":0},{"fact":"armedForces.privateCemetery","operator":"equal","value":1},{"fact":"armedForces.privateHeadstone","operator":"equal","value":1}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}}},{"conditions":{"all":[{"fact":"person.isAlive","operator":"equal","value":0},{"fact":"armedForces.branch","operator":"equal","value":"national guard"}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}},"priority":10},{"conditions":{"all":[{"fact":"armedForces.privateHeadstone","operator":"equal","value":0},{"fact":"armedForces.branch","operator":"equal","value":"reservist"},{"fact":"person.isAlive","operator":"equal","value":0}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}},"priority":10},{"conditions":{"all":[{"fact":"benefit.va.bronzeMedalion","operator":"equal","value":1},{"fact":"armedForces.medalOfHonor","operator":"equal","value":1}]},"event":{"type":"benefit.va.medalOfHonorMedalion","params":{"benefit.va.medalOfHonorMedalion":"1"}}}]}');
+;// CONCATENATED MODULE: ./src/benefits/va/va_bereavement_medal.json
+var va_bereavement_medal_namespaceObject = JSON.parse('{"name":"VA Bereavement Medal","attributes":[{"name":"armedForces.status","type":"string"},{"name":"armedForces.branch","type":"string"},{"name":"armedForces.commissionOfficer","type":"number"},{"name":"armedForces.privateCemetery","type":"number"},{"name":"armedForces.privateHeadstone","type":"number"},{"name":"person.isAlive","type":"number"},{"name":"armedForces.medalOfHonor","type":"number"},{"name":"benefit.va.bronzeMedalion","type":"number"}],"decisions":[{"conditions":{"all":[{"any":[{"fact":"armedForces.status","operator":"equal","value":"honorable discharge"},{"fact":"armedForces.status","operator":"equal","value":"active duty"}]},{"fact":"person.isAlive","operator":"equal","value":0},{"fact":"armedForces.privateCemetery","operator":"equal","value":1},{"fact":"armedForces.privateHeadstone","operator":"equal","value":1}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}}},{"conditions":{"all":[{"fact":"person.isAlive","operator":"equal","value":0},{"fact":"armedForces.branch","operator":"equal","value":"national guard"}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}}},{"conditions":{"all":[{"fact":"armedForces.privateHeadstone","operator":"equal","value":0},{"fact":"armedForces.branch","operator":"equal","value":"reservist"},{"fact":"person.isAlive","operator":"equal","value":0}]},"event":{"type":"benefit.va.bronzeMedalion","params":{"benefit.va.bronzeMedalion":"1"}}},{"conditions":{"all":[{"fact":"benefit.va.bronzeMedalion","operator":"equal","value":1},{"fact":"armedForces.medalOfHonor","operator":"equal","value":1}]},"event":{"type":"benefit.va.medalOfHonorMedalion","params":{"benefit.va.medalOfHonorMedalion":"1"}}}]}');
+;// CONCATENATED MODULE: ./src/benefits/fema/fema_bereavement_covid19.json
+var fema_bereavement_covid19_namespaceObject = JSON.parse('{"name":"FEMA COVID-19 Funeral Benefit","attributes":[{"name":"person.isAlive","type":"number"},{"name":"person.causeOfDeath","type":"string"},{"name":"person.location","type":"string"},{"name":"person.residencyStatus","type":"string"},{"name":"person.funeralDate","type":"number"},{"name":"person.age","type":"number"}],"decisions":[{"conditions":{"all":[{"fact":"person.isAlive","operator":"equal","value":0},{"fact":"person.causeOfDeath","operator":"equal","value":"COVID-19"},{"fact":"person.location","operator":"equal","value":"US"},{"fact":"person.funeralDate","operator":"greaterThanInclusive","value":1579478400000},{"fact":"person.age","operator":"greaterThanInclusive","value":18},{"any":[{"fact":"person.residencyStatus","operator":"equal","value":"US Citizen"},{"fact":"person.residencyStatus","operator":"equal","value":"Non-citizen national"},{"fact":"person.residencyStatus","operator":"equal","value":"Legal permanent resident"}]}]},"event":{"type":"benefit.fema.Covid19FuneralAssistance","params":{"benefit.fema.Covid19FuneralAssistance":"1"}}}]}');
 ;// CONCATENATED MODULE: ./src/index.js
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
-
-var onSuccess = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event, almanac) {
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            almanac.addRuntimeFact('benefit.va.bronzeMedalion', 1);
-
-          case 1:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function onSuccess(_x, _x2) {
-    return _ref.apply(this, arguments);
-  };
-}();
-
-var onFailure = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event, almanac) {
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            almanac.addRuntimeFact('benefit.va.bronzeMedalion', 0);
-
-          case 1:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-
-  return function onFailure(_x3, _x4) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-
+var rules = {
+  vaRules: va_bereavement_medal_namespaceObject,
+  femaRules: fema_bereavement_covid19_namespaceObject
+};
 function config() {
   return Promise.resolve();
 }
 ;
-function isElegible(_ref3) {
-  var facts = _ref3.facts;
-  bears_namespaceObject.ti.filter(function (d) {
-    return d.event.type === 'benefit.va.bronzeMedalion';
-  }).forEach(function (d) {
-    d.onSuccess = onSuccess;
-    d.onFailure = onFailure;
-  });
-  var rulesEngine = new dist.Engine(bears_namespaceObject.ti, {
+function isEligible(_ref) {
+  var facts = _ref.facts;
+  var results = {};
+
+  for (var ruleName in rules) {
+    var _rulesEngine = new dist.Engine(rules[ruleName].decisions, {
+      allowUndefinedFacts: true
+    });
+
+    results[ruleName] = _rulesEngine.run(Object.assign({}, facts));
+  }
+
+  var rulesEngine = new dist.Engine(va_bereavement_medal_namespaceObject.decisions, {
     allowUndefinedFacts: true
   });
   return rulesEngine.run(facts);
@@ -5530,7 +5495,7 @@ module.exports = isObjectLike;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(242);
+/******/ 	var __webpack_exports__ = __webpack_require__(218);
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()
