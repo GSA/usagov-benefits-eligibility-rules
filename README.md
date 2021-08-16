@@ -22,3 +22,7 @@ we can keep eligibility information up to date.
 ## Design considerations
 
  + Designed for reuse and consumption by https://github.com/GSA/usagov-benefits-eligibility
+
+## Repository status - Archived - Read only
+
+This project pivoted to use a simpler attribute selection based approach instead of a rules engine
